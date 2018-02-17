@@ -1,0 +1,81 @@
+/*SCSS FONTS*/
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand-Regular.eot');
+    src: url('../assets/fonts/Quicksand-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/Quicksand-Regular.woff2') format('woff2'),
+        url('../assets/fonts/Quicksand-Regular.woff') format('woff'),
+        url('../assets/fonts/Quicksand-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand-Bold.eot');
+    src: url('../assets/fonts/Quicksand-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/Quicksand-Bold.woff2') format('woff2'),
+        url('../assets/fonts/Quicksand-Bold.woff') format('woff'),
+        url('../assets/fonts/Quicksand-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand-Light.eot');
+    src: url('../assets/fonts/Quicksand-Light.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/Quicksand-Light.woff2') format('woff2'),
+        url('../assets/fonts/Quicksand-Light.woff') format('woff'),
+        url('../assets/fonts/Quicksand-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Baloo';
+    src: url('../assets/fonts/BalooThambi-Regular.eot');
+    src: url('../assets/fonts/BalooThambi-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/BalooThambi-Regular.woff2') format('woff2'),
+        url('../assets/fonts/BalooThambi-Regular.woff') format('woff'),
+        url('../assets/fonts/BalooThambi-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand-Medium.eot');
+    src: url('../assets/fonts/Quicksand-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/Quicksand-Medium.woff2') format('woff2'),
+        url('../assets/fonts/Quicksand-Medium.woff') format('woff'),
+        url('../assets/fonts/Quicksand-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+h1 {
+  font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+h2 {
+  font-family: 'Baloo', 'Helvetica', 'Arial', sans-serif;
+  color: orange;
+  font-size: 45px;
+  padding: 20px;
+  text-align: center;
+}
+
+h4{
+  font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
+  color: grey;
+}
+h5, li {
+  font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
+  color: black;
+}
+p {
+  font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
+  color:grey;
+}

@@ -1,0 +1,68 @@
+/*SCSS document*/
+
+@import "reset";
+@import "fonts";
+
+.hidden {
+  display: none;
+}
+
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+#container {
+  width: 1200px;
+  margin: 0 auto;
+  #nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 40px;
+  }
+}
+#job-post {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 5px;
+  .responsive {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #eee;
+    img {
+      width: 200px;
+      padding: 30px;
+    }
+    button {
+      width: 80px;
+      padding: 5px;
+      border: 2px solid orange;
+      border-radius: 15px;
+      background-color: #fff;
+      margin: 20px;
+      cursor: pointer;
+      a {
+        font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
+        color: orange;
+      }
+    }
+  }
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  display: block;
+}
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
