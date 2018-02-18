@@ -15,13 +15,13 @@ module.exports = function(grunt) {
     // covert ES6 to ES5
     babel : {
       options: {
-          sourceMap: true,
-          presets: ['env']
+        sourceMap: true,
+        presets: ['env']
       },
       dist: {
-          files: {
-              'js/build/production.es5.js': 'js/build/production.js'
-          }
+        files: {
+          'js/build/production.es5.js': 'js/build/production.js'
+        }
       }
     },
 
@@ -35,9 +35,9 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed',
+          style: 'nested',
           sourcemap: 'none',
-          debugInfo : true,
+          debugInfo : false,
           noCache: true
         },
         files : {
@@ -56,7 +56,10 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'css/main.css'
+        files: {
+          'css/main.min.css': 'css/main.css'
+        }
+        // src: 'public/css/main.css'
       }
     },
 
@@ -70,7 +73,7 @@ module.exports = function(grunt) {
       },
       sass: {
         files: ['scss/*.scss'],
-        tasks: ['scss','postcss'],
+        tasks: ['sass','postcss'],
         options: {
             spawn: false,
         }
