@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="css/main.min.css">
-  <title>Choose London | Main Page</title>
+  <title>Choose London | Work</title>
 </head>
 <body>
-  <div id="container" class="home">
+  <div id="container" class="work">
     <div id="main-banner">
       <img src="images/downtown_bus.jpg" alt="Downtown London">
       <?php include('includes/partials/header.html'); ?>
