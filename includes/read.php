@@ -18,7 +18,7 @@
   function getCategories($sectionId) {
     include('connect.php');
 
-    $queryCategory = "SELECT cat.* FROM section sec, category cat, section_category seccat WHERE sec.id = {$sectionId} AND sec.id = seccat.section_id AND seccat.category_id = cat.id";
+    $queryCategory = "SELECT cat.* FROM section sec, category cat, section_category seccat WHERE sec.id = {$sectionId} AND sec.id = seccat.section_id AND seccat.category_id = cat.id ORDER BY position";
     $result = mysqli_query($link, $queryCategory);
     if($result){
 			return $result;
@@ -33,7 +33,7 @@
   function getItems($categoryId) {
     include('connect.php');
 
-    $itemQuery = "SELECT it.* FROM category cat, item it, category_item catit WHERE cat.id = {$categoryId} AND cat.id = catit.category_id AND catit.item_id = it.id";
+    $itemQuery = "SELECT it.* FROM category cat, item it, category_item catit WHERE cat.id = {$categoryId} AND cat.id = catit.category_id AND catit.item_id = it.id ORDER BY position";
     $result = mysqli_query($link, $itemQuery);
     if($result){
 			return $result;
