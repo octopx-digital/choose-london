@@ -1,4 +1,5 @@
-
+import './chart_data';
+import fetchAPI from './api';
 
   function getJobs() {
     var posts = document.querySelector('#job-post');

@@ -22,7 +22,8 @@ var svg = d3.select("#chart").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-d3.csv("unemployment_ca.csv", function(error, data) {
+d3.csv("./unemployment_ca.csv", function(error, data) {
+  console.log('hey');
   if (error) throw error;
   console.log(data);
   data.forEach(function(d) {

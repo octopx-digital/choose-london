@@ -1,3 +1,4 @@
+
 var fetchAPI = {
   jobs : [
     {
@@ -17,3 +18,5 @@ var fetchAPI = {
     }
   ]
 }
+
+module.exports = fetchAPI;
