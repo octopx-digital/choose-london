@@ -1,10 +1,4 @@
 <?php
-  function redirect_to($location) {
-    if($location != NULL) {
-      header("Location: {$location}");
-      exit;
-    }
-  }
 
   function submitMessage($name, $email, $message, $direct) {
     include('env.php');
