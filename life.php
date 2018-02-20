@@ -5,15 +5,6 @@
   if(!is_string($sectionData)) {
     $section = mysqli_fetch_array($sectionData);
     $categoriesData = getCategories($section['id']);
-    // if(!is_string($categoriesData)){
-    //   $categories = array();
-    //   while ($category = mysqli_fetch_assoc($categoriesData)) {
-    //     $categories[] = $category;
-    //   }
-    // }
-    // else {
-    //   redirect_to('error.php');
-    // }
   }
   else {
     redirect_to('error.php');
@@ -67,7 +58,7 @@
       </section>
 
       <?php
-        if(!is_string($categoriesData)){
+        if(!is_string($categoriesData)) {
           while ($category = mysqli_fetch_assoc($categoriesData)) {
       ?>
         <section class="category">
@@ -108,8 +99,7 @@
           }
         }
         else {
-          // redirect_to('error.php');
-          echo "error";
+          redirect_to('error.php');
         }
       ?>
 
