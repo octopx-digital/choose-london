@@ -37,8 +37,8 @@
       <div class="section-title">
         <?php
           if($section) {
-            echo "<img src=\"images/{$section['icon']}_small.png\" alt=\"Some photo\">
-              <h1>{$section['title']}</h1>";
+            echo "<img class=\"section-icon\" src=\"images/{$section['icon']}_small.png\" alt=\"Some photo\">
+              <h1 class=\"section-title\">{$section['title']}</h1>";
           }
           else {
             echo "<p>{$sectionData}</p>";
@@ -46,10 +46,10 @@
          ?>
       </div>
 
-      <section class="main-content">
+      <section class="section-desc">
         <?php
           if($section) {
-            echo "<p>{$section['description']}</p>";
+            echo "<p class=\"section-desc\">{$section['description']}</p>";
           }
           else {
             echo "<p>{$sectionData}</p>";
@@ -61,11 +61,11 @@
         if(!is_string($categoriesData)) {
           while ($category = mysqli_fetch_assoc($categoriesData)) {
       ?>
-        <section class="category">
-          <?php echo "<button type=\"button\" name=\"{$category['title']}\">{$category['title']}</button>" ?>
-          <h2><?php echo $category['title'] ?></h2>
-          <p><?php echo $category['short_desc'] ?></p>
-          <p><?php echo $category['description'] ?></p>
+        <?php echo "<button class=\"category-button\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
+        <section id="<?php echo $category['name']; ?>" class="category">
+          <h2 class="category-title"><?php echo $category['title']; ?></h2>
+          <p class="category-short"><?php echo $category['short_desc']; ?></p>
+          <p class="category-desc"><?php echo $category['description']; ?></p>
           <?php
             $itemData = getItems($category['id']);
             if(!is_string($itemData)){
@@ -74,11 +74,25 @@
           ?>
                 <section class="item">
                   <h3><?php echo $item['title']; ?></h3>
-                  <p><?php echo $item['description']; ?></p>
-                  <p>WHERE: <?php echo $item['address']; ?></p>
-                  <p>CONTACT: <?php echo $item['phone']; ?></p>
-                  <p>HOURS: <time><?php echo $item['hours']; ?></time></p>
+                  <?php
+                    if($item['description']) {
+                      echo "<p class=\"item-desc\">{$item['description']}</p>";
+                    }
+                    if($item['address']) {
+                      echo "<p class=\"item-address\">WHERE: {$item['address']}</p>";
+                    }
+                    if($item['phone']) {
+                      echo "<p class=\"item-phone\">CONTACT: {$item['phone']}</p>";
+                    }
+                    if($item['hours']) {
+                      echo "<p class=\"item-hours\">HOURS: {$item['hours']}</p>";
+                    }
+                    if($item['website']) {
+                      echo "<a class=\"item-website\" href=\"{$item['website']}\">Go to website</a>";
+                    }
+                  ?>
                 </section>
+
           <?php
                 }
                 else {
@@ -102,11 +116,6 @@
           redirect_to('error.php');
         }
       ?>
-
-
-      <section id="parks">
-
-      </section>
     </main>
 
 
