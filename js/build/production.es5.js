@@ -1,14 +1,53 @@
 'use strict';
 
+// Functions to set and resize images
+
+var MIN = 320;
+var MEDIUM = 640;
+var LARGE = 1024;
+var screensize;
+var curSize = 'small';
+
+function checkScreenSize() {
+  if (this < MEDIUM || window.innerWidth < MEDIUM) {
+    screensize = 'small';
+  } else if (this < LARGE || window.innerWidth < LARGE) {
+    screensize = 'medium';
+  } else {
+    screensize = 'large';
+  }
+}
+
+//set images size (small, medium or large) on load
+function setImageSize() {
+  for (var i = 0; i < this.length; i++) {
+    this[i].src = this[i].src.replace('small', screensize);
+  }
+  curSize = screensize;
+}
+
+// change images and videos size (small, medium or large) on screen resize
+function changeImageSize() {
+  if (curSize !== screensize) {
+    var img = document.querySelectorAll('.media-change');
+    for (var i = 0; i < img.length; i++) {
+      img[i].src = img[i].src.replace(curSize, screensize);
+    }
+    curSize = screensize;
+  }
+}
+
+checkScreenSize.call(window.innerWidth);
+setImageSize.call(document.querySelectorAll('.media-change'));
+
+window.addEventListener('resize', checkScreenSize, false);
+window.addEventListener('resize', changeImageSize, false);
+
 (function () {
 
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
   var menuOpen = false;
-
-  // var menuTl = new TimelineLite({
-  //   paused: true
-  // });
 
   function checkScrollMenu() {
     // if menu is open, close it when scroll

@@ -3,6 +3,7 @@
 @import "reset";
 @import "fonts";
 @import "globals";
+@import "mixins";
 
 .hidden {
   display: none;
@@ -34,14 +35,14 @@ body {
 #main-banner {
   position: relative;
   width: 100%;
-  
+
   img {
     width: 100%;
   }
 
   header {
     width: 100%;
-    height: 50px;
+    height: 4.625rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -52,16 +53,31 @@ body {
 
     div {
       width: 100%;
+      position: relative;
+
       #main-logo {
         float: left;
-        width: 20%;
-        max-width: 5rem;
-        margin: 0.2rem 0.5rem;
+        width: 3.75rem;
+        // max-width: 3.75rem;
+        margin: 0.4rem 0.5rem;
       }
+
+      #logo-text {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        @include translate(-50%, 0);
+        width: 11rem;
+        margin-top: 1.6rem;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
 
       #hamburger-menu {
         float: right;
         font-size: 2.8rem;
+        margin-top: 0.8rem;
         margin-right: 0.8rem;
         cursor: pointer;
       }
@@ -91,9 +107,15 @@ body {
     }
   }
   header.openmenu {
-    height: 300px;
+    height: 20rem;
     max-height: auto;
     transition: height 0.3s ease-in-out;
+    div {
+      #logo-text {
+        opacity: 1;
+        transition: opacity 0.5s 0.5s ease-in-out;
+      }
+    }
     #main-nav {
       ul {
         left: 0;
@@ -300,6 +322,10 @@ footer {
           margin: 0.4rem 0.7rem;
         }
 
+        #logo-text {
+          display: none;
+        }
+
         #hamburger-menu {
           font-size: 2.8rem;
           margin-top: 1.6rem;
@@ -365,6 +391,7 @@ footer {
       }
 
       #main-nav {
+        margin-bottom: 0;
         ul{
           display: flex;
           left: 0;
