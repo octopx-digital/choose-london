@@ -87,17 +87,16 @@ body {
   font-size: 1rem;
   color: #383838; }
 
-.title, .section-header .section-title, .category-header .category-title, .item .item-title {
+.title, .section-header .section-title, .category-header .category-info .category-title, .item .item-title, .item address .item-website, .item.nocontent:before {
   font-family: "Baloo", Times, Georgia, serif;
   color: #454545;
   text-transform: uppercase; }
 
-.text, .category-desc, .item .item-desc,
-.item .item-address,
-.item .item-phone,
-.item .item-hours {
-  font-size: 0.9rem;
-  line-height: 1.4rem; }
+.text, .category-desc, .item .item-desc, .item address .item-address,
+.item address .item-phone,
+.item address .item-hours {
+  font-size: 0.85rem;
+  line-height: 1.3rem; }
 
 #container {
   width: 100%;
@@ -293,7 +292,7 @@ footer {
     font-size: 1.1rem;
     line-height: 1.7rem; }
 
-.category-button {
+.open-category-btn {
   color: #ffffff;
   font-family: "Quicksand", Helvetica, Arial, sans-serif;
   font-size: 1.3rem;
@@ -304,14 +303,14 @@ footer {
   padding: 1rem 6rem;
   margin: 2rem 0; }
 
-.category-button.selected {
+.open-category-btn.selected {
   border-width: 3px;
   border-style: solid; }
 
-#container.life .category-button {
+#container.life .open-category-btn {
   background-color: #008300; }
 
-#container.life .category-button.selected {
+#container.life .open-category-btn.selected {
   background-color: #ffffff;
   color: #008300;
   border-color: #008300; }
@@ -322,23 +321,25 @@ footer {
   .category-header .photo-wrapper {
     background-color: #ffffff;
     width: 100%;
-    -webkit-clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
-    clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0); }
+    -webkit-clip-path: polygon(0 0, 0 65%, 50% 90%, 100% 65%, 100% 0);
+    clip-path: polygon(0 0, 0 65%, 50% 90%, 100% 65%, 100% 0); }
     .category-header .photo-wrapper img {
       width: 100%;
-      -webkit-clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
-      clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0); }
-  .category-header .category-title {
-    font-size: 2.6rem;
-    color: #ffffff;
+      -webkit-clip-path: polygon(0 0, 0 50%, 50% 75%, 100% 50%, 100% 0);
+      clip-path: polygon(0 0, 0 50%, 50% 75%, 100% 50%, 100% 0); }
+  .category-header .category-info {
+    width: 100%;
     margin-top: 1rem; }
-  .category-header .category-short {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #ffffff;
-    padding: 1.5rem 0;
-    margin: 0 1.5rem;
-    line-height: 1.8rem; }
+    .category-header .category-info .category-title {
+      font-size: 2.6rem;
+      color: #ffffff; }
+    .category-header .category-info .category-short {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #ffffff;
+      padding: 1.5rem 0;
+      margin: 0 1.5rem;
+      line-height: 1.8rem; }
 
 #container.life .category-header {
   background-color: #008300; }
@@ -349,17 +350,30 @@ footer {
 .item .item-title {
   font-size: 1.3rem;
   margin-bottom: 1rem; }
-.item .item-desc,
-.item .item-address,
-.item .item-phone,
-.item .item-hours {
+.item .item-photo {
+  width: 90%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 4px;
+  box-shadow: 0 1rem 1rem -1rem #000000;
+  margin: 1.5rem 0; }
+.item .item-desc {
   margin: 0 2rem;
   margin-bottom: 0.5rem; }
-.item .item-address,
-.item .item-phone,
-.item .item-hours {
+.item address .item-address,
+.item address .item-phone,
+.item address .item-hours {
+  font-size: 0.8rem;
   font-weight: bold;
-  margin-bottom: 0 1rem; }
+  margin: 0 1rem 0.5rem 1rem; }
+.item address .item-website {
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  padding-bottom: 1px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid; }
 .item .faded-line {
   display: block;
   margin: 2rem auto;
@@ -367,9 +381,48 @@ footer {
   width: 60%;
   height: 1px; }
 
+#container.life .item .item-photo {
+  border-color: #008300; }
+#container.life .item address .item-website {
+  color: #008300;
+  border-bottom-color: #008300; }
 #container.life .item .faded-line {
   background: #008300;
   background: linear-gradient(to right, #ffffff, #008300, #ffffff); }
+
+.item.nocontent {
+  display: block; }
+  .item.nocontent:before {
+    content: "Other Parks in London";
+    font-size: 1.3rem; }
+  .item.nocontent .item-photo {
+    width: 60%; }
+  .item.nocontent .item-title {
+    margin-top: 1rem;
+    font-size: 1.1rem; }
+
+.item.nocontent ~ .item.nocontent {
+  display: none; }
+  .item.nocontent ~ .item.nocontent:before {
+    content: ""; }
+
+.close-category-btn {
+  background-color: #ffffff;
+  color: #737373;
+  font-family: "Quicksand", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #737373;
+  border-radius: 4px;
+  padding: 5px 6px;
+  margin: 1rem 0; }
+  .close-category-btn i {
+    font-size: 0.9rem;
+    border: 1px solid #737373;
+    border-radius: 50%;
+    padding: 0 4px;
+    margin-right: 0.25rem; }
 
 @media screen and (min-width: 40rem) {
   #main-banner header {
@@ -405,7 +458,103 @@ footer {
       max-width: 320px; }
     footer #copyright {
       margin: 1.5rem auto 0.5rem auto;
-      font-size: 0.9rem; } }
+      font-size: 0.9rem; }
+
+  .category-header {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center; }
+    .category-header .photo-wrapper {
+      -webkit-clip-path: polygon(0 0, 0 100%, 75% 100%, 100% 50%, 75% 0);
+      clip-path: polygon(0 0, 0 100%, 75% 100%, 100% 50%, 75% 0); }
+      .category-header .photo-wrapper img {
+        -webkit-clip-path: polygon(0 0, 0 100%, 65% 100%, 100% 50%, 65% 0);
+        clip-path: polygon(0 0, 0 100%, 65% 100%, 90% 50%, 65% 0); }
+    .category-header .category-info .category-short {
+      padding: 2rem 0; }
+
+  .category-desc {
+    margin: 2rem 3.5rem; }
+
+  .item .item-title {
+    width: 45%;
+    float: right;
+    font-size: 1.3rem;
+    margin: 0 2rem 1rem 0; }
+  .item .item-photo {
+    width: 40%;
+    float: left;
+    margin: 0 0 1rem 2rem; }
+  .item .item-desc {
+    clear: both;
+    width: 45%;
+    float: right;
+    text-align: left;
+    margin: 0 2rem 0 0; }
+  .item address {
+    width: 45%;
+    float: right;
+    position: relative;
+    text-align: left;
+    margin: 0.5rem 2rem 2rem 0; }
+    .item address .item-address,
+    .item address .item-phone,
+    .item address .item-hours {
+      margin: 0 0 0.2rem 0; }
+    .item address .item-website {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem; }
+  .item .faded-line {
+    clear: both;
+    width: 100%; }
+
+  .item:nth-child(even) .item-title {
+    float: left;
+    font-size: 1.3rem;
+    margin: 0 0 1rem 2rem; }
+  .item:nth-child(even) .item-photo {
+    float: right;
+    margin: 0 2rem 1rem 0; }
+  .item:nth-child(even) .item-desc {
+    float: left;
+    margin: 0 0 0 2rem; }
+  .item:nth-child(even) address {
+    float: left;
+    margin: 0.5rem 0 2rem 2rem; }
+
+  .item.nocontent,
+  .item.nocontent ~ .item.nocontent {
+    float: none;
+    width: 30%;
+    display: inline-block;
+    margin: 0;
+    text-align: center; }
+    .item.nocontent:before,
+    .item.nocontent ~ .item.nocontent:before {
+      position: absolute;
+      top: auto;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0); }
+    .item.nocontent .item-photo,
+    .item.nocontent ~ .item.nocontent .item-photo {
+      width: 70%;
+      margin-top: 3rem; }
+    .item.nocontent .item-title,
+    .item.nocontent ~ .item.nocontent .item-title {
+      display: inline-block;
+      width: 100%;
+      float: none;
+      margin: 1rem 0 0 0;
+      font-size: 1.1rem; }
+
+  .close-category-btn {
+    display: block;
+    margin: 2rem auto 0 auto; } }
 @media screen and (min-width: 64rem) {
   #main-banner header {
     flex-direction: row;
@@ -418,10 +567,10 @@ footer {
     #main-banner header div #hamburger-menu {
       display: none; }
     #main-banner header #main-nav {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      left: 0; }
       #main-banner header #main-nav ul {
-        display: flex;
-        left: 0; }
+        display: flex; }
         #main-banner header #main-nav ul li a {
           font-size: 1.2rem; }
 

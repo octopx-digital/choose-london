@@ -32,8 +32,8 @@ body {
 }
 
 .text {
-  font-size: 0.9rem;
-  line-height: 1.4rem;
+  font-size: 0.85rem;
+  line-height: 1.3rem;
 }
 
 #container {
@@ -346,7 +346,7 @@ footer {
   }
 }
 
-.category-button {
+.open-category-btn {
   color: #ffffff;
   font-family: $fontText;
   font-size: 1.3rem;
@@ -358,16 +358,16 @@ footer {
   margin: 2rem 0;
 }
 
-.category-button.selected {
+.open-category-btn.selected {
   border-width: 3px;
   border-style: solid;
 }
 
-#container.life .category-button {
+#container.life .open-category-btn {
   background-color: $colorLifeButtons;
 }
 
-#container.life .category-button.selected {
+#container.life .open-category-btn.selected {
   background-color: #ffffff;
   color: $colorLifeButtons;
   border-color: $colorLifeButtons;
@@ -380,29 +380,36 @@ footer {
   .photo-wrapper {
     background-color: #ffffff;
     width: 100%;
-    -webkit-clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
-    clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
+    -webkit-clip-path: polygon(0 0, 0 65%, 50% 90%, 100% 65%, 100% 0);
+    clip-path: polygon(0 0, 0 65%, 50% 90%, 100% 65%, 100% 0);
+    // -webkit-clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
+    // clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
     img {
       width: 100%;
-      -webkit-clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
-      clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
+      -webkit-clip-path: polygon(0 0, 0 50%, 50% 75%, 100% 50%, 100% 0);
+      clip-path: polygon(0 0, 0 50%, 50% 75%, 100% 50%, 100% 0);
+      // -webkit-clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
+      // clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
     }
   }
 
-  .category-title {
-    @extend .title;
-    font-size: 2.6rem;
-    color: #ffffff;
+  .category-info {
+    width: 100%;
     margin-top: 1rem;
-  }
+    .category-title {
+      @extend .title;
+      font-size: 2.6rem;
+      color: #ffffff;
+    }
 
-  .category-short {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #ffffff;
-    padding: 1.5rem 0;
-    margin: 0 1.5rem;
-    line-height: 1.8rem;
+    .category-short {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #ffffff;
+      padding: 1.5rem 0;
+      margin: 0 1.5rem;
+      line-height: 1.8rem;
+    }
   }
 }
 
@@ -422,20 +429,43 @@ footer {
     margin-bottom: 1rem;
   }
 
-  .item-desc,
-  .item-address,
-  .item-phone,
-  .item-hours {
+  .item-photo {
+    width: 90%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    box-shadow: 0 1rem 1rem -1rem #000000;
+    margin: 1.5rem 0;
+  }
+
+  .item-desc {
     @extend .text;
     margin: 0 2rem;
     margin-bottom: 0.5rem;
   }
-  .item-address,
-  .item-phone,
-  .item-hours {
-    font-weight: bold;
-    margin-bottom: 0 1rem;
+
+  address {
+    .item-address,
+    .item-phone,
+    .item-hours {
+      @extend .text;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin: 0 1rem 0.5rem 1rem;
+    }
+
+    .item-website {
+      @extend .title;
+      display: inline-block;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      padding-bottom: 1px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
   }
+
   .faded-line {
     display: block;
     margin: 2rem auto;
@@ -447,11 +477,66 @@ footer {
 }
 
 #container.life .item {
+  .item-photo {
+    border-color: $colorLifeButtons;
+  }
+
+  address {
+    .item-website {
+      color: $colorLifeButtons;
+      border-bottom-color: $colorLifeButtons;
+    }
+  }
   .faded-line {
     background: $colorLifeButtons;
     background: linear-gradient(to right, #ffffff, $colorLifeButtons, #ffffff);
   }
 }
+
+.item.nocontent {
+  display: block;
+  &:before {
+    content: "Other Parks in London";
+    @extend .title;
+    font-size: 1.3rem;
+  }
+  .item-photo {
+    width: 60%;
+  }
+  .item-title {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+// hide all .item.nocontent elements except the first one
+.item.nocontent ~ .item.nocontent {
+  display: none;
+  &:before {
+    content: "";
+  }
+}
+
+.close-category-btn {
+  background-color: #ffffff;
+  color: #737373;
+  font-family: $fontText;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #737373;
+  border-radius: 4px;
+  padding: 5px 6px;
+  margin: 1rem 0;
+  i {
+    font-size: 0.9rem;
+    border: 1px solid #737373;
+    border-radius: 50%;
+    padding: 0 4px;
+    margin-right: 0.25rem;
+  }
+}
+
 
 // 640px
 @media screen and (min-width: 40rem) {
@@ -515,6 +600,176 @@ footer {
       font-size: 0.9rem;
     }
   }
+
+  // .open-category-btn {
+  //   display: inline-block;
+  //   float: left;
+  // }
+
+  .category-header {
+    // width: 100%;
+    // margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+
+    .photo-wrapper {
+      // background-color: #ffffff;
+      // width: 100%;
+      -webkit-clip-path: polygon(0 0, 0 100%, 75% 100%, 100% 50%, 75% 0);
+      clip-path: polygon(0 0, 0 100%, 75% 100%, 100% 50%, 75% 0);
+      img {
+        // width: 100%;
+        -webkit-clip-path: polygon(0 0, 0 100%, 65% 100%, 100% 50%, 65% 0);
+        clip-path: polygon(0 0, 0 100%, 65% 100%, 90% 50%, 65% 0);
+      }
+    }
+
+    .category-info {
+      // width: 100%;
+      // margin-top: 0;
+      .category-title {
+        // @extend .title;
+        // font-size: 2.6rem;
+        // color: #ffffff;
+      }
+
+      .category-short {
+        // font-size: 1.25rem;
+        // font-weight: 500;
+        // color: #ffffff;
+        padding: 2rem 0;
+        // margin: 0 1.5rem;
+        // line-height: 1.8rem;
+      }
+    }
+  }
+
+  .category-desc {
+    margin: 2rem 3.5rem;
+  }
+
+  .item {
+    // clear: both;
+    .item-title {
+      // @extend .title;
+      width: 45%;
+      float: right;
+      font-size: 1.3rem;
+      margin: 0 2rem 1rem 0;
+      // margin-bottom: 1rem;
+    }
+
+    .item-photo {
+      // clear: right;
+      width: 40%;
+      float: left;
+      // border-style: solid;
+      // border-width: 2px;
+      // border-radius: 4px;
+      // box-shadow: 0 1rem 1rem -1rem #000000;
+      margin: 0 0 1rem 2rem;
+    }
+
+    .item-desc {
+      clear: both;
+      width: 45%;
+      float: right;
+      text-align: left;
+      margin: 0 2rem 0 0;
+    }
+
+    address {
+      width: 45%;
+      float: right;
+      position: relative;
+      text-align: left;
+      margin: 0.5rem 2rem 2rem 0;
+      .item-address,
+      .item-phone,
+      .item-hours {
+        // @extend .text;
+        margin: 0 0 0.2rem 0;
+      }
+
+      .item-website {
+        // @extend .title;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        // display: inline-block;
+        font-size: 0.9rem;
+        // text-decoration: none;
+        margin-bottom: 0.2rem;
+        // padding-bottom: 1px;
+        // border-bottom-width: 1px;
+        // border-bottom-style: solid;
+      }
+    }
+
+    .faded-line {
+      clear: both;
+      // display: block;
+      // margin: 3rem auto 2rem auto;
+      // border: none;
+      width: 100%;
+      // padding-top: 2rem;
+      // height: 1px;
+    }
+  }
+
+  .item:nth-child(even) {
+    .item-title {
+      float: left;
+      font-size: 1.3rem;
+      margin: 0 0 1rem 2rem;
+    }
+    .item-photo {
+      float: right;
+      margin: 0 2rem 1rem 0;
+    }
+    .item-desc {
+      float: left;
+      margin: 0 0 0 2rem;
+    }
+    address {
+      float: left;
+      margin: 0.5rem 0 2rem 2rem;
+    }
+  }
+
+  .item.nocontent,
+  .item.nocontent ~ .item.nocontent {
+    float: none;
+    width: 30%;
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    &:before {
+      position: absolute;
+      top: auto;
+      left: 50%;
+      @include translate(-50%, 0);
+      // padding-bottom: 2rem;
+    }
+    .item-photo {
+      width: 70%;
+      margin-top: 3rem;
+    }
+    .item-title {
+      display: inline-block;
+      width: 100%;
+      float: none;
+      margin: 1rem 0 0 0;
+      font-size: 1.1rem;
+    }
+  }
+
+  .close-category-btn {
+    display: block;
+    margin: 2rem auto 0 auto;
+  }
+
 }
 
 // 1024px
@@ -537,9 +792,10 @@ footer {
 
       #main-nav {
         margin-bottom: 0;
+        left: 0;
         ul{
           display: flex;
-          left: 0;
+          // left: 0;
           li {
             a {
               font-size: 1.2rem;
