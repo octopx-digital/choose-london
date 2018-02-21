@@ -25,6 +25,17 @@ body {
   color: $colorText;
 }
 
+.title {
+  font-family: $fontTitle;
+  color: $colorTitle;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+}
+
 #container {
   width: 100%;
   min-width: 320px;
@@ -50,6 +61,7 @@ body {
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.8);
     transition: height 0.3s 0.5s ease-in-out;
+    z-index: 100;
 
     div {
       width: 100%;
@@ -85,14 +97,13 @@ body {
 
     #main-nav {
       position: relative;
+      left: -1024px;
       width: 100%;
       margin-bottom: 0.5rem;
+      transition: left 0.5s ease-in-out;
       ul {
-        position: relative;
-        left: -1024px;
         line-height: 40px;
         text-align: center;
-        transition: left 0.5s ease-in-out;
         li {
           margin: 0 1.56vw;
           a {
@@ -117,40 +128,39 @@ body {
       }
     }
     #main-nav {
-      ul {
-        left: 0;
-        transition: left 0.5s 0.3s ease-in-out;
-      }
+      left: 0;
+      transition: left 0.5s 0.3s ease-in-out;
     }
   }
 }
 
 #container.home #hamburger-menu {
-  color: #005a58;
+  color: $colorHomeFooter;
 }
 
 #container.life #hamburger-menu {
-  color: #013a03;
+  color: $colorLifeFooter;
 }
 
 #container.education #hamburger-menu {
-  color: #af7d00;
+  color: $colorEducationFooter;
 }
 
 #container.work #hamburger-menu {
-  color: #004265;
+  color: $colorWorkFooter;
 }
 
 #container.economics #hamburger-menu {
-  color: #7c0000;
+  color: $colorEconomicsFooter;
 }
 
 #container.social #hamburger-menu {
-  color: #382440;
+  color: $colorSocialFooter;
 }
 
 main {
   clear: both;
+  text-align: center;
 }
 
 footer {
@@ -225,13 +235,13 @@ footer {
 }
 
 #container.home footer{
-  background-color: #005a58;
+  background-color: $colorHomeFooter;
 
   #social {
     li {
       a {
         svg {
-          fill: #005a58;
+          fill: $colorHomeFooter;
         }
       }
     }
@@ -239,13 +249,13 @@ footer {
 }
 
 #container.life footer{
-  background-color: #013a03;
+  background-color: $colorLifeFooter;
 
   #social {
     li {
       a {
         svg {
-          fill: #013a03;
+          fill: $colorLifeFooter;
         }
       }
     }
@@ -253,13 +263,13 @@ footer {
 }
 
 #container.education footer{
-  background-color: #af7d00;
+  background-color: $colorEducationFooter;
 
   #social {
     li {
       a {
         svg {
-          fill: #af7d00;
+          fill: $colorEducationFooter;
         }
       }
     }
@@ -267,13 +277,13 @@ footer {
 }
 
 #container.work footer{
-  background-color: #004265;
+  background-color: $colorWorkFooter;
 
   #social {
     li {
       a {
         svg {
-          fill: #004265;
+          fill: $colorWorkFooter;
         }
       }
     }
@@ -281,13 +291,13 @@ footer {
 }
 
 #container.economics footer{
-  background-color: #7c0000;
+  background-color: $colorEconomicsFooter;
 
   #social {
     li {
       a {
         svg {
-          fill: #7c0000;
+          fill: $colorEconomicsFooter;
         }
       }
     }
@@ -295,16 +305,151 @@ footer {
 }
 
 #container.social footer{
-  background-color: #382440;
+  background-color: $colorSocialFooter;
 
   #social {
     li {
       a {
         svg {
-          fill: #382440;
+          fill: $colorSocialFooter;
         }
       }
     }
+  }
+}
+
+.section-header {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+
+  .section-icon {
+    width: 4rem;
+  }
+
+  .section-title {
+    @extend .title;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+  }
+}
+
+.section-info {
+  margin: 1.2rem;
+
+  .section-desc {
+    font-size: 1.1rem;
+    // text-align: center;
+    line-height: 1.7rem;
+  }
+}
+
+.category-button {
+  color: #ffffff;
+  font-family: $fontText;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 6rem;
+  margin: 2rem 0;
+}
+
+.category-button.selected {
+  border-width: 3px;
+  border-style: solid;
+}
+
+#container.life .category-button {
+  background-color: $colorLifeButtons;
+}
+
+#container.life .category-button.selected {
+  background-color: #ffffff;
+  color: $colorLifeButtons;
+  border-color: $colorLifeButtons;
+}
+
+.category-header {
+  width: 100%;
+  margin-top: 2rem;
+
+  .photo-wrapper {
+    background-color: #ffffff;
+    width: 100%;
+    -webkit-clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
+    clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
+    img {
+      width: 100%;
+      -webkit-clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
+      clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
+    }
+  }
+
+  .category-title {
+    @extend .title;
+    font-size: 2.6rem;
+    color: #ffffff;
+    margin-top: 1rem;
+  }
+
+  .category-short {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 1.5rem 0;
+    margin: 0 1.5rem;
+    line-height: 1.8rem;
+  }
+}
+
+#container.life .category-header {
+  background-color: $colorLifeButtons;
+}
+
+.category-desc {
+  @extend .text;
+  margin: 2rem;
+}
+
+.item {
+  .item-title {
+    @extend .title;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .item-desc,
+  .item-address,
+  .item-phone,
+  .item-hours {
+    @extend .text;
+    margin: 0 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .item-address,
+  .item-phone,
+  .item-hours {
+    font-weight: bold;
+    margin-bottom: 0 1rem;
+  }
+  .faded-line {
+    display: block;
+    margin: 2rem auto;
+    border: none;
+    width: 60%;
+    height: 1px;
+  }
+
+}
+
+#container.life .item {
+  .faded-line {
+    background: $colorLifeButtons;
+    background: linear-gradient(to right, #ffffff, $colorLifeButtons, #ffffff);
   }
 }
 

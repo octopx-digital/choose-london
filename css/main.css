@@ -87,6 +87,18 @@ body {
   font-size: 1rem;
   color: #383838; }
 
+.title, .section-header .section-title, .category-header .category-title, .item .item-title {
+  font-family: "Baloo", Times, Georgia, serif;
+  color: #454545;
+  text-transform: uppercase; }
+
+.text, .category-desc, .item .item-desc,
+.item .item-address,
+.item .item-phone,
+.item .item-hours {
+  font-size: 0.9rem;
+  line-height: 1.4rem; }
+
 #container {
   width: 100%;
   min-width: 320px;
@@ -107,7 +119,8 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.8);
-    transition: height 0.3s 0.5s ease-in-out; }
+    transition: height 0.3s 0.5s ease-in-out;
+    z-index: 100; }
     #main-banner header div {
       width: 100%;
       position: relative; }
@@ -134,14 +147,13 @@ body {
         cursor: pointer; }
     #main-banner header #main-nav {
       position: relative;
+      left: -1024px;
       width: 100%;
-      margin-bottom: 0.5rem; }
+      margin-bottom: 0.5rem;
+      transition: left 0.5s ease-in-out; }
       #main-banner header #main-nav ul {
-        position: relative;
-        left: -1024px;
         line-height: 40px;
-        text-align: center;
-        transition: left 0.5s ease-in-out; }
+        text-align: center; }
         #main-banner header #main-nav ul li {
           margin: 0 1.56vw; }
           #main-banner header #main-nav ul li a {
@@ -157,7 +169,7 @@ body {
     #main-banner header.openmenu div #logo-text {
       opacity: 1;
       transition: opacity 0.5s 0.5s ease-in-out; }
-    #main-banner header.openmenu #main-nav ul {
+    #main-banner header.openmenu #main-nav {
       left: 0;
       transition: left 0.5s 0.3s ease-in-out; }
 
@@ -180,7 +192,8 @@ body {
   color: #382440; }
 
 main {
-  clear: both; }
+  clear: both;
+  text-align: center; }
 
 footer {
   color: #ffffff;
@@ -261,6 +274,102 @@ footer {
   background-color: #382440; }
   #container.social footer #social li a svg {
     fill: #382440; }
+
+.section-header {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem; }
+  .section-header .section-icon {
+    width: 4rem; }
+  .section-header .section-title {
+    font-size: 1.8rem;
+    margin-left: 1rem; }
+
+.section-info {
+  margin: 1.2rem; }
+  .section-info .section-desc {
+    font-size: 1.1rem;
+    line-height: 1.7rem; }
+
+.category-button {
+  color: #ffffff;
+  font-family: "Quicksand", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 6rem;
+  margin: 2rem 0; }
+
+.category-button.selected {
+  border-width: 3px;
+  border-style: solid; }
+
+#container.life .category-button {
+  background-color: #008300; }
+
+#container.life .category-button.selected {
+  background-color: #ffffff;
+  color: #008300;
+  border-color: #008300; }
+
+.category-header {
+  width: 100%;
+  margin-top: 2rem; }
+  .category-header .photo-wrapper {
+    background-color: #ffffff;
+    width: 100%;
+    -webkit-clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0);
+    clip-path: polygon(100% 65%, 50% 90%, 0 65%, 0 0, 100% 0); }
+    .category-header .photo-wrapper img {
+      width: 100%;
+      -webkit-clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0);
+      clip-path: polygon(100% 50%, 50% 75%, 0 50%, 0 0, 100% 0); }
+  .category-header .category-title {
+    font-size: 2.6rem;
+    color: #ffffff;
+    margin-top: 1rem; }
+  .category-header .category-short {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 1.5rem 0;
+    margin: 0 1.5rem;
+    line-height: 1.8rem; }
+
+#container.life .category-header {
+  background-color: #008300; }
+
+.category-desc {
+  margin: 2rem; }
+
+.item .item-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem; }
+.item .item-desc,
+.item .item-address,
+.item .item-phone,
+.item .item-hours {
+  margin: 0 2rem;
+  margin-bottom: 0.5rem; }
+.item .item-address,
+.item .item-phone,
+.item .item-hours {
+  font-weight: bold;
+  margin-bottom: 0 1rem; }
+.item .faded-line {
+  display: block;
+  margin: 2rem auto;
+  border: none;
+  width: 60%;
+  height: 1px; }
+
+#container.life .item .faded-line {
+  background: #008300;
+  background: linear-gradient(to right, #ffffff, #008300, #ffffff); }
 
 @media screen and (min-width: 40rem) {
   #main-banner header {

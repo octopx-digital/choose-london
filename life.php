@@ -34,27 +34,29 @@
     } ?>
 
     <main>
-      <div class="section-title">
-        <?php
-          if($section) {
-            echo "<img class=\"section-icon\" src=\"images/{$section['icon']}_small.png\" alt=\"Some photo\" width=\"32\">
-              <h1 class=\"section-title\">{$section['title']}</h1>";
-          }
-          else {
-            echo "<p>{$sectionData}</p>";
-          }
-         ?>
-      </div>
+      <section>
+        <div class="section-header">
+          <?php
+            if($section) {
+              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Some photo\">
+                <h1 class=\"section-title\">{$section['title']}</h1>";
+            }
+            else {
+              echo "<p>{$sectionData}</p>";
+            }
+           ?>
+        </div>
 
-      <section class="section-desc">
-        <?php
-          if($section) {
-            echo "<p class=\"section-desc\">{$section['description']}</p>";
-          }
-          else {
-            echo "<p>{$sectionData}</p>";
-          }
-        ?>
+        <div class="section-info">
+          <?php
+            if($section) {
+              echo "<p class=\"section-desc\">{$section['description']}</p>";
+            }
+            else {
+              echo "<p>{$sectionData}</p>";
+            }
+          ?>
+        </div>
       </section>
 
       <?php
@@ -63,8 +65,13 @@
       ?>
         <?php echo "<button class=\"category-button\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
         <section id="<?php echo $category['name']; ?>" class="category">
-          <h2 class="category-title"><?php echo $category['title']; ?></h2>
-          <p class="category-short"><?php echo $category['short_desc']; ?></p>
+          <div class="category-header">
+            <div class="photo-wrapper">
+              <img src="images/london2_002-5857.jpg" alt="Photo">
+            </div>
+            <h2 class="category-title"><?php echo $category['title']; ?></h2>
+            <p class="category-short"><?php echo $category['short_desc']; ?></p>
+          </div>
           <p class="category-desc"><?php echo $category['description']; ?></p>
           <?php
             $itemData = getItems($category['id']);
@@ -73,7 +80,7 @@
                 if($item['description']) {
           ?>
                 <section class="item">
-                  <h3><?php echo $item['title']; ?></h3>
+                  <h3 class="item-title"><?php echo $item['title']; ?></h3>
                   <?php
                     if($item['description']) {
                       echo "<p class=\"item-desc\">{$item['description']}</p>";
@@ -91,6 +98,7 @@
                       echo "<a class=\"item-website\" href=\"{$item['website']}\">Go to website</a>";
                     }
                   ?>
+                  <span class="faded-line"></span>
                 </section>
 
           <?php
