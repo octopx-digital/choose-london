@@ -33,6 +33,6 @@ Nullam ultrices ac mauris posuere feugiat. Integer ullamcorper fringilla commodo
     <?php include('includes/partials/footer.html'); ?>
   </div>
 
-
+  <?php include('includes/partials/scripts.html'); ?>
 </body>
 </html>

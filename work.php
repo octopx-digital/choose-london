@@ -102,6 +102,6 @@
     <?php include('includes/partials/footer.html'); ?>
   </div>
 
-
+  <?php include('includes/partials/scripts.html'); ?>
 </body>
 </html>
