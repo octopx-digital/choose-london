@@ -4,10 +4,6 @@
   var hambMenu = header.querySelector('#hamburger-menu');
   var menuOpen = false;
 
-  // var menuTl = new TimelineLite({
-  //   paused: true
-  // });
-
   function checkScrollMenu() {
     // if menu is open, close it when scroll
     if(menuOpen === true) {
