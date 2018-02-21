@@ -37,7 +37,7 @@
       <div class="section-title">
         <?php
           if($section) {
-            echo "<img class=\"section-icon\" src=\"images/{$section['icon']}_small.png\" alt=\"Some photo\">
+            echo "<img class=\"section-icon\" src=\"images/{$section['icon']}_small.png\" alt=\"Some photo\" width=\"32\">
               <h1 class=\"section-title\">{$section['title']}</h1>";
           }
           else {
@@ -122,6 +122,6 @@
     <?php include('includes/partials/footer.html'); ?>
   </div>
 
-
+  <?php include('includes/partials/scripts.html'); ?>
 </body>
 </html>
