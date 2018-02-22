@@ -45,10 +45,10 @@ Furthermore, it is necessary to import the database content to local application
 mysql -h localhost -u <user> -p <password> <database name> < db_chooselondon.sql
 ```
 
-After importing database content to local database application, it is necessary to configure PHP credentials to connect to your database. Into the folder <code>includes</code> exists a file called <code>env-sample.php</code>. Copy or rename this file to <code>env.php</code> 
+After importing database content to local database application, it is necessary to configure PHP credentials to connect to your database. Into the folder <code>includes</code> exists a file called <code>env-sample.php</code>. Copy or rename this file to <code>env.php</code>:
 
 ```
-cp env-sample.php env.php
+cd includes; cp env-sample.php env.php
 ```
 
 Edit <code>env.php</code>, including the correct credentials of your database application.
