@@ -34,37 +34,46 @@
     } ?>
 
     <main>
-      <div class="section-title">
-        <?php
-          if($section) {
-            echo "<img class=\"section-icon\" src=\"images/{$section['icon']}_small.png\" alt=\"Some photo\" width=\"32\">
-              <h1 class=\"section-title\">{$section['title']}</h1>";
-          }
-          else {
-            echo "<p>{$sectionData}</p>";
-          }
-         ?>
-      </div>
+      <section>
+        <div class="section-header">
+          <?php
+            if($section) {
+              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Some photo\">
+                <h1 class=\"section-title\">{$section['title']}</h1>";
+            }
+            else {
+              echo "<p>{$sectionData}</p>";
+            }
+           ?>
+        </div>
 
-      <section class="section-desc">
-        <?php
-          if($section) {
-            echo "<p class=\"section-desc\">{$section['description']}</p>";
-          }
-          else {
-            echo "<p>{$sectionData}</p>";
-          }
-        ?>
+        <div class="section-info">
+          <?php
+            if($section) {
+              echo "<p class=\"section-desc\">{$section['description']}</p>";
+            }
+            else {
+              echo "<p>{$sectionData}</p>";
+            }
+          ?>
+        </div>
       </section>
 
       <?php
         if(!is_string($categoriesData)) {
           while ($category = mysqli_fetch_assoc($categoriesData)) {
       ?>
-        <?php echo "<button class=\"category-button\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
+        <?php echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
         <section id="<?php echo $category['name']; ?>" class="category">
-          <h2 class="category-title"><?php echo $category['title']; ?></h2>
-          <p class="category-short"><?php echo $category['short_desc']; ?></p>
+          <div class="category-header">
+            <div class="photo-wrapper">
+              <img src="images/london2_002-5857.jpg" alt="Photo">
+            </div>
+            <div class="category-info">
+              <h2 class="category-title"><?php echo $category['title']; ?></h2>
+              <p class="category-short"><?php echo $category['short_desc']; ?></p>
+            </div>
+          </div>
           <p class="category-desc"><?php echo $category['description']; ?></p>
           <?php
             $itemData = getItems($category['id']);
@@ -73,11 +82,15 @@
                 if($item['description']) {
           ?>
                 <section class="item">
-                  <h3><?php echo $item['title']; ?></h3>
+                  <h3 class="item-title"><?php echo $item['title']; ?></h3>
                   <?php
                     if($item['description']) {
                       echo "<p class=\"item-desc\">{$item['description']}</p>";
                     }
+                      echo "<img class=\"item-photo\" src=\"images/downtown_bus.jpg\" alt=\"Photo\">";
+                  ?>
+                  <address>
+                  <?php
                     if($item['address']) {
                       echo "<p class=\"item-address\">WHERE: {$item['address']}</p>";
                     }
@@ -91,6 +104,8 @@
                       echo "<a class=\"item-website\" href=\"{$item['website']}\">Go to website</a>";
                     }
                   ?>
+                  </address>
+                  <span class="faded-line"></span>
                 </section>
 
           <?php
@@ -98,11 +113,13 @@
                 else {
           ?>
                 <section class="item nocontent">
-                  <h3><?php echo $item['title']; ?></h3>
+                  <img class="item-photo" src="images/downtown_bus.jpg" alt="Photo">
+                  <h3 class="item-title"><?php echo $item['title']; ?></h3>
                 </section>
           <?php
                 }
               }
+            echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$category['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
             }
             else {
               redirect_to('error.php');
