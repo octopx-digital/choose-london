@@ -23,7 +23,7 @@ To clone this project to a local repository, it is required using [Git](https://
 To develop this project, it is required installing and running [NPM](https://www.npmjs.com/), and consequently [NodeJS](https://nodejs.org/en/). Follow instructions provided [here](https://nodejs.org/en/download/) to install and configure properly NodeJS and NPM in your machine.
 
 **MySQL:**
-Dynamic content is loaded from database to build the website and present projects information. Database used is simple MySQL, and it is possible to use any distribution or application that runs it (MariaDB, MAMP, WAMP, etc). There is a file into 'assets' folder that contains all tables and data exported from this database.
+Dynamic content is loaded from database to build the website and present projects information. Database used is simple MySQL, and it is possible to use any distribution or application that runs it (MariaDB, MAMP, WAMP, etc). There is a file into <code>database</code> folder that contains all tables and data exported from this database.
 
 ## Deployment
 
@@ -42,8 +42,16 @@ grunt
 Furthermore, it is necessary to import the database content to local application. It is possible to import it using PHPMyAdmin interface or via command line:
 
 ```
-mysql -h localhost -u <user> -p <password> <database name> < db_choose-london.sql
+mysql -h localhost -u <user> -p <password> <database name> < db_chooselondon.sql
 ```
+
+After importing database content to local database application, it is necessary to configure PHP credentials to connect to your database. Into the folder <code>includes</code> exists a file called <code>env-sample.php</code>. Copy or rename this file to <code>env.php</code> 
+
+```
+cp env-sample.php env.php
+```
+
+Edit <code>env.php</code>, including the correct credentials of your database application.
 
 ## Authors
 
