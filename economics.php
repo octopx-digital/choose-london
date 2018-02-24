@@ -25,7 +25,7 @@
 <body>
   <div id="container" class="economics">
     <div id="main-banner">
-      <img src="images/downtown_bus.jpg" alt="Downtown London">
+      <img class="media-change" src="images/<?php echo $section['photo']; ?>_small.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
 
@@ -56,54 +56,56 @@
         </div>
       </section>
 
-      <?php
-        if(!is_string($categoriesData)) {
-          while ($category = mysqli_fetch_assoc($categoriesData)) {
-      ?>
-        <?php echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
-        <section id="<?php echo $category['name']; ?>" class="category">
-          <div class="category-header">
-            <div class="photo-wrapper">
-              <img src="images/london2_002-5857.jpg" alt="Photo">
+      <div id="category-wrapper">
+        <?php
+          if(!is_string($categoriesData)) {
+            while ($category = mysqli_fetch_assoc($categoriesData)) {
+        ?>
+          <?php echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
+          <section id="<?php echo $category['name']; ?>" class="category">
+            <div class="category-header">
+              <div class="photo-wrapper">
+                <img src="images/london2_002-5857.jpg" alt="Photo">
+              </div>
+              <div class="category-info">
+                <h2 class="category-title"><?php echo $category['title']; ?></h2>
+                <p class="category-short"><?php echo $category['short_desc']; ?></p>
+              </div>
             </div>
-            <div class="category-info">
-              <h2 class="category-title"><?php echo $category['title']; ?></h2>
-              <p class="category-short"><?php echo $category['short_desc']; ?></p>
-            </div>
-          </div>
-          <?php
-            if($category['name'] === 'starting') {
-              echo "<p>Quick tips from local employers</p>";
-            }
-            if($category['name'] === 'resources') {
-              echo "<p>Job search resources</p>";
-            }
-            $itemData = getItems($category['id']);
-            if(!is_string($itemData)){
-              $count = 0;
-              while ($item = mysqli_fetch_assoc($itemData)) {
-                $count++;
-          ?>
-                <section class="item">
-                  <p class="item-count"><?php echo $count; ?></p>
-                  <h3 class="item-title"><?php echo $item['title']; ?></h3>
-                </section>
-          <?php
+            <?php
+              if($category['name'] === 'starting') {
+                echo "<p>Quick tips from local employers</p>";
               }
-            echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$category['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
+              if($category['name'] === 'resources') {
+                echo "<p>Job search resources</p>";
+              }
+              $itemData = getItems($category['id']);
+              if(!is_string($itemData)){
+                $count = 0;
+                while ($item = mysqli_fetch_assoc($itemData)) {
+                  $count++;
+            ?>
+                  <section class="item">
+                    <p class="item-count"><?php echo $count; ?></p>
+                    <h3 class="item-title"><?php echo $item['title']; ?></h3>
+                  </section>
+            <?php
+                }
+              echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$category['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
+              }
+              else {
+                redirect_to('error.php');
+              }
+            ?>
+          </section>
+        <?php
             }
-            else {
-              redirect_to('error.php');
-            }
-          ?>
-        </section>
-      <?php
           }
-        }
-        else {
-          redirect_to('error.php');
-        }
-      ?>
+          else {
+            redirect_to('error.php');
+          }
+        ?>
+      </div>
     </main>
 
 

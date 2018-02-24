@@ -29,6 +29,7 @@ body {
   font-family: $fontTitle;
   color: $colorTitle;
   text-transform: uppercase;
+  line-height: normal;
 }
 
 .text {
@@ -41,6 +42,7 @@ body {
   min-width: 320px;
   max-width: 1440px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #main-banner {
@@ -327,12 +329,12 @@ footer {
   padding: 1rem;
 
   .section-icon {
-    width: 4rem;
+    width: 3.5rem;
   }
 
   .section-title {
     @extend .title;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-left: 1rem;
   }
 }
@@ -347,16 +349,23 @@ footer {
   }
 }
 
+#category-wrapper {
+  position: relative;
+}
+
 .open-category-btn {
+  display: block;
+  width: 90%;
+  clear: both;
   color: #ffffff;
   font-family: $fontText;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-transform: uppercase;
   border: none;
   border-radius: 4px;
-  padding: 1rem 6rem;
-  margin: 2rem 0;
+  padding: 1rem 0;
+  margin: 2rem auto;
   cursor: pointer;
 }
 
@@ -418,6 +427,7 @@ footer {
 .category-header {
   width: 100%;
   margin-top: 2rem;
+  line-height: 0;
 
   .photo-wrapper {
     background-color: #ffffff;
@@ -442,6 +452,7 @@ footer {
       @extend .title;
       font-size: 2.6rem;
       color: #ffffff;
+      line-height: 2.9rem;
     }
 
     .category-short {
@@ -748,10 +759,34 @@ footer {
     }
   }
 
-  // .open-category-btn {
-  //   display: inline-block;
-  //   float: left;
-  // }
+  #category-wrapper {
+    padding-top: 8rem;
+  }
+
+  .open-category-btn {
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+
+
+  @for $i from 1 through 3 {
+    .open-category-btn:nth-of-type(#{$i}) {
+      width: 25%;
+      font-size: 1rem;
+      // top: -100px;
+      margin-left: ($i * 33.3%) - 29%;
+    }
+  }
+  @for $i from 1 through 4 {
+    #container.social .open-category-btn:nth-of-type(#{$i}) {
+      width: 22%;
+      font-size: 0.8rem;
+      position: absolute;
+      // top: -100px;
+      margin-left: ($i * 25%) - 23.5%;
+    }
+  }
 
   .category-header {
     // width: 100%;
@@ -763,8 +798,8 @@ footer {
     .photo-wrapper {
       // background-color: #ffffff;
       // width: 100%;
-      -webkit-clip-path: polygon(0 0, 0 100%, 75% 100%, 100% 50%, 75% 0);
-      clip-path: polygon(0 0, 0 100%, 75% 100%, 100% 50%, 75% 0);
+      -webkit-clip-path: polygon(0 -1%, 0 101%, 75% 101%, 100% 50%, 75% -1%);
+      clip-path: polygon(0 -1%, 0 101%, 75% 101%, 100% 50%, 75% -1%);
       img {
         // width: 100%;
         -webkit-clip-path: polygon(0 0, 0 100%, 65% 100%, 100% 50%, 65% 0);
@@ -779,6 +814,7 @@ footer {
         // @extend .title;
         // font-size: 2.6rem;
         // color: #ffffff;
+
       }
 
       .category-short {
@@ -837,6 +873,10 @@ footer {
       .item-hours {
         // @extend .text;
         margin: 0 0 0.2rem 0;
+      }
+
+      .item-hours {
+        width: 60%;
       }
 
       .item-website {
