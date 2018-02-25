@@ -803,6 +803,35 @@ footer {
   }
 }
 
+#partners {
+  h2 {
+    @extend .title;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  ul {
+    width: 100%;
+    max-width: 35rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    li {
+      a {
+        img {
+          max-width: 3rem;
+        }
+        img.wide {
+          max-width: 5rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
 // 640px
 @media screen and (min-width: 40rem) {
   #main-banner {
@@ -1145,6 +1174,24 @@ footer {
     }
   }
 
+  #partners {
+    h2 {
+      font-size: 2rem;
+    }
+    ul {
+      li {
+        a {
+          img {
+            max-width: 4rem;
+          }
+          img.wide {
+            max-width: 6rem;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 // 1024px
@@ -1400,8 +1447,8 @@ footer {
   }
 
   .story {
+    width: 80%;
     // padding: 0.8rem;
-    // transform: skew(-5deg, -0.5deg);
 
     .story-wrapper {
       // height: auto;
@@ -1443,6 +1490,25 @@ footer {
             font-size: 1.4rem;
             // text-transform: uppercase;
             // text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  #partners {
+    h2 {
+      font-size: 2.5rem;
+      margin: 3rem auto 2rem auto;
+    }
+    ul {
+      li {
+        a {
+          img {
+            max-width: 5rem;
+          }
+          img.wide {
+            max-width: 7rem;
           }
         }
       }

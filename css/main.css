@@ -87,7 +87,7 @@ body {
   font-size: 1rem;
   color: #383838; }
 
-.title, .section-header .section-title, .category-header .category-info .category-title, .item .item-title, .item address .item-website, .item.nocontent:before {
+.title, .section-header .section-title, .category-header .category-info .category-title, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
   font-family: "Baloo", Times, Georgia, serif;
   color: #454545;
   text-transform: uppercase;
@@ -594,6 +594,24 @@ footer {
   .story.open .story-wrapper .story-text .story-testimony {
     opacity: 1; }
 
+#partners h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2rem 0; }
+#partners ul {
+  width: 100%;
+  max-width: 35rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end; }
+  #partners ul li a img {
+    max-width: 3rem; }
+  #partners ul li a img.wide {
+    max-width: 5rem;
+    padding-bottom: 1rem; }
+
 @media screen and (min-width: 40rem) {
   #main-banner header {
     position: absolute;
@@ -807,7 +825,14 @@ footer {
         .story .story-wrapper .story-text .story-check {
           display: none; }
         .story .story-wrapper .story-text .story-testimony {
-          opacity: 1; } }
+          opacity: 1; }
+
+  #partners h2 {
+    font-size: 2rem; }
+  #partners ul li a img {
+    max-width: 4rem; }
+  #partners ul li a img.wide {
+    max-width: 6rem; } }
 @media screen and (min-width: 64rem) {
   #main-banner header {
     flex-direction: row;
@@ -932,17 +957,27 @@ footer {
       margin: 1rem 0 0 0;
       font-size: 1.1rem; }
 
-  .story .story-wrapper .story-photo img {
-    max-width: 8rem; }
-  .story .story-wrapper .story-text {
-    width: 95%; }
-    .story .story-wrapper .story-text .story-testimony .story-desc {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem; }
-      .story .story-wrapper .story-text .story-testimony .story-desc:before, .story .story-wrapper .story-text .story-testimony .story-desc:after {
-        font-size: 1.6rem; }
-    .story .story-wrapper .story-text .story-testimony .story-name {
-      font-size: 1.4rem; } }
+  .story {
+    width: 80%; }
+    .story .story-wrapper .story-photo img {
+      max-width: 8rem; }
+    .story .story-wrapper .story-text {
+      width: 95%; }
+      .story .story-wrapper .story-text .story-testimony .story-desc {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem; }
+        .story .story-wrapper .story-text .story-testimony .story-desc:before, .story .story-wrapper .story-text .story-testimony .story-desc:after {
+          font-size: 1.6rem; }
+      .story .story-wrapper .story-text .story-testimony .story-name {
+        font-size: 1.4rem; }
+
+  #partners h2 {
+    font-size: 2.5rem;
+    margin: 3rem auto 2rem auto; }
+  #partners ul li a img {
+    max-width: 5rem; }
+  #partners ul li a img.wide {
+    max-width: 7rem; } }
 @media screen and (min-width: 90rem) {
   #container {
     width: 1440px; }
