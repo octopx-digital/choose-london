@@ -2,7 +2,9 @@
 
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
+  var storyArrow = document.querySelector('.story-check > i');
   var menuOpen = false;
+  var storyOpen = false;
 
   function checkScrollMenu() {
     // if menu is open, close it when scroll
@@ -24,6 +26,22 @@
       hambMenu.classList.remove('ion-android-close');
       hambMenu.classList.add('ion-android-menu');
       header.classList.remove('openmenu');
+    }
+  }
+
+  function showStory() {
+    let story = document.querySelector('.story');
+    if (!storyOpen) {
+      storyOpen = true;
+      story.classList.add('open');
+      storyArrow.classList.remove('ion-arrow-down-b');
+      storyArrow.classList.add('ion-arrow-up-b');
+    }
+    else {
+      storyOpen = false;
+      story.classList.remove('open');
+      storyArrow.classList.remove('ion-arrow-up-b');
+      storyArrow.classList.add('ion-arrow-down-b');
     }
   }
 
@@ -58,5 +76,6 @@
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
+  storyArrow.addEventListener('click', showStory, false);
 
 })();
