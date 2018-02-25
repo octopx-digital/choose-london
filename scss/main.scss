@@ -680,6 +680,7 @@ footer {
   clear: both;
   margin: 1rem auto 0 auto;
   width: 90%;
+  color: #ffffff;
   // background-color: orange;
   display: block;
   padding: 0.2rem;
@@ -712,9 +713,9 @@ footer {
     }
 
     .story-text {
-      color: #ffffff;
       display: flex;
       flex-direction: column;
+      // font-weight: 500;
 
       .story-check {
         margin-top: 0.5rem;
@@ -772,6 +773,10 @@ footer {
 
 #container.social .story {
   background-color: $colorSocialStory;
+  color: #000000;
+  .story-wrapper {
+    border-color: #000000;
+  }
 }
 
 .story.open {
@@ -923,7 +928,7 @@ footer {
       clip-path: polygon(0 -1%, 0 101%, 75% 101%, 100% 50%, 75% -1%);
       img {
         // width: 100%;
-        -webkit-clip-path: polygon(0 0, 0 100%, 65% 100%, 100% 50%, 65% 0);
+        -webkit-clip-path: polygon(0 0, 0 100%, 65% 100%, 90% 50%, 65% 0);
         clip-path: polygon(0 0, 0 100%, 65% 100%, 90% 50%, 65% 0);
       }
     }
