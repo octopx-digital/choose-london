@@ -106,6 +106,24 @@
           }
         ?>
       </div>
+      <section class="story">
+        <h2 class="hidden">Story</h2>
+        <div class="story-wrapper">
+          <div class="story-photo">
+            <img src="images/story-sarah.jpg" alt="Story person">
+          </div>
+          <div class="story-text">
+            <div class="story-check">
+              <p>Check out people's view on London economics</p>
+              <i class="ion-arrow-down-b"></i>
+            </div>
+            <div class="story-testimony">
+              <p class="story-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget nulla non enim iaculis ultrices. Quisque vel felis ac nisi vestibulum interdum. Vestibulum ullamcorper eleifend justo, a dictum nisl egestas nec.</p>
+              <p class="story-name">Sarah</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
 

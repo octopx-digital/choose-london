@@ -423,13 +423,10 @@ footer {
   font-weight: bold;
   margin: 0 1rem 0.5rem 1rem; }
 .item address .item-website {
-  display: inline-block;
+  display: block;
   font-size: 1.2rem;
-  text-decoration: none;
-  margin-top: 0.5rem;
-  padding-bottom: 1px;
-  border-bottom-width: 1px;
-  border-bottom-style: solid; }
+  text-decoration: underline;
+  margin-top: 0.5rem; }
 .item .faded-line {
   display: block;
   margin: 2rem auto;
@@ -443,8 +440,7 @@ footer {
 #container.life .item .item-photo {
   border-color: #008300; }
 #container.life .item address .item-website {
-  color: #008300;
-  border-bottom-color: #008300; }
+  color: #008300; }
 #container.life .item .faded-line {
   background: #008300;
   background: linear-gradient(to right, #ffffff, #008300, #ffffff); }
@@ -452,8 +448,7 @@ footer {
 #container.education .item .item-photo {
   border-color: #e2b301; }
 #container.education .item address .item-website {
-  color: #e2b301;
-  border-bottom-color: #e2b301; }
+  color: #e2b301; }
 #container.education .item .faded-line {
   background: #e2b301;
   background: linear-gradient(to right, #ffffff, #e2b301, #ffffff); }
@@ -461,8 +456,7 @@ footer {
 #container.work .item .item-photo {
   border-color: #327fab; }
 #container.work .item address .item-website {
-  color: #327fab;
-  border-bottom-color: #327fab; }
+  color: #327fab; }
 #container.work .item .faded-line {
   background: #327fab;
   background: linear-gradient(to right, #ffffff, #327fab, #ffffff); }
@@ -470,8 +464,7 @@ footer {
 #container.economics .item .item-photo {
   border-color: #b10d0e; }
 #container.economics .item address .item-website {
-  color: #b10d0e;
-  border-bottom-color: #b10d0e; }
+  color: #b10d0e; }
 #container.economics .item .faded-line {
   background: #b10d0e;
   background: linear-gradient(to right, #ffffff, #b10d0e, #ffffff); }
@@ -479,8 +472,7 @@ footer {
 #container.social .item .item-photo {
   border-color: #6e4881; }
 #container.social .item address .item-website {
-  color: #6e4881;
-  border-bottom-color: #6e4881; }
+  color: #6e4881; }
 #container.social .item .faded-line {
   background: #6e4881;
   background: linear-gradient(to right, #ffffff, #6e4881, #ffffff); }
@@ -520,6 +512,84 @@ footer {
     border-radius: 50%;
     padding: 0 4px;
     margin-right: 0.25rem; }
+
+.story {
+  clear: both;
+  margin: 1rem auto 0 auto;
+  width: 90%;
+  display: block;
+  padding: 0.2rem;
+  border-radius: 15px; }
+  .story .story-wrapper {
+    height: 4rem;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    border: 1px dashed #ffffff;
+    border-radius: 15px;
+    padding: 0.5rem;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out; }
+    .story .story-wrapper .story-photo img {
+      width: 100%;
+      max-width: 4rem;
+      margin-top: -0.2rem;
+      border: 3px solid #ffffff;
+      border-radius: 100%; }
+    .story .story-wrapper .story-text {
+      color: #ffffff;
+      display: flex;
+      flex-direction: column; }
+      .story .story-wrapper .story-text .story-check {
+        margin-top: 0.5rem;
+        transition: margin-top 0.5s ease-in-out; }
+        .story .story-wrapper .story-text .story-check p {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 0.9rem;
+          transition: opacity 0.5s ease-in-out; }
+        .story .story-wrapper .story-text .story-check i {
+          font-size: 2rem; }
+      .story .story-wrapper .story-text .story-testimony {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out; }
+        .story .story-wrapper .story-text .story-testimony .story-desc {
+          font-size: 1rem;
+          margin-bottom: 0.5rem; }
+          .story .story-wrapper .story-text .story-testimony .story-desc:before, .story .story-wrapper .story-text .story-testimony .story-desc:after {
+            content: " \" ";
+            font-family: "Baloo", Times, Georgia, serif;
+            font-size: 1.5rem; }
+        .story .story-wrapper .story-text .story-testimony .story-name {
+          font-family: "Baloo", Times, Georgia, serif;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          text-align: right; }
+
+#container.life .story {
+  background-color: #a00046; }
+
+#container.education .story {
+  background-color: #005ca7; }
+
+#container.work .story {
+  background-color: #eb900e; }
+
+#container.economics .story {
+  background-color: #009f9a; }
+
+#container.social .story {
+  background-color: #eccd25; }
+
+.story.open .story-wrapper {
+  height: 13rem; }
+  .story.open .story-wrapper .story-text .story-check {
+    margin-top: -2rem; }
+    .story.open .story-wrapper .story-text .story-check p {
+      opacity: 0; }
+    .story.open .story-wrapper .story-text .story-check i {
+      font-size: 2rem; }
+  .story.open .story-wrapper .story-text .story-testimony {
+    opacity: 1; }
 
 @media screen and (min-width: 40rem) {
   #main-banner header {
@@ -654,12 +724,8 @@ footer {
     .item address .item-phone,
     .item address .item-hours {
       margin: 0 0 0.2rem 0; }
-    .item address .item-hours {
-      width: 60%; }
     .item address .item-website {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+      text-align: right;
       font-size: 0.9rem;
       margin-bottom: 0.2rem; }
   .item .faded-line {
@@ -716,7 +782,29 @@ footer {
       font-size: 1.1rem; }
 
   .close-category-btn {
-    display: none; } }
+    display: none; }
+
+  .story {
+    padding: 0.8rem;
+    transform: skew(-5deg, -0.5deg); }
+    .story .story-wrapper {
+      height: auto;
+      grid-template-columns: 15% 85%;
+      transform: skew(-3deg, 0.2deg);
+      align-items: center;
+      justify-items: center; }
+      .story .story-wrapper .story-photo img {
+        width: 80%;
+        max-width: 7rem;
+        margin-top: 0;
+        transform: skew(8deg, 0.3deg); }
+      .story .story-wrapper .story-text {
+        text-align: center;
+        width: 95%; }
+        .story .story-wrapper .story-text .story-check {
+          display: none; }
+        .story .story-wrapper .story-text .story-testimony {
+          opacity: 1; } }
 @media screen and (min-width: 64rem) {
   #main-banner header {
     flex-direction: row;
@@ -839,7 +927,19 @@ footer {
       width: 100%;
       float: none;
       margin: 1rem 0 0 0;
-      font-size: 1.1rem; } }
+      font-size: 1.1rem; }
+
+  .story .story-wrapper .story-photo img {
+    max-width: 8rem; }
+  .story .story-wrapper .story-text {
+    width: 95%; }
+    .story .story-wrapper .story-text .story-testimony .story-desc {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem; }
+      .story .story-wrapper .story-text .story-testimony .story-desc:before, .story .story-wrapper .story-text .story-testimony .story-desc:after {
+        font-size: 1.6rem; }
+    .story .story-wrapper .story-text .story-testimony .story-name {
+      font-size: 1.4rem; } }
 @media screen and (min-width: 90rem) {
   #container {
     width: 1440px; }
