@@ -32,7 +32,7 @@
 <body>
   <div id="container" class="work">
     <div id="main-banner">
-      <img class="media-change" src="images/<?php echo $section['photo']; ?>_small.jpg" alt="<?php echo $section['title']; ?>">
+      <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
 
