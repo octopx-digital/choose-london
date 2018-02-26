@@ -45,7 +45,7 @@
         <div class="section-header">
           <?php
             if($section) {
-              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Some photo\">
+              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Life icon\">
                 <h1 class=\"section-title\">{$section['title']}</h1>";
             }
             else {
@@ -73,7 +73,7 @@
         ?>
             <?php
             echo "<div class=\"open-category {$category['name']}\">";
-            echo "<div><img class=\"open-category-img\" src=\"images/{$category['banner_photo']}_large.jpg\"></div>";
+            echo "<div><img class=\"open-category-img media-change\" src=\"images/{$category['banner_photo']}_large.jpg\" alt=\"{$category['title']}\"></div>";
 
             $short = str_replace("<br>", "", $category['short_desc']);
 
@@ -85,7 +85,7 @@
           <section id="<?php echo $category['name']; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
-                <img src="images/london2_002-5857.jpg" alt="Photo">
+                <img class="media-change" src="images/<?php echo $category['header_photo']; ?>_large.jpg" alt="<?php echo $category['title']; ?>">
               </div>
               <div class="category-info">
                 <h2 class="category-title"><?php echo $category['title']; ?></h2>
@@ -105,7 +105,7 @@
                       if($item['description']) {
                         echo "<p class=\"item-desc\">{$item['description']}</p>";
                       }
-                        echo "<img class=\"item-photo\" src=\"images/downtown_bus.jpg\" alt=\"Photo\">";
+                        echo "<img class=\"item-photo media-change\" src=\"images/{$item['photo']}_large.jpg\" alt=\"{$item['title']}\">";
                     ?>
                     <address>
                     <?php
@@ -131,7 +131,7 @@
                   else {
             ?>
                   <section class="item nocontent">
-                    <img class="item-photo" src="images/downtown_bus.jpg" alt="Photo">
+                    <img class="item-photo media-change" src="images/<?php echo $item['photo']; ?>_large.jpg" alt="<?php echo $item['title']; ?>">
                     <h3 class="item-title"><?php echo $item['title']; ?></h3>
                   </section>
             <?php
