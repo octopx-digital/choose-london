@@ -32,7 +32,7 @@
 <body>
   <div id="container" class="life">
     <div id="main-banner">
-      <img class="media-change" src="images/<?php echo $section['photo']; ?>_small.jpg" alt="<?php echo $section['title']; ?>">
+      <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
 
@@ -71,7 +71,17 @@
           if(!is_string($categoriesData)) {
             while ($category = mysqli_fetch_assoc($categoriesData)) {
         ?>
-          <?php echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
+            <?php
+            echo "<div class=\"open-category {$category['name']}\">";
+            echo "<div><img class=\"open-category-img\" src=\"images/{$category['banner_photo']}_large.jpg\"></div>";
+
+            $short = str_replace("<br>", "", $category['short_desc']);
+
+            echo "<p class=\"open-category-desc\">{$short}</p>";
+            echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>";
+            ?>
+          </div>
+
           <section id="<?php echo $category['name']; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
