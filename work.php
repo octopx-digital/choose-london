@@ -142,9 +142,10 @@
           </div>
         </div>
       </section>
-    </main>
+      <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
 
-    <?php include('includes/partials/partners.html'); ?>
+      <?php include('includes/partials/partners.html'); ?>
+    </main>
 
     <?php include('includes/partials/footer.html'); ?>
   </div>

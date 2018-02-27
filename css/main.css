@@ -194,7 +194,11 @@ body {
 
 main {
   clear: both;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
+
+.back-to-top {
+  opacity: 0; }
 
 footer {
   color: #ffffff;
@@ -687,6 +691,62 @@ footer {
         font-size: 1.1rem; }
   #main-banner header.openmenu {
     height: 380px; }
+
+  .back-to-top {
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50px;
+    transition: all 0.4s ease; }
+    .back-to-top .tooltip {
+      width: 40px;
+      height: 30px;
+      overflow: hidden;
+      padding-top: 10px;
+      float: right;
+      cursor: pointer; }
+      .back-to-top .tooltip i.ion-arrow-up-c {
+        color: #fff;
+        font-size: 2.4rem; }
+    .back-to-top .tooltip:hover:after {
+      background: #333;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 5px;
+      bottom: 5px;
+      color: #fff;
+      content: attr(title);
+      right: 110%;
+      padding: 5px;
+      position: absolute;
+      z-index: 98;
+      width: 90px;
+      transition: all 0.4s ease; }
+
+  .back-to-top.fadein {
+    opacity: 1;
+    display: block;
+    position: fixed; }
+
+  .back-to-top.bottom {
+    opacity: 1;
+    position: absolute; }
+
+  #container.home .back-to-top {
+    background: #005a58; }
+
+  #container.life .back-to-top {
+    background: #013a03; }
+
+  #container.work .back-to-top {
+    background: #004265; }
+
+  #container.education .back-to-top {
+    background: #af7d00; }
+
+  #container.economics .back-to-top {
+    background: #7c0000; }
+
+  #container.social .back-to-top {
+    background: #382440; }
 
   footer {
     clear: both;
