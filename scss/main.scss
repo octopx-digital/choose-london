@@ -163,6 +163,11 @@ body {
 main {
   clear: both;
   text-align: center;
+  position: relative;
+}
+
+.back-to-top{
+  opacity: 0;
 }
 
 footer {
@@ -551,20 +556,21 @@ footer {
 }
 
 #container.life .item {
-  .item-photo {
-    border-color: $colorLifeButtons;
-  }
-  address {
-    .item-website {
-      color: $colorLifeButtons;
-      // border-bottom-color: $colorLifeButtons;
+    .item-photo {
+      border-color: $colorLifeButtons;
+    }
+    address {
+      .item-website {
+        color: $colorLifeButtons;
+        // border-bottom-color: $colorLifeButtons;
+      }
+    }
+    .faded-line {
+      background: $colorLifeButtons;
+      background: linear-gradient(to right, #ffffff, $colorLifeButtons, #ffffff);
     }
   }
-  .faded-line {
-    background: $colorLifeButtons;
-    background: linear-gradient(to right, #ffffff, $colorLifeButtons, #ffffff);
-  }
-}
+
 
 #container.education .item {
   .item-photo {
@@ -842,6 +848,64 @@ footer {
       height: 380px;
     }
   }
+
+  .back-to-top{
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+      .tooltip{
+        width: 40px;
+        height: 30px;
+        overflow: hidden;
+        padding-top: 10px;
+        float: right;
+        cursor: pointer;
+          i.ion-arrow-up-c {
+            color: #fff;
+            font-size: 2.4rem;
+        }
+      }.tooltip:hover:after{
+          background: #333;
+          background: rgba(0,0,0,.8);
+          border-radius: 5px;
+          bottom: 5px;
+          color: #fff;
+          content: attr(title);
+          right: 110%;
+          padding: 5px;
+          position: absolute;
+          z-index: 98;
+          width: 90px;
+          transition: all 0.4s ease;
+      }
+    } .back-to-top.fadein{
+      opacity: 1;
+      display: block;
+      position: fixed;
+    } .back-to-top.bottom{
+      opacity: 1;
+      position: absolute;
+    }
+    #container.home .back-to-top {
+      background: $colorHomeFooter;
+    }
+    #container.life .back-to-top {
+      background: $colorLifeFooter;
+    }
+    #container.work .back-to-top {
+      background: $colorWorkFooter;
+    }
+    #container.education .back-to-top {
+      background: $colorEducationFooter;
+    }
+    #container.economics .back-to-top {
+      background: $colorEconomicsFooter;
+    }
+    #container.social .back-to-top {
+      background: $colorSocialFooter;
+    }
+
 
   footer {
     clear: both;

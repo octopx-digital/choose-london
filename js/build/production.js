@@ -48,6 +48,7 @@ window.addEventListener('resize', changeImageSize, false);
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
   var storyArrow = document.querySelector('.story-check > i');
+  let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
   var storyOpen = false;
 
@@ -90,6 +91,39 @@ window.addEventListener('resize', changeImageSize, false);
     }
   }
 
+  // var fixButton = debounce(() => {
+  function fixButton(){
+    console.log('fade in button');
+    let footer = document.querySelector('footer').clientHeight;
+    let height = window.scrollY;
+    console.log(footer);
+    console.log(height);
+    console.log(document.body.offsetHeight);
+    if(screensize != 'small'){
+        if(height <= 50) {
+            topButton.classList.remove('fadein');
+            topButton.classList.remove('bottom');
+        } else if (height > 50 && (window.innerHeight + window.pageYOffset) < (document.body.offsetHeight - footer) ) {
+            topButton.classList.remove('bottom');
+            topButton.classList.add('fadein');
+            // setTimeout(out, 5000);
+        } else {
+            topButton.classList.remove('fadein');
+            topButton.classList.add('bottom');
+        }
+    }
+  }
+    //
+    // function out(){
+    //   console.log("fade out called");
+    //   topButton.classList.remove('fadein');
+    //   topButton.classList.remove('bottom');
+    // }
+  function topPage() {
+      var bodyarea = document.querySelector('body');
+      bodyarea.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
+  }
+
   // function openMenu() {
   //   menuTl.to(menu, 1, {left: 0, opacity: 1, ease: Expo.easeInOut});
   // }
@@ -117,10 +151,14 @@ window.addEventListener('resize', changeImageSize, false);
   //   });
   // }
 
+
   // window.addEventListener('load', getJobs, false);
   window.addEventListener('scroll', checkScrollMenu, false);
+
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   storyArrow.addEventListener('click', showStory, false);
-
+  window.addEventListener('scroll', fixButton);
+  window.addEventListener('mousemove', fixButton);
+  topButton.addEventListener('click', topPage, false);
 })();
