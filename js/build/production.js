@@ -93,12 +93,8 @@ window.addEventListener('resize', changeImageSize, false);
 
   // var fixButton = debounce(() => {
   function fixButton(){
-    console.log('fade in button');
     let footer = document.querySelector('footer').clientHeight;
     let height = window.scrollY;
-    console.log(footer);
-    console.log(height);
-    console.log(document.body.offsetHeight);
     if(screensize != 'small'){
         if(height <= 50) {
             topButton.classList.remove('fadein');

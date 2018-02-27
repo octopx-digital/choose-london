@@ -87,7 +87,7 @@ body {
   font-size: 1rem;
   color: #383838; }
 
-.title, .section-header .section-title, .category-header .category-info .category-title, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
+.title, .section-header .section-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
   font-family: "Baloo", Times, Georgia, serif;
   color: #454545;
   text-transform: uppercase;
@@ -328,6 +328,36 @@ footer {
     border-width: 3px;
     border-style: solid; }
 
+.open-category.work .open-category-btn {
+  width: 90%;
+  margin: 2rem auto 0 auto;
+  border-radius: 6px;
+  background-color: #327fab;
+  padding: 0.5rem; }
+  .open-category.work .open-category-btn div {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    border: 1px dashed #ffffff;
+    border-radius: 4px;
+    padding: 0.5rem 0; }
+    .open-category.work .open-category-btn div .open-category-img {
+      display: block;
+      height: 3rem;
+      justify-self: right; }
+    .open-category.work .open-category-btn div p {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-align: left;
+      margin-left: 2rem;
+      align-self: center; }
+.open-category.work .open-category-click {
+  display: none; }
+
+#container.work #positions.category .item-count {
+  display: none; }
+
 #container.life .open-category .open-category-btn {
   background-color: #008300; }
 
@@ -411,6 +441,10 @@ footer {
 #container.social .category-header {
   background-color: #6e4881; }
 
+.category-preitem {
+  font-size: 1.3rem;
+  margin: 1.5rem 21vw; }
+
 .category-desc {
   margin: 2rem; }
 
@@ -464,13 +498,27 @@ footer {
   background: #e2b301;
   background: linear-gradient(to right, #ffffff, #e2b301, #ffffff); }
 
-#container.work .item .item-photo {
-  border-color: #327fab; }
-#container.work .item address .item-website {
-  color: #327fab; }
-#container.work .item .faded-line {
-  background: #327fab;
-  background: linear-gradient(to right, #ffffff, #327fab, #ffffff); }
+#container.work .item {
+  margin-top: 1.5rem; }
+  #container.work .item .item-count {
+    display: inline-block;
+    width: 3.6rem;
+    height: 3.6rem;
+    border: 3px solid #327fab;
+    border-radius: 100%;
+    text-align: center;
+    margin: 1rem 0; }
+    #container.work .item .item-count p {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #327fab; }
+  #container.work .item .item-photo {
+    border-color: #327fab; }
+  #container.work .item address .item-website {
+    color: #327fab; }
+  #container.work .item .faded-line {
+    background: #327fab;
+    background: linear-gradient(to right, #ffffff, #327fab, #ffffff); }
 
 #container.economics .item .item-photo {
   border-color: #b10d0e; }
@@ -782,6 +830,72 @@ footer {
       opacity: 0.99;
       z-index: 2; }
 
+  .open-category.work {
+    box-shadow: none;
+    border: 2px solid #327fab;
+    border-radius: 6px;
+    height: 25vw;
+    overflow: visible; }
+    .open-category.work .open-category-btn {
+      width: 80%;
+      margin: 0;
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      padding: 0.25rem; }
+      .open-category.work .open-category-btn div {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        border: 1px dashed #ffffff;
+        border-radius: 4px;
+        padding: 0.5rem 0;
+        background-color: transparent; }
+        .open-category.work .open-category-btn div .open-category-img {
+          display: block;
+          height: 2rem;
+          justify-self: right; }
+        .open-category.work .open-category-btn div p {
+          font-size: 0.9rem;
+          font-weight: bold;
+          color: #ffffff;
+          text-transform: uppercase;
+          text-align: left;
+          margin-left: 0;
+          align-self: center; }
+    .open-category.work .open-category-desc {
+      width: 80%;
+      top: 47.5%;
+      font-size: 1rem;
+      color: #383838;
+      opacity: 1; }
+      .open-category.work .open-category-desc:before, .open-category.work .open-category-desc:after {
+        content: "";
+        border: none; }
+    .open-category.work .open-category-click {
+      display: block;
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      background-color: #327fab;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 3px;
+      white-space: nowrap;
+      padding: 6px 18px;
+      cursor: pointer; }
+
+  .open-category.work:hover div .open-category-img {
+    opacity: 1; }
+
   #container.life .open-category .open-category-desc:before, #container.life .open-category .open-category-desc:after {
     border-top-color: #008300; }
 
@@ -891,6 +1005,32 @@ footer {
   .item .faded-line {
     clear: both;
     width: 100%; }
+
+  .category-preitem {
+    font-size: 1.4rem;
+    margin: 2rem 0; }
+
+  #container.work .item {
+    padding: 0 12.5vw;
+    margin-bottom: 3rem; }
+    #container.work .item .item-count {
+      float: left; }
+    #container.work .item .item-title {
+      float: none;
+      width: auto;
+      margin-left: 10.5vw;
+      margin-bottom: 0.5rem;
+      text-align: left; }
+    #container.work .item .item-desc {
+      float: none;
+      clear: none;
+      width: auto;
+      margin-left: 10.5vw; }
+
+  #container.work #positions.category .item .item-title,
+  #container.work #positions.category .item .item-desc {
+    text-align: center;
+    margin-left: 0; }
 
   .item:nth-child(even) .item-title {
     float: left;
@@ -1036,6 +1176,15 @@ footer {
     line-height: 3.125vw; }
   .open-category .open-category-btn {
     font-size: 1.2rem; }
+
+  .open-category.work .open-category-btn div .open-category-img {
+    height: 2.5rem; }
+  .open-category.work .open-category-btn div p {
+    font-size: 1.1rem; }
+  .open-category.work .open-category-desc {
+    font-size: 1.4rem; }
+  .open-category.work .open-category-click {
+    font-size: 1rem; }
 
   .category-header .category-info .category-title {
     font-size: 4rem; }
