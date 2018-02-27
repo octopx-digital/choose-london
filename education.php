@@ -18,6 +18,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="css/main.min.css">
   <title>Choose London | Education</title>
@@ -25,7 +32,7 @@
 <body>
   <div id="container" class="education">
     <div id="main-banner">
-      <img class="media-change" src="images/<?php echo $section['photo']; ?>_small.jpg" alt="<?php echo $section['title']; ?>">
+      <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
 
@@ -38,7 +45,7 @@
         <div class="section-header">
           <?php
             if($section) {
-              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Some photo\">
+              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Education icon\">
                 <h1 class=\"section-title\">{$section['title']}</h1>";
             }
             else {
@@ -64,11 +71,21 @@
           if(!is_string($categoriesData)) {
             while ($category = mysqli_fetch_assoc($categoriesData)) {
         ?>
-          <?php echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
+            <?php
+            echo "<div class=\"open-category {$category['name']}\">";
+            echo "<div><img class=\"open-category-img media-change\" src=\"images/{$category['banner_photo']}_large.jpg\" alt=\"{$category['title']}\"></div>";
+
+            $short = str_replace("<br>", "", $category['short_desc']);
+
+            echo "<p class=\"open-category-desc\">{$short}</p>";
+            echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>";
+            ?>
+          </div>
+
           <section id="<?php echo $category['name']; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
-                <img src="images/london2_002-5857.jpg" alt="Photo">
+                <img class="media-change" src="images/<?php echo $category['header_photo']; ?>_large.jpg" alt="<?php echo $category['title']; ?>">
               </div>
               <div class="category-info">
                 <h2 class="category-title"><?php echo $category['title']; ?></h2>
@@ -81,13 +98,13 @@
               if(!is_string($itemData)){
                 while ($item = mysqli_fetch_assoc($itemData)) {
             ?>
-            <section class="item">
+            <section class="item clearfix">
               <h3 class="item-title"><?php echo $item['title']; ?></h3>
               <?php
                 if($item['description']) {
                   echo "<p class=\"item-desc\">{$item['description']}</p>";
                 }
-                  echo "<img class=\"item-photo\" src=\"images/downtown_bus.jpg\" alt=\"Photo\">";
+                  echo "<img class=\"item-photo media-change\" src=\"images/{$item['photo']}_large.jpg\" alt=\"{$item['title']}\">";
               ?>
               <address>
               <?php
@@ -145,6 +162,7 @@
       <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
     </main>
 
+    <?php include('includes/partials/partners.html'); ?>
 
     <?php include('includes/partials/footer.html'); ?>
   </div>

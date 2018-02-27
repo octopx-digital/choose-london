@@ -6,7 +6,7 @@ var MIN = 320;
 var MEDIUM = 640;
 var LARGE = 1024;
 var screensize;
-var curSize = 'small';
+var curSize = 'large';
 
 function checkScreenSize() {
   if (this < MEDIUM || window.innerWidth < MEDIUM) {
@@ -21,7 +21,7 @@ function checkScreenSize() {
 //set images size (small, medium or large) on load
 function setImageSize() {
   for (var i = 0; i < this.length; i++) {
-    this[i].src = this[i].src.replace('small', screensize);
+    this[i].src = this[i].src.replace('large', screensize);
   }
   curSize = screensize;
 }

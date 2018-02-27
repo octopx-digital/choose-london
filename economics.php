@@ -18,6 +18,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="css/main.min.css">
   <title>Choose London | Economics</title>
@@ -25,7 +32,7 @@
 <body>
   <div id="container" class="economics">
     <div id="main-banner">
-      <img class="media-change" src="images/<?php echo $section['photo']; ?>_small.jpg" alt="<?php echo $section['title']; ?>">
+      <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
 
@@ -85,7 +92,7 @@
                 while ($item = mysqli_fetch_assoc($itemData)) {
                   $count++;
             ?>
-                  <section class="item">
+                  <section class="item clearfix">
                     <p class="item-count"><?php echo $count; ?></p>
                     <h3 class="item-title"><?php echo $item['title']; ?></h3>
                   </section>
@@ -127,6 +134,7 @@
       <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
     </main>
 
+    <?php include('includes/partials/partners.html'); ?>
 
     <?php include('includes/partials/footer.html'); ?>
   </div>
