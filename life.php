@@ -170,6 +170,7 @@
           </div>
         </div>
       </section>
+            <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
     </main>
 
     <?php include('includes/partials/partners.html'); ?>
