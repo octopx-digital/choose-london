@@ -87,7 +87,7 @@ body {
   font-size: 1rem;
   color: #383838; }
 
-.title, .section-header .section-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
+.title, .section-header .section-title, .pre-category .pre-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
   font-family: "Baloo", Times, Georgia, serif;
   color: #454545;
   text-transform: uppercase;
@@ -354,6 +354,69 @@ footer {
       align-self: center; }
 .open-category.work .open-category-click {
   display: none; }
+
+.pre-category {
+  margin: 1.5rem 0; }
+  .pre-category .pre-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem; }
+  .pre-category .sector {
+    width: 90%;
+    position: relative;
+    border: 2px solid #b10d0e;
+    border-radius: 6px;
+    overflow: visible;
+    margin: 3rem auto 0 auto; }
+    .pre-category .sector .sector-btn {
+      width: 80%;
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      margin: 0 auto;
+      border-radius: 6px;
+      background-color: #b10d0e;
+      padding: 0.5rem; }
+      .pre-category .sector .sector-btn div {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        border: 1px dashed #ffffff;
+        border-radius: 4px;
+        padding: 0.5rem 0;
+        align-items: center; }
+        .pre-category .sector .sector-btn div .sector-img {
+          display: block;
+          height: 2.5rem;
+          justify-self: right; }
+        .pre-category .sector .sector-btn div p {
+          font-size: 1.15rem;
+          font-weight: bold;
+          color: #ffffff;
+          text-transform: uppercase;
+          text-align: left;
+          margin-left: 1rem;
+          align-self: center; }
+    .pre-category .sector .sector-desc {
+      font-size: 1.2rem;
+      color: #383838;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.8rem;
+      margin: 4rem 0 1rem 0; }
+      .pre-category .sector .sector-desc span {
+        font-size: 1.4rem;
+        font-weight: bold; }
+  .pre-category .reason {
+    text-align: center;
+    margin: 2rem 0; }
+    .pre-category .reason .reason-img {
+      width: 75%;
+      margin-bottom: 1rem; }
+    .pre-category .reason .reason-desc {
+      font-size: 1rem;
+      margin: 0 2rem; }
 
 #container.work #positions.category .item-count {
   display: none; }

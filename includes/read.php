@@ -7,7 +7,8 @@
     $result = mysqli_query($link, $querySection);
     if($result){
 			return $result;
-		}else{
+		}
+    else {
 			$error = "There was a problem accessing this information.";
 			return $error;
 		}
@@ -22,7 +23,8 @@
     $result = mysqli_query($link, $queryCategory);
     if($result){
 			return $result;
-		}else{
+		}
+    else {
 			$error = "There was a problem accessing this information.";
 			return $error;
 		}
@@ -35,12 +37,31 @@
 
     $itemQuery = "SELECT it.* FROM category cat, item it, category_item catit WHERE cat.id = {$categoryId} AND cat.id = catit.category_id AND catit.item_id = it.id ORDER BY position";
     $result = mysqli_query($link, $itemQuery);
-    if($result){
+    if($result) {
 			return $result;
-		}else{
+		}
+    else {
 			$error = "There was a problem accessing this information.";
 			return $error;
 		}
+
+    mysqli_close($link);
+  }
+
+  function getItemsByName($categoryName) {
+    include('connect.php');
+
+    $catIdQuery = "SELECT id FROM category WHERE name = {$categoryName}";
+    $catIdRun = mysqli_query($link, $catIdQuery);
+    if($catIdRun) {
+      $category = mysqli_fetch_array($catIdRun);
+      $catItems = getItems($category['id']);
+      return $catItems;
+    }
+    else {
+      $error = "There was a problem accessing this information.";
+			return $error;
+    }
 
     mysqli_close($link);
   }

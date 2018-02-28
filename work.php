@@ -38,7 +38,7 @@
 
 
     <main>
-      <section>
+      <div>
         <div class="section-header">
           <?php
             if($section) {
@@ -61,7 +61,7 @@
             }
           ?>
         </div>
-      </section>
+      </div>
 
       <div id="category-wrapper">
         <?php

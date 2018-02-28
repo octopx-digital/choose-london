@@ -428,6 +428,84 @@ footer {
   }
 }
 
+.pre-category {
+  margin: 1.5rem 0;
+  .pre-title {
+    @extend .title;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .sector {
+    width: 90%;
+    position: relative;
+    border: 2px solid $colorEconomicsButtons;
+    border-radius: 6px;
+    // height: 25vw;
+    overflow: visible;
+    margin: 3rem auto 0 auto;
+    .sector-btn {
+      width: 80%;
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      @include translate(-50%, 0);
+      margin: 0 auto;
+      border-radius: 6px;
+      background-color: $colorEconomicsButtons;
+      padding: 0.5rem;
+      div {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        border: 1px dashed #ffffff;
+        border-radius: 4px;
+        padding: 0.5rem 0;
+        align-items: center;
+
+        .sector-img {
+          display: block;
+          height: 2.5rem;
+          justify-self: right;
+        }
+        p {
+          font-size: 1.15rem;
+          font-weight: bold;
+          color: #ffffff;
+          text-transform: uppercase;
+          text-align: left;
+          margin-left: 1rem;
+          align-self: center;
+        }
+      }
+    }
+    .sector-desc {
+      // width: 80%;
+      // top: 47.5%;
+      font-size: 1.2rem;
+      color: $colorText;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.8rem;
+      margin: 4rem 0 1rem 0;
+      span {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+  }
+  .reason {
+    text-align: center;
+    margin: 2rem 0;
+    .reason-img {
+      width: 75%;
+      margin-bottom: 1rem;
+    }
+    .reason-desc {
+      font-size: 1rem;
+      margin: 0 2rem;
+    }
+  }
+}
+
 #container.work #positions.category {
   .item-count {
     display: none;
@@ -1204,6 +1282,63 @@ footer {
     .open-category-img {
       opacity: 1;
     }
+  }
+}
+
+.pre-category {
+  .pre-title {
+
+
+    // .sector {
+    //   border: 2px solid $colorEconomicsButtons;
+    //   border-radius: 6px;
+    //   height: 25vw;
+    //   overflow: visible;
+    //   .sector-btn {
+    //     width: 80%;
+    //     margin: 0;
+    //     position: absolute;
+    //     top: -1.5rem;
+    //     left: 50%;
+    //     @include translate(-50%, 0);
+    //     padding: 0.25rem;
+    //     div {
+    //       display: grid;
+    //       grid-template-columns: 30% 70%;
+    //       border: 1px dashed #ffffff;
+    //       border-radius: 4px;
+    //       padding: 0.5rem 0;
+    //       background-color: transparent;
+    //
+    //       .sector-img {
+    //         display: block;
+    //         height: 2rem;
+    //         justify-self: right;
+    //       }
+    //       p {
+    //         font-size: 0.9rem;
+    //         font-weight: bold;
+    //         color: #ffffff;
+    //         text-transform: uppercase;
+    //         text-align: left;
+    //         margin-left: 0;
+    //         align-self: center;
+    //       }
+    //     }
+    //   }
+    //   .sector-desc {
+    //     width: 80%;
+    //     top: 47.5%;
+    //     font-size: 1rem;
+    //     color: $colorText;
+    //     opacity: 1;
+    //     &:before,
+    //     &:after {
+    //       content: "";
+    //       border: none;
+    //     }
+    //   }
+    // }
   }
 }
 
