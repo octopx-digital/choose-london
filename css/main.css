@@ -511,6 +511,15 @@ footer {
 .category-desc {
   margin: 2rem; }
 
+.companies-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center; }
+  .companies-wrapper .item.companies {
+    margin: 1rem 0; }
+    .companies-wrapper .item.companies a img {
+      width: 80%; }
+
 .item .item-title {
   font-size: 1.3rem;
   margin-bottom: 1rem; }
@@ -1019,6 +1028,15 @@ footer {
     font-size: 0.8rem;
     position: absolute;
     margin-left: 76.5%; }
+
+  .companies-wrapper {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center; }
+    .companies-wrapper .item.companies {
+      margin: 1rem 0; }
+      .companies-wrapper .item.companies a img {
+        width: 50%; }
 
   .category-header {
     display: grid;

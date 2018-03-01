@@ -635,6 +635,21 @@ footer {
   margin: 2rem;
 }
 
+.companies-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+
+  .item.companies {
+    margin: 1rem 0;
+    a {
+      img {
+        width: 80%;
+      }
+    }
+  }
+}
+
 .item {
   .item-title {
     @extend .title;
@@ -1407,32 +1422,20 @@ footer {
   }
 }
 
+  .companies-wrapper {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
 
-
-  // .open-category-btn {
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  // }
-
-
-  // @for $i from 1 through 3 {
-  //   .open-category-btn:nth-of-type(#{$i}) {
-  //     width: 25%;
-  //     font-size: 1rem;
-  //     // top: -100px;
-  //     margin-left: ($i * 33.3%) - 29%;
-  //   }
-  // }
-  // @for $i from 1 through 4 {
-  //   #container.social .open-category-btn:nth-of-type(#{$i}) {
-  //     width: 22%;
-  //     font-size: 0.8rem;
-  //     position: absolute;
-  //     // top: -100px;
-  //     margin-left: ($i * 25%) - 23.5%;
-  //   }
-  // }
+    .item.companies {
+      margin: 1rem 0;
+      a {
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
 
   .category-header {
     // width: 100%;

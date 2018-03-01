@@ -115,7 +115,7 @@
           for($i = 2; $i < 5; $i++) {
         ?>
         <?php
-          echo "<div class=\"open-category {$category['name']}\">";
+          echo "<div class=\"open-category {$categories[$i]['name']}\">";
           echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\">{$categories[$i]['title']}</button>";
           echo "</div>";
         ?>
@@ -133,25 +133,43 @@
             </div>
           </div>
           <?php
-            $itemData = getItems($categories[$i]['id']);
-            if(!is_string($itemData)){
-              while ($item = mysqli_fetch_assoc($itemData)) {
+            if($categories[$i]['name'] === 'main_companies') {
+              $itemData = getItems($categories[$i]['id']);
+              if(!is_string($itemData)){
+                echo "<div class=\"companies-wrapper\">";
+                while ($item = mysqli_fetch_assoc($itemData)) {
           ?>
-                <section class="item clearfix">
-                  <p class="item-count"><?php echo $count; ?></p>
-                  <h3 class="item-title"><?php echo $item['title']; ?></h3>
-                </section>
+                <div class="item clearfix companies">
+                  <a href="<?php echo $item['website']; ?>" title="<?php echo $item['title']; ?>"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
+                </div>
           <?php
+                }
+                echo "</div>";
+                echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
               }
-            echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
+              else {
+                redirect_to('error.php');
+              }
             }
             else {
-              redirect_to('error.php');
-            }
+              $itemData = getItems($categories[$i]['id']);
+              if(!is_string($itemData)){
+                while ($item = mysqli_fetch_assoc($itemData)) {
+            ?>
+                  <div class="item clearfix">
+                    <a href="<?php echo $item['website']; ?>"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
+                  </div>
+            <?php
+                }
+              }
+              else {
+                redirect_to('error.php');
+              }
           ?>
         </section>
       <?php
           }
+        }
         ?>
       </div>
       <section class="story">
