@@ -516,12 +516,16 @@ footer {
       }
     }
     .close {
+      background-color: $colorEconomicsButtons;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
       margin: 1rem auto;
       display: flex;
       font-size: 0.8rem;
       font-weight: bold;
       text-transform: uppercase;
-      padding: 0.25rem;
+      padding: 0.25rem 0.5rem;
       i {
         display: inline-block;
         font-size: 0.8rem;
@@ -533,16 +537,18 @@ footer {
     height: 67rem;
   }
 
-  .reason {
-    text-align: center;
-    margin: 2rem 0;
-    .reason-img {
-      width: 75%;
-      margin-bottom: 1rem;
-    }
-    .reason-desc {
-      font-size: 1rem;
-      margin: 0 2rem;
+  .reason-wrapper {
+    .reason {
+      text-align: center;
+      margin: 2rem 0;
+      .reason-img {
+        width: 75%;
+        margin-bottom: 1rem;
+      }
+      .reason-desc {
+        font-size: 1rem;
+        margin: 0 2rem;
+      }
     }
   }
 }
@@ -659,6 +665,11 @@ footer {
 
 #container.economics .category-header {
   background-color: $colorEconomicsButtons;
+  .category-info {
+    .category-title {
+      font-size: 2.4rem;
+    }
+  }
 }
 
 #container.social .category-header {
@@ -874,8 +885,15 @@ footer {
 
 .cost-comparison {
   .cost-charts {
+    display: grid;
+    grid-template-columns: 1fr;
     img {
+      margin: 0 2rem 0 0;
       width: 90%;
+      justify-self: center;
+    }
+    img:first-of-type {
+      margin: 0 0 0 2rem;
     }
   }
   .cost-desc {
@@ -943,9 +961,9 @@ footer {
   }
 }
 
-.entrepeneur-desc {
+.entrepreneur-desc {
   p {
-    margin: 5vw;
+    margin: 2rem 5vw;
   }
 }
 
@@ -1288,6 +1306,10 @@ footer {
     padding-top: 28vw;
   }
 
+  #container.economics #category-wrapper {
+    padding-top: 8vw;
+  }
+
 .open-category {
   display: block;
   position: absolute;
@@ -1430,9 +1452,16 @@ footer {
   }
 }
 
+.open-category.economics {
+  .open-category-btn {
+    margin: 0;
+    width: 100%;
+  }
+}
+
 .pre-category {
   .pre-title {
-
+    font-size: 1.8rem;
   }
   .sector-wrapper {
     height: auto;
@@ -1443,6 +1472,15 @@ footer {
 
     .sector {
       grid-column-end: span 2;
+      max-width: 20rem;
+      .sector-btn {
+        div {
+          p {
+            font-size: 1.8vw;
+            margin-left: 0.5rem;
+          }
+        }
+      }
     }
     .sector:first-of-type {
       grid-column-start: 2;
@@ -1453,6 +1491,73 @@ footer {
       display: none;
     }
 
+  }
+
+  .reason-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // .reason {
+    //   // width: 30%;
+    //   // display: inline-block;
+    // }
+  }
+}
+
+.cost-comparison {
+  margin-top: 1rem;
+  .cost-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 1rem;
+    img {
+      width: 90%;
+      justify-self: left;
+    }
+    img:first-of-type {
+      justify-self: right;
+    }
+  }
+  .cost-desc {
+    p {
+      font-size: 1.1rem;
+    }
+  }
+  a {
+    max-width: 18rem;
+  }
+}
+
+.entrepreneur-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  div {
+    width: 70%;
+    max-width: 14rem;
+    margin: 0 auto 1.5rem 2rem;
+    padding: 1.2rem 0.8rem;
+  }
+  div:first-of-type {
+    margin: 0 2rem 1.5rem auto;
+  }
+}
+
+.entrepreneur-desc {
+  p {
+    margin: 2rem 10vw;
+  }
+}
+
+.entrepreneur-orgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 1rem 1rem;
+  img {
+    width: 70%;
+    margin: 1rem 0;
+    align-self: center;
+    justify-self: center;
   }
 }
 
@@ -1831,6 +1936,7 @@ footer {
       flex-direction: row;
       align-items: center;
       height: auto;
+      transition: height 0s;
       div {
         #main-logo {
           width: 70%;
@@ -1845,6 +1951,7 @@ footer {
       #main-nav {
         margin-bottom: 0;
         left: 0;
+        transition: left 0s;
         ul{
           display: flex;
           // left: 0;
@@ -1925,6 +2032,24 @@ footer {
     }
   }
 
+  .pre-category {
+    .pre-title {
+
+    }
+    .sector-wrapper {
+      .sector {
+        .sector-btn {
+          div {
+            p {
+              font-size: 1.2rem;
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .open-category {
     .open-category-desc {
       font-size: 1.72vw;
@@ -1975,6 +2100,16 @@ footer {
   .category-desc {
     @extend .text-large;
     margin: 3rem 12.5vw;
+  }
+
+  .entrepreneur-desc {
+    p {
+      margin: 2rem 10rem;
+    }
+  }
+
+  .entrepreneur-orgs {
+    margin: 1rem 3rem;
   }
 
   .item {

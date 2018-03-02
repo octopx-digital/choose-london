@@ -51,7 +51,7 @@
         <div class="section-header">
           <?php
             if($section) {
-              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Some photo\">
+              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Economics icon\">
                 <h1 class=\"section-title\">{$section['title']}</h1>";
             }
             else {
@@ -97,6 +97,7 @@
 
       <section id="<?php echo $categories[1]['name']; ?>" class="pre-category">
         <h2 class="pre-title"><?php echo $categories[1]['title']; ?></h2>
+        <div class="reason-wrapper">
         <?php
           $itemData = getItems($categories[1]['id']);
           if(!is_string($itemData)){
@@ -111,6 +112,7 @@
             redirect_to('error.php');
           }
         ?>
+        </div>
       </section>
 
       <div id="category-wrapper">
@@ -119,7 +121,7 @@
           for($i = 2; $i < 5; $i++) {
         ?>
         <?php
-          echo "<div class=\"open-category {$categories[$i]['name']}\">";
+          echo "<div class=\"open-category economics {$categories[$i]['name']}\">";
           echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\">{$categories[$i]['title']}</button>";
           echo "</div>";
         ?>
@@ -200,7 +202,7 @@
                     <p class="fact-number"><?php echo $items[1]['description']; ?></p>
                   </div>
                 </section>
-                <section class="entrepeneur-desc">
+                <section class="entrepreneur-desc">
                   <h3 class="hidden">Entrepreneurship Description</h3>
                   <p><?php echo $items[2]['description']; ?></p>
                 </section>
@@ -209,11 +211,12 @@
                   <?php for($i = 3; $i < 7; $i++) { ?>
                   <img src="images/<?php echo $items[$i]['photo']; ?>.png" alt="<?php echo $items[$i]['title']; ?> Logo">
                 <?php } ?>
-                  <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
                 </section>
+                <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
             <?php
               }
             }
+            echo "</section>";
           }
             ?>
       </div>
