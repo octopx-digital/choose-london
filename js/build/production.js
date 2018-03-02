@@ -49,8 +49,11 @@ window.addEventListener('resize', changeImageSize, false);
   var hambMenu = header.querySelector('#hamburger-menu');
   var storyArrow = document.querySelector('.story-check > i');
   let topButton = document.querySelector('.back-to-top');
+  var sectorButton = document.querySelector('.sector-wrapper > .open');
+  var sectorClose = document.querySelector('.sector-wrapper > .close');
   var menuOpen = false;
   var storyOpen = false;
+  var sectorOpen = false;
 
   function checkScrollMenu() {
     // if menu is open, close it when scroll
@@ -120,6 +123,25 @@ window.addEventListener('resize', changeImageSize, false);
       bodyarea.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
   }
 
+  // open Business Sector section on Economics page for mobile
+  function openBusinessSector(evt) {
+    evt.preventDefault();
+    let sectorDiv = document.querySelector('.sector-wrapper');
+    let sectorArrow = sectorButton.querySelector('i');
+    if (!sectorOpen) {
+      sectorOpen = true;
+      sectorDiv.classList.add('open');
+      sectorArrow.classList.remove('ion-arrow-down-b');
+      sectorArrow.classList.add('ion-arrow-up-b');
+    }
+    else {
+      sectorOpen = false;
+      sectorDiv.classList.remove('open');
+      sectorArrow.classList.remove('ion-arrow-up-b');
+      sectorArrow.classList.add('ion-arrow-down-b');
+    }
+  }
+
   // function openMenu() {
   //   menuTl.to(menu, 1, {left: 0, opacity: 1, ease: Expo.easeInOut});
   // }
@@ -157,4 +179,6 @@ window.addEventListener('resize', changeImageSize, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);
+  sectorButton.addEventListener('click', openBusinessSector, false);
+  sectorClose.addEventListener('click', openBusinessSector, false);
 })();

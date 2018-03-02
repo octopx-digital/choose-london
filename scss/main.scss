@@ -428,6 +428,131 @@ footer {
   }
 }
 
+.pre-category {
+  margin: 1.5rem 0;
+  .pre-title {
+    @extend .title;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .sector-wrapper {
+    height: 4.5rem;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    .open {
+      background-color: $colorEconomicsButtons;
+      border: none;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.2rem 0.5rem 0 0.5rem;
+      cursor: pointer;
+      outline: 0;
+      span {
+        font-size: 0.9rem;
+        // font-weight: normal;
+      }
+      i {
+        display: block;
+        font-size: 1.2rem;
+      }
+    }
+    .sector {
+      width: 90%;
+      position: relative;
+      border: 2px solid $colorEconomicsButtons;
+      border-radius: 6px;
+      // height: 25vw;
+      overflow: visible;
+      margin: 3rem auto 0 auto;
+      .sector-btn {
+        width: 80%;
+        position: absolute;
+        top: -1.5rem;
+        left: 50%;
+        @include translate(-50%, 0);
+        margin: 0 auto;
+        border-radius: 6px;
+        background-color: $colorEconomicsButtons;
+        padding: 0.5rem;
+        div {
+          display: grid;
+          grid-template-columns: 20% 80%;
+          border: 1px dashed #ffffff;
+          border-radius: 4px;
+          padding: 0.5rem 0;
+          align-items: center;
+
+          .sector-img {
+            display: block;
+            height: 2.5rem;
+            justify-self: right;
+          }
+          p {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: left;
+            margin-left: 1rem;
+            align-self: center;
+          }
+        }
+      }
+      .sector-desc {
+        // width: 80%;
+        // top: 47.5%;
+        font-size: 1.2rem;
+        color: $colorText;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.8rem;
+        margin: 4rem 0 1rem 0;
+        span {
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+      }
+    }
+    .close {
+      background-color: $colorEconomicsButtons;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      margin: 1rem auto;
+      display: flex;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem;
+      i {
+        display: inline-block;
+        font-size: 0.8rem;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+  .sector-wrapper.open {
+    height: 67rem;
+  }
+
+  .reason-wrapper {
+    .reason {
+      text-align: center;
+      margin: 2rem 0;
+      .reason-img {
+        width: 75%;
+        margin-bottom: 1rem;
+      }
+      .reason-desc {
+        font-size: 1rem;
+        margin: 0 2rem;
+      }
+    }
+  }
+}
+
 #container.work #positions.category {
   .item-count {
     display: none;
@@ -540,6 +665,11 @@ footer {
 
 #container.economics .category-header {
   background-color: $colorEconomicsButtons;
+  .category-info {
+    .category-title {
+      font-size: 2.4rem;
+    }
+  }
 }
 
 #container.social .category-header {
@@ -555,6 +685,21 @@ footer {
 .category-desc {
   @extend .text;
   margin: 2rem;
+}
+
+.companies-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+
+  .item.companies {
+    margin: 1rem 0;
+    a {
+      img {
+        width: 80%;
+      }
+    }
+  }
 }
 
 .item {
@@ -738,6 +883,101 @@ footer {
   }
 }
 
+.cost-comparison {
+  .cost-charts {
+    display: grid;
+    grid-template-columns: 1fr;
+    img {
+      margin: 0 2rem 0 0;
+      width: 90%;
+      justify-self: center;
+    }
+    img:first-of-type {
+      margin: 0 0 0 2rem;
+    }
+  }
+  .cost-desc {
+    width: 70%;
+    margin: 0 auto 1rem auto;
+    border: 3px solid $colorEconomicsButtons;
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    p {
+      font-size: 0.9rem;
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    width: 70%;
+    background-color: $colorEconomicsButtons;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+.entrepreneur-facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+  div {
+    width: 70%;
+    margin: 0 auto 1.5rem auto;
+    padding: 1.2rem 0.8rem;
+    border: 3px solid $colorEconomicsButtons;
+    border-radius: 15px;
+
+    .fact-title {
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-weight: bold;
+      span {
+        display: inline-block;
+        padding-bottom: 0.3rem;
+        font-size: 2rem;
+      }
+    }
+    .fact-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $colorEconomicsButtons;
+      margin-top: 0.5rem;
+      span {
+        font-size: 3.2rem;
+      }
+      sup {
+        vertical-align: super;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.entrepreneur-desc {
+  p {
+    margin: 2rem 5vw;
+  }
+}
+
+.entrepreneur-orgs {
+  display: grid;
+  margin: 1rem 0;
+  img {
+    width: 70%;
+    margin: 1rem 0;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
 .close-category-btn {
   clear: both;
   background-color: #ffffff;
@@ -792,6 +1032,7 @@ footer {
         margin-top: -0.2rem;
         border: 3px solid #ffffff;
         border-radius: 100%;
+        align-self: center;
         // transform: skew(8deg, 0.3deg);
       }
     }
@@ -1065,6 +1306,10 @@ footer {
     padding-top: 28vw;
   }
 
+  #container.economics #category-wrapper {
+    padding-top: 8vw;
+  }
+
 .open-category {
   display: block;
   position: absolute;
@@ -1207,6 +1452,115 @@ footer {
   }
 }
 
+.open-category.economics {
+  .open-category-btn {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.pre-category {
+  .pre-title {
+    font-size: 1.8rem;
+  }
+  .sector-wrapper {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-start: 2;
+    margin: 0 2rem;
+
+    .sector {
+      grid-column-end: span 2;
+      max-width: 20rem;
+      .sector-btn {
+        div {
+          p {
+            font-size: 1.8vw;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+    .sector:first-of-type {
+      grid-column-start: 2;
+    }
+
+    .open,
+    .close {
+      display: none;
+    }
+
+  }
+
+  .reason-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // .reason {
+    //   // width: 30%;
+    //   // display: inline-block;
+    // }
+  }
+}
+
+.cost-comparison {
+  margin-top: 1rem;
+  .cost-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 1rem;
+    img {
+      width: 90%;
+      justify-self: left;
+    }
+    img:first-of-type {
+      justify-self: right;
+    }
+  }
+  .cost-desc {
+    p {
+      font-size: 1.1rem;
+    }
+  }
+  a {
+    max-width: 18rem;
+  }
+}
+
+.entrepreneur-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  div {
+    width: 70%;
+    max-width: 14rem;
+    margin: 0 auto 1.5rem 2rem;
+    padding: 1.2rem 0.8rem;
+  }
+  div:first-of-type {
+    margin: 0 2rem 1.5rem auto;
+  }
+}
+
+.entrepreneur-desc {
+  p {
+    margin: 2rem 10vw;
+  }
+}
+
+.entrepreneur-orgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 1rem 1rem;
+  img {
+    width: 70%;
+    margin: 1rem 0;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
 #container.life .open-category .open-category-desc {
   &:before,
   &:after {
@@ -1272,32 +1626,20 @@ footer {
   }
 }
 
+  .companies-wrapper {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
 
-
-  // .open-category-btn {
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  // }
-
-
-  // @for $i from 1 through 3 {
-  //   .open-category-btn:nth-of-type(#{$i}) {
-  //     width: 25%;
-  //     font-size: 1rem;
-  //     // top: -100px;
-  //     margin-left: ($i * 33.3%) - 29%;
-  //   }
-  // }
-  // @for $i from 1 through 4 {
-  //   #container.social .open-category-btn:nth-of-type(#{$i}) {
-  //     width: 22%;
-  //     font-size: 0.8rem;
-  //     position: absolute;
-  //     // top: -100px;
-  //     margin-left: ($i * 25%) - 23.5%;
-  //   }
-  // }
+    .item.companies {
+      margin: 1rem 0;
+      a {
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
 
   .category-header {
     // width: 100%;
@@ -1594,6 +1936,7 @@ footer {
       flex-direction: row;
       align-items: center;
       height: auto;
+      transition: height 0s;
       div {
         #main-logo {
           width: 70%;
@@ -1608,6 +1951,7 @@ footer {
       #main-nav {
         margin-bottom: 0;
         left: 0;
+        transition: left 0s;
         ul{
           display: flex;
           // left: 0;
@@ -1688,6 +2032,24 @@ footer {
     }
   }
 
+  .pre-category {
+    .pre-title {
+
+    }
+    .sector-wrapper {
+      .sector {
+        .sector-btn {
+          div {
+            p {
+              font-size: 1.2rem;
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .open-category {
     .open-category-desc {
       font-size: 1.72vw;
@@ -1738,6 +2100,16 @@ footer {
   .category-desc {
     @extend .text-large;
     margin: 3rem 12.5vw;
+  }
+
+  .entrepreneur-desc {
+    p {
+      margin: 2rem 10rem;
+    }
+  }
+
+  .entrepreneur-orgs {
+    margin: 1rem 3rem;
   }
 
   .item {

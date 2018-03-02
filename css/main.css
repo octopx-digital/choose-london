@@ -87,7 +87,7 @@ body {
   font-size: 1rem;
   color: #383838; }
 
-.title, .section-header .section-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
+.title, .section-header .section-title, .pre-category .pre-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
   font-family: "Baloo", Times, Georgia, serif;
   color: #454545;
   text-transform: uppercase;
@@ -355,6 +355,105 @@ footer {
 .open-category.work .open-category-click {
   display: none; }
 
+.pre-category {
+  margin: 1.5rem 0; }
+  .pre-category .pre-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem; }
+  .pre-category .sector-wrapper {
+    height: 4.5rem;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out; }
+    .pre-category .sector-wrapper .open {
+      background-color: #b10d0e;
+      border: none;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.2rem 0.5rem 0 0.5rem;
+      cursor: pointer;
+      outline: 0; }
+      .pre-category .sector-wrapper .open span {
+        font-size: 0.9rem; }
+      .pre-category .sector-wrapper .open i {
+        display: block;
+        font-size: 1.2rem; }
+    .pre-category .sector-wrapper .sector {
+      width: 90%;
+      position: relative;
+      border: 2px solid #b10d0e;
+      border-radius: 6px;
+      overflow: visible;
+      margin: 3rem auto 0 auto; }
+      .pre-category .sector-wrapper .sector .sector-btn {
+        width: 80%;
+        position: absolute;
+        top: -1.5rem;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        margin: 0 auto;
+        border-radius: 6px;
+        background-color: #b10d0e;
+        padding: 0.5rem; }
+        .pre-category .sector-wrapper .sector .sector-btn div {
+          display: grid;
+          grid-template-columns: 20% 80%;
+          border: 1px dashed #ffffff;
+          border-radius: 4px;
+          padding: 0.5rem 0;
+          align-items: center; }
+          .pre-category .sector-wrapper .sector .sector-btn div .sector-img {
+            display: block;
+            height: 2.5rem;
+            justify-self: right; }
+          .pre-category .sector-wrapper .sector .sector-btn div p {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: left;
+            margin-left: 1rem;
+            align-self: center; }
+      .pre-category .sector-wrapper .sector .sector-desc {
+        font-size: 1.2rem;
+        color: #383838;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.8rem;
+        margin: 4rem 0 1rem 0; }
+        .pre-category .sector-wrapper .sector .sector-desc span {
+          font-size: 1.4rem;
+          font-weight: bold; }
+    .pre-category .sector-wrapper .close {
+      background-color: #b10d0e;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      margin: 1rem auto;
+      display: flex;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem; }
+      .pre-category .sector-wrapper .close i {
+        display: inline-block;
+        font-size: 0.8rem;
+        margin-right: 0.25rem; }
+  .pre-category .sector-wrapper.open {
+    height: 67rem; }
+  .pre-category .reason-wrapper .reason {
+    text-align: center;
+    margin: 2rem 0; }
+    .pre-category .reason-wrapper .reason .reason-img {
+      width: 75%;
+      margin-bottom: 1rem; }
+    .pre-category .reason-wrapper .reason .reason-desc {
+      font-size: 1rem;
+      margin: 0 2rem; }
+
 #container.work #positions.category .item-count {
   display: none; }
 
@@ -437,6 +536,8 @@ footer {
 
 #container.economics .category-header {
   background-color: #b10d0e; }
+  #container.economics .category-header .category-info .category-title {
+    font-size: 2.4rem; }
 
 #container.social .category-header {
   background-color: #6e4881; }
@@ -447,6 +548,15 @@ footer {
 
 .category-desc {
   margin: 2rem; }
+
+.companies-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center; }
+  .companies-wrapper .item.companies {
+    margin: 1rem 0; }
+    .companies-wrapper .item.companies a img {
+      width: 80%; }
 
 .item .item-title {
   font-size: 1.3rem;
@@ -552,6 +662,79 @@ footer {
   .item.nocontent ~ .item.nocontent:before {
     content: ""; }
 
+.cost-comparison .cost-charts {
+  display: grid;
+  grid-template-columns: 1fr; }
+  .cost-comparison .cost-charts img {
+    margin: 0 2rem 0 0;
+    width: 90%;
+    justify-self: center; }
+  .cost-comparison .cost-charts img:first-of-type {
+    margin: 0 0 0 2rem; }
+.cost-comparison .cost-desc {
+  width: 70%;
+  margin: 0 auto 1rem auto;
+  border: 3px solid #b10d0e;
+  border-radius: 8px;
+  padding: 1rem 0.5rem; }
+  .cost-comparison .cost-desc p {
+    font-size: 0.9rem; }
+    .cost-comparison .cost-desc p span {
+      font-weight: bold; }
+.cost-comparison a {
+  display: inline-block;
+  width: 70%;
+  background-color: #b10d0e;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.entrepreneur-facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 2rem; }
+  .entrepreneur-facts div {
+    width: 70%;
+    margin: 0 auto 1.5rem auto;
+    padding: 1.2rem 0.8rem;
+    border: 3px solid #b10d0e;
+    border-radius: 15px; }
+    .entrepreneur-facts div .fact-title {
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-weight: bold; }
+      .entrepreneur-facts div .fact-title span {
+        display: inline-block;
+        padding-bottom: 0.3rem;
+        font-size: 2rem; }
+    .entrepreneur-facts div .fact-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #b10d0e;
+      margin-top: 0.5rem; }
+      .entrepreneur-facts div .fact-number span {
+        font-size: 3.2rem; }
+      .entrepreneur-facts div .fact-number sup {
+        vertical-align: super;
+        font-size: 0.8rem; }
+
+.entrepreneur-desc p {
+  margin: 2rem 5vw; }
+
+.entrepreneur-orgs {
+  display: grid;
+  margin: 1rem 0; }
+  .entrepreneur-orgs img {
+    width: 70%;
+    margin: 1rem 0;
+    align-self: center;
+    justify-self: center; }
+
 .close-category-btn {
   clear: both;
   background-color: #ffffff;
@@ -594,7 +777,8 @@ footer {
       max-width: 4rem;
       margin-top: -0.2rem;
       border: 3px solid #ffffff;
-      border-radius: 100%; }
+      border-radius: 100%;
+      align-self: center; }
     .story .story-wrapper .story-text {
       display: flex;
       flex-direction: column; }
@@ -778,6 +962,9 @@ footer {
   #category-wrapper {
     padding-top: 28vw; }
 
+  #container.economics #category-wrapper {
+    padding-top: 8vw; }
+
   .open-category {
     display: block;
     position: absolute;
@@ -896,6 +1083,75 @@ footer {
   .open-category.work:hover div .open-category-img {
     opacity: 1; }
 
+  .open-category.economics .open-category-btn {
+    margin: 0;
+    width: 100%; }
+
+  .pre-category .pre-title {
+    font-size: 1.8rem; }
+  .pre-category .sector-wrapper {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-start: 2;
+    margin: 0 2rem; }
+    .pre-category .sector-wrapper .sector {
+      grid-column-end: span 2;
+      max-width: 20rem; }
+      .pre-category .sector-wrapper .sector .sector-btn div p {
+        font-size: 1.8vw;
+        margin-left: 0.5rem; }
+    .pre-category .sector-wrapper .sector:first-of-type {
+      grid-column-start: 2; }
+    .pre-category .sector-wrapper .open,
+    .pre-category .sector-wrapper .close {
+      display: none; }
+  .pre-category .reason-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; }
+
+  .cost-comparison {
+    margin-top: 1rem; }
+    .cost-comparison .cost-charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      margin-bottom: 1rem; }
+      .cost-comparison .cost-charts img {
+        width: 90%;
+        justify-self: left; }
+      .cost-comparison .cost-charts img:first-of-type {
+        justify-self: right; }
+    .cost-comparison .cost-desc p {
+      font-size: 1.1rem; }
+    .cost-comparison a {
+      max-width: 18rem; }
+
+  .entrepreneur-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2rem; }
+    .entrepreneur-facts div {
+      width: 70%;
+      max-width: 14rem;
+      margin: 0 auto 1.5rem 2rem;
+      padding: 1.2rem 0.8rem; }
+    .entrepreneur-facts div:first-of-type {
+      margin: 0 2rem 1.5rem auto; }
+
+  .entrepreneur-desc p {
+    margin: 2rem 10vw; }
+
+  .entrepreneur-orgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 1rem 1rem; }
+    .entrepreneur-orgs img {
+      width: 70%;
+      margin: 1rem 0;
+      align-self: center;
+      justify-self: center; }
+
   #container.life .open-category .open-category-desc:before, #container.life .open-category .open-category-desc:after {
     border-top-color: #008300; }
 
@@ -956,6 +1212,15 @@ footer {
     font-size: 0.8rem;
     position: absolute;
     margin-left: 76.5%; }
+
+  .companies-wrapper {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center; }
+    .companies-wrapper .item.companies {
+      margin: 1rem 0; }
+      .companies-wrapper .item.companies a img {
+        width: 50%; }
 
   .category-header {
     display: grid;
@@ -1116,7 +1381,8 @@ footer {
   #main-banner header {
     flex-direction: row;
     align-items: center;
-    height: auto; }
+    height: auto;
+    transition: height 0s; }
     #main-banner header div #main-logo {
       width: 70%;
       max-width: 20rem;
@@ -1125,7 +1391,8 @@ footer {
       display: none; }
     #main-banner header #main-nav {
       margin-bottom: 0;
-      left: 0; }
+      left: 0;
+      transition: left 0s; }
       #main-banner header #main-nav ul {
         display: flex; }
         #main-banner header #main-nav ul li a {
@@ -1171,6 +1438,10 @@ footer {
       font-size: 1.2rem;
       line-height: 1.7rem; }
 
+  .pre-category .sector-wrapper .sector .sector-btn div p {
+    font-size: 1.2rem;
+    margin-left: 0.5rem; }
+
   .open-category .open-category-desc {
     font-size: 1.72vw;
     line-height: 3.125vw; }
@@ -1195,6 +1466,12 @@ footer {
 
   .category-desc {
     margin: 3rem 12.5vw; }
+
+  .entrepreneur-desc p {
+    margin: 2rem 10rem; }
+
+  .entrepreneur-orgs {
+    margin: 1rem 3rem; }
 
   .item {
     padding: 0 3.6vw; }
