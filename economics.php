@@ -74,6 +74,8 @@
 
       <section id="<?php echo $categories[0]['name']; ?>" class="pre-category">
         <h2 class="pre-title"><?php echo $categories[0]['title']; ?></h2>
+        <div class="sector-wrapper">
+          <button class="open" type="button" name="read-more">Business Sectors in London<br><span>read more...</span><i class="ion-arrow-down-b"></i></button>
         <?php
           $itemData = getItems($categories[0]['id']);
           if(!is_string($itemData)){
@@ -89,6 +91,8 @@
             redirect_to('error.php');
           }
         ?>
+          <button class="close" type="button" name="<?php echo $categories[0]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+        </div>
       </section>
 
       <section id="<?php echo $categories[1]['name']; ?>" class="pre-category">
@@ -133,6 +137,32 @@
             </div>
           </div>
           <?php
+            if($categories[$i]['name'] === 'cost_life') {
+              $itemData = getItems($categories[$i]['id']);
+              if(!is_string($itemData)){
+                $items = array();
+                while ($item = mysqli_fetch_assoc($itemData)) {
+                  $items[] = $item;
+                }
+          ?>
+              <section class="cost-comparison">
+                <h3 class="hidden">Cost of Life Comparison London x Toronto</h3>
+                <div class="cost-charts">
+                  <img src="images/<?php echo $items[0]['photo']; ?>.png" alt="<?php echo $items[0]['title']; ?>">
+                  <img src="images/<?php echo $items[1]['photo']; ?>.png" alt="<?php echo $items[1]['title']; ?>">
+                </div>
+                <div class="cost-desc">
+                  <p><?php echo $items[2]['description']; ?></p>
+                </div>
+                <a href="https://www.expatistan.com/cost-of-living">Cost of life calculator</a>
+                <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+              </section>
+          <?php
+              }
+            }
+           ?>
+
+          <?php
             if($categories[$i]['name'] === 'main_companies') {
               $itemData = getItems($categories[$i]['id']);
               if(!is_string($itemData)){
@@ -151,26 +181,41 @@
                 redirect_to('error.php');
               }
             }
-            else {
+            else if($categories[$i]['name'] === 'entrepreneurship') {
               $itemData = getItems($categories[$i]['id']);
               if(!is_string($itemData)){
+                $items = array();
                 while ($item = mysqli_fetch_assoc($itemData)) {
-            ?>
-                  <div class="item clearfix">
-                    <a href="<?php echo $item['website']; ?>"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
-                  </div>
-            <?php
+                  $items[] = $item;
                 }
+            ?>
+                <section class="entrepreneur-facts">
+                  <h3 class="hidden">Entrepreneurship Facts</h3>
+                  <div id="<?php echo $items[0]['name']; ?>">
+                    <p class="fact-title"><?php echo $items[0]['title']; ?></p>
+                    <p class="fact-number"><?php echo $items[0]['description']; ?></p>
+                  </div>
+                  <div id="<?php echo $items[1]['name']; ?>">
+                    <p class="fact-title"><?php echo $items[1]['title']; ?></p>
+                    <p class="fact-number"><?php echo $items[1]['description']; ?></p>
+                  </div>
+                </section>
+                <section class="entrepeneur-desc">
+                  <h3 class="hidden">Entrepreneurship Description</h3>
+                  <p><?php echo $items[2]['description']; ?></p>
+                </section>
+                <section class="entrepreneur-orgs">
+                  <h3 class="hidden">Entrepreneurship Organizations</h3>
+                  <?php for($i = 3; $i < 7; $i++) { ?>
+                  <img src="images/<?php echo $items[$i]['photo']; ?>.png" alt="<?php echo $items[$i]['title']; ?> Logo">
+                <?php } ?>
+                  <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+                </section>
+            <?php
               }
-              else {
-                redirect_to('error.php');
-              }
-          ?>
-        </section>
-      <?php
+            }
           }
-        }
-        ?>
+            ?>
       </div>
       <section class="story">
         <h2 class="hidden">Story</h2>
