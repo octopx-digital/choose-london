@@ -45,6 +45,32 @@ INSERT INTO `category` VALUES (1,'parks','Parks','Commonly known as \"The Forest
 UNLOCK TABLES;
 
 --
+-- Table structure for table `category_icon`
+--
+
+DROP TABLE IF EXISTS `category_icon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `category_icon` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` smallint(6) NOT NULL,
+  `icon_id` smallint(6) NOT NULL,
+  `position` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `category_icon`
+--
+
+LOCK TABLES `category_icon` WRITE;
+/*!40000 ALTER TABLE `category_icon` DISABLE KEYS */;
+INSERT INTO `category_icon` VALUES (1,2,3,1),(2,2,4,2),(3,2,5,4),(4,2,6,3),(5,2,7,5),(6,2,8,6),(7,5,9,1),(8,5,10,2),(9,5,11,3),(10,6,24,1),(11,6,25,2),(12,6,26,3);
+/*!40000 ALTER TABLE `category_icon` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `category_item`
 --
 
@@ -68,6 +94,35 @@ LOCK TABLES `category_item` WRITE;
 /*!40000 ALTER TABLE `category_item` DISABLE KEYS */;
 INSERT INTO `category_item` VALUES (1,1,1,1),(2,1,2,2),(3,1,3,3),(4,1,4,4),(5,1,5,5),(6,1,6,6),(7,3,7,1),(8,3,8,2),(9,3,9,3),(10,4,10,1),(11,4,11,2),(12,5,12,1),(13,5,13,2),(14,5,14,3),(15,6,15,1),(16,6,16,2),(17,6,17,3),(18,7,18,1),(19,7,19,2),(20,7,20,3),(21,7,21,4),(22,7,22,5),(23,8,23,1),(24,8,24,2),(25,8,25,3),(26,8,26,4),(27,9,27,1),(28,9,28,2),(29,9,29,3),(30,10,30,1),(31,10,31,2),(32,10,32,3),(33,10,33,4),(34,11,34,1),(35,11,35,2),(36,11,36,3),(37,12,37,1),(38,12,38,2),(39,13,39,1),(40,13,40,2),(41,13,41,3),(42,17,42,1),(43,17,43,2),(44,17,44,3),(45,17,45,4),(46,17,46,5),(47,18,47,1),(48,18,48,2),(49,18,49,3),(50,15,50,1),(51,15,51,2),(52,15,52,3),(53,15,53,4),(54,15,54,6),(55,15,55,8),(56,15,56,5),(57,15,57,9),(58,15,58,11),(59,15,59,10),(60,15,60,7),(61,15,61,12),(62,16,62,1),(63,16,63,2),(64,16,64,3),(65,16,65,4),(66,16,66,5),(67,16,67,6),(68,16,68,7),(69,14,69,1),(70,14,70,2),(71,14,71,3);
 /*!40000 ALTER TABLE `category_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `icon`
+--
+
+DROP TABLE IF EXISTS `icon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `icon` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `alt` varchar(100) DEFAULT NULL,
+  `longfield` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `icon`
+--
+
+LOCK TABLES `icon` WRITE;
+/*!40000 ALTER TABLE `icon` DISABLE KEYS */;
+INSERT INTO `icon` VALUES (1,'population','494,069','People live in the city','icon-life-people','People icon','long'),(2,'large_city','15<sup>th</sup>','Largest city <br>in Canada','icon-life-arrow','Arrow up icon',NULL),(3,'safe_city','10<sup>th</sup>','Safest city <br>in Ontario','',NULL,NULL),(4,'trees','358,000','Trees planted for the <br>Million Tree Challenge',NULL,NULL,'long'),(5,'crime_rate','-12<sup>%</sup>','Crime rate the <br>past 5 years',NULL,NULL,NULL),(6,'women_live','6<sup>th</sup>','Best Place for <br>women to live',NULL,NULL,NULL),(7,'best_neighborhood','Woodfield','Best neighborhood <br>in Canada in 2016','icon-life-stars','Stars icon','long'),(8,'volunteer','60<sup>%</sup>','of Londoners <br>volunteer','',NULL,NULL),(9,'high_schools','156','High Schools','education-high','High Schools',NULL),(10,'middle_schools','150','Middle Schools','education-middle','Middle Schools',NULL),(11,'elementary_schools','152','Elementary Schools','education-elementary','Elementary Schools',NULL),(12,'jack_chambers_position','119','2900','education-trophy','Jack Chambers Position',NULL),(13,'jack_chambers_rating','8.5',NULL,'education-4stars','4 stars',NULL),(14,'masonville_school_position','157','2900','education-trophy','Masonville School Position',NULL),(15,'masonville_school_rating','8.3',NULL,'education-4stars','4 stars',NULL),(16,'london_central_position','6','740','education-trophy','London Central Position',NULL),(17,'london_central_rating','9.0',NULL,'education-5stars','5 stars',NULL),(18,'western_alumni','310,000','Alumni living worldwide','education-globe','Student globe',NULL),(19,'western_founded','1878','Founded in','education-flag','Flag',NULL),(20,'western_students','+29,000','Undergraduate and <br>Graduate students','education-students-wes','Students',NULL),(21,'fanshawe_programs','+200','Programs','education-programs','Programs',NULL),(22,'fanshawe_students','43,000','Students each year','education-students-fan','Students',NULL),(23,'fanshawe_countries','65 <span>countries</span>','Students from more than','education-countries','Map',NULL),(24,'esl_immigrants','94,690','Immigrants in London','education-passport','Passport',NULL),(25,'esl_first_language','17.8%','English/French is <br>not 1st language','education-book','Book',NULL),(26,'esl_english_french','6,485','Don\'t speak English nor French','education-en-fr','English and French',NULL),(27,'employment_rate','+16<sub>%</sub>','2017 <span>vs</span> 2016',NULL,NULL,NULL),(28,'job_postings','7,400','Job postings',NULL,NULL,NULL),(29,'full_time_positions','77<sub>%</sub>','Full-time',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `icon` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,6 +157,32 @@ INSERT INTO `item` VALUES (1,'springbank_park','Springbank Park','Springbank Par
 UNLOCK TABLES;
 
 --
+-- Table structure for table `item_icon`
+--
+
+DROP TABLE IF EXISTS `item_icon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `item_icon` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `item_id` tinyint(4) NOT NULL,
+  `icon_id` smallint(6) NOT NULL,
+  `position` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `item_icon`
+--
+
+LOCK TABLES `item_icon` WRITE;
+/*!40000 ALTER TABLE `item_icon` DISABLE KEYS */;
+INSERT INTO `item_icon` VALUES (1,2,3,1),(2,2,4,2),(3,2,5,3),(4,2,6,4),(5,2,7,5),(6,2,8,6),(7,10,18,1),(8,10,19,2),(9,10,20,3),(10,11,21,1),(11,11,22,2),(12,11,23,3),(13,37,27,1),(14,37,28,2),(15,37,29,3);
+/*!40000 ALTER TABLE `item_icon` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `section`
 --
 
@@ -112,11 +193,11 @@ CREATE TABLE `section` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
+  `description` text DEFAULT NULL,
   `photo` varchar(200) NOT NULL,
-  `icon` varchar(200) NOT NULL,
+  `icon` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +206,7 @@ CREATE TABLE `section` (
 
 LOCK TABLES `section` WRITE;
 /*!40000 ALTER TABLE `section` DISABLE KEYS */;
-INSERT INTO `section` VALUES (1,'life','Life in London','Creative cities enhance quality of life and London definitely counts with an energetic and engaged community. Our neighborhoods have extraordinary attractions, amenities, heritage, and social opportunities. The inclusive community allows all residents to have a role in helping shaping its future.','banner_life','icon_life'),(2,'education','Education in London','London is a city proud to be a place where people meet and futures are made. Students are encouraged to engage and be hands-on with what they love - creating something, solving problems, helping others - and building a foundation for a lifetime of happiness and success. Students from more than 100 countries share in classroom experiences that broaden personal perspectives and understanding here in London. The city\'s education institutions prides themselves on challenging the best and brightest faculty, staff and students to commit to the highest global standards.','banner_education','icon_education'),(3,'work','Work in London','London has been built on innovative local start-up ventures finding a niche market and growing into successful Canadian and global players. The city has a solid reputation for specialized, well-educated and experienced professionals, what provides affordability, safety and a good work/life balance.','banner_work','icon_work'),(4,'economics','London Economics','Historically, London and Southwestern\'s economy has been an engine of economic growth in Ontario, powered mainly by manufacturing and food-processing industries. More recently, medical research, insurance and information technology have become important fields of London\'s economy, representing significative numbers on employment and market. The city has transitioned to evolve into a technology hub with a focus on the Digital Creative sector.','banner_economics','icon_economics'),(5,'social','Social in London','With a small-town personality and big-city structure, London offers a great lifestyle for young professionals and families. No matter what may be your interests, from music, food or outdoor activities, you\'ll be sure to discover many attractions in this vibrant city.','banner_social','icon_social');
+INSERT INTO `section` VALUES (1,'life','Life in London','Creative cities enhance quality of life and London definitely counts with an energetic and engaged community. Our neighborhoods have extraordinary attractions, amenities, heritage, and social opportunities. The inclusive community allows all residents to have a role in helping shaping its future.','banner_life','icon_life'),(2,'education','Education in London','London is a city proud to be a place where people meet and futures are made. Students are encouraged to engage and be hands-on with what they love - creating something, solving problems, helping others - and building a foundation for a lifetime of happiness and success. Students from more than 100 countries share in classroom experiences that broaden personal perspectives and understanding here in London. The city\'s education institutions prides themselves on challenging the best and brightest faculty, staff and students to commit to the highest global standards.','banner_education','icon_education'),(3,'work','Work in London','London has been built on innovative local start-up ventures finding a niche market and growing into successful Canadian and global players. The city has a solid reputation for specialized, well-educated and experienced professionals, what provides affordability, safety and a good work/life balance.','banner_work','icon_work'),(4,'economics','London Economics','Historically, London and Southwestern\'s economy has been an engine of economic growth in Ontario, powered mainly by manufacturing and food-processing industries. More recently, medical research, insurance and information technology have become important fields of London\'s economy, representing significative numbers on employment and market. The city has transitioned to evolve into a technology hub with a focus on the Digital Creative sector.','banner_economics','icon_economics'),(5,'social','Social in London','With a small-town personality and big-city structure, London offers a great lifestyle for young professionals and families. No matter what may be your interests, from music, food or outdoor activities, you\'ll be sure to discover many attractions in this vibrant city.','banner_social','icon_social'),(6,'home','Home',NULL,'banner_home',NULL);
 /*!40000 ALTER TABLE `section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,6 +235,61 @@ LOCK TABLES `section_category` WRITE;
 INSERT INTO `section_category` VALUES (1,1,1,1),(2,1,2,2),(3,1,3,3),(4,2,4,1),(5,2,5,2),(6,2,6,3),(7,5,7,1),(8,5,8,2),(9,5,9,3),(10,5,10,4),(11,3,11,1),(12,3,12,2),(13,3,13,3),(14,4,14,3),(15,4,15,4),(16,4,16,5),(17,4,17,1),(18,4,18,2);
 /*!40000 ALTER TABLE `section_category` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `section_icon`
+--
+
+DROP TABLE IF EXISTS `section_icon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `section_icon` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `section_id` tinyint(4) NOT NULL,
+  `icon_id` smallint(6) NOT NULL,
+  `position` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `section_icon`
+--
+
+LOCK TABLES `section_icon` WRITE;
+/*!40000 ALTER TABLE `section_icon` DISABLE KEYS */;
+INSERT INTO `section_icon` VALUES (1,1,1,1),(2,1,2,3),(3,1,7,2);
+/*!40000 ALTER TABLE `section_icon` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video`
+--
+
+DROP TABLE IF EXISTS `video`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `video` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) NOT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  `header` varchar(150) NOT NULL,
+  `poster` varchar(150) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `icon` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video`
+--
+
+LOCK TABLES `video` WRITE;
+/*!40000 ALTER TABLE `video` DISABLE KEYS */;
+INSERT INTO `video` VALUES (1,'Choose London Video',NULL,'header_home',NULL,'London has everything you need: an amazing quality of life, top of the line education institutions, excellent employment opportunities and a thriving social life. A vibrant city with a pulsing personality, a young and creative population and affordable cost of living.','logo_white');
+/*!40000 ALTER TABLE `video` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -164,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-02  1:01:21
+-- Dump completed on 2018-03-03  1:33:16

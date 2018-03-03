@@ -5,6 +5,7 @@
   if(!is_string($sectionData)) {
     $section = mysqli_fetch_array($sectionData);
     $categoriesData = getCategories($section['id']);
+    $iconsData = getSectionIcons($section['id']);
   }
   else {
     redirect_to('error.php');
@@ -57,6 +58,13 @@
         <div class="section-info">
           <?php
             if($section) {
+              echo "<div class=\"icon-wrapper-3 {$section['name']}\">";
+              if(!is_string($iconsData)) {
+                while ($icon = mysqli_fetch_assoc($iconsData)) {
+                  echo "<div class=\"icon icon-2-1\"><div class=\"img-wrapper {$icon['longfield']}\"><div><img src=\"images/{$icon['photo']}.svg\" alt=\"{$icon['alt']}\"></div><div><p>{$icon['title']}</p></div></div><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                }
+                echo "</div>";
+              }
               echo "<p class=\"section-desc\">{$section['description']}</p>";
             }
             else {
@@ -94,6 +102,16 @@
             </div>
             <p class="category-desc"><?php echo $category['description']; ?></p>
             <?php
+              if($category['name'] == 'safety') {
+                $iconsData = getCategoryIcons($category['id']);
+                echo "<div class=\"icon-wrapper-6 {$section['name']}\">";
+                if(!is_string($iconsData)) {
+                  while ($icon = mysqli_fetch_assoc($iconsData)) {
+                    echo "<div class=\"icon icon-1-1\"><div><p class=\"icon-title {$icon['longfield']}\">{$icon['title']}</p></div><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                  }
+                  echo "</div>";
+                }
+              }
               $itemData = getItems($category['id']);
               if(!is_string($itemData)){
                 while ($item = mysqli_fetch_assoc($itemData)) {
