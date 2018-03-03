@@ -45,4 +45,32 @@
     mysqli_close($link);
   }
 
+  if(isset($_GET['home'])) {
+    include('connect.php');
+    $query = "SELECT * FROM section";
+    $result = mysqli_query($link, $query);
+
+    $rows = array();
+
+      while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+    echo json_encode($rows);
+    mysqli_close($link);
+  }
+
+  if(isset($_GET['video'])) {
+    include('connect.php');
+    $query = "SELECT * FROM video";
+    $result = mysqli_query($link, $query);
+
+    $rows = array();
+
+      while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+    echo json_encode($rows);
+    mysqli_close($link);
+  }
+
  ?>
