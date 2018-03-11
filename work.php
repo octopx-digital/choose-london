@@ -38,11 +38,11 @@
 
 
     <main>
-      <section>
+      <div>
         <div class="section-header">
           <?php
             if($section) {
-              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Some photo\">
+              echo "<img class=\"section-icon\" src=\"images/{$section['icon']}.png\" alt=\"Work icon\">
                 <h1 class=\"section-title\">{$section['title']}</h1>";
             }
             else {
@@ -61,19 +61,28 @@
             }
           ?>
         </div>
-      </section>
+      </div>
 
       <div id="category-wrapper">
         <?php
           if(!is_string($categoriesData)) {
             while ($category = mysqli_fetch_assoc($categoriesData)) {
         ?>
-          <?php echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>" ?>
-          <p class="category-desc"><?php echo $category['description']; ?></p>
+            <?php
+            echo "<div class=\"open-category work {$category['name']}\">";
+            echo "<div class=\"open-category-btn\"><div><img class=\"open-category-img\" src=\"images/{$category['banner_photo']}.svg\" alt=\"{$category['title']}\"><p>{$category['title']}</p></div></div>";
+
+            $short = str_replace("<br>", "", $category['description']);
+
+            echo "<p class=\"open-category-desc\">{$short}</p>";
+            echo "<button class=\"open-category-click\">Click here</button>"
+            // echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>";
+            ?>
+          </div>
           <section id="<?php echo $category['name']; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
-                <img src="images/london2_002-5857.jpg" alt="Photo">
+                <img class="media-change" src="images/<?php echo $category['header_photo']; ?>_large.jpg" alt="<?php echo $category['title']; ?>">
               </div>
               <div class="category-info">
                 <h2 class="category-title"><?php echo $category['title']; ?></h2>
@@ -82,10 +91,10 @@
             </div>
             <?php
               if($category['name'] === 'starting') {
-                echo "<p>Quick tips from local employers</p>";
+                echo "<p class=\"category-preitem\">Quick tips from local employers</p>";
               }
               if($category['name'] === 'resources') {
-                echo "<p>Job search resources</p>";
+                echo "<p class=\"category-preitem\">Job search resources</p>";
               }
               $itemData = getItems($category['id']);
               if(!is_string($itemData)){
@@ -94,7 +103,7 @@
                   $count++;
             ?>
                   <section class="item clearfix">
-                    <p class="item-count"><?php echo $count; ?></p>
+                    <li class="item-count"><p><?php echo $count; ?></p></li>
                     <h3 class="item-title"><?php echo $item['title']; ?></h3>
                     <p class="item-desc"><?php echo $item['description']; ?></p>
                   </section>
@@ -134,9 +143,9 @@
         </div>
       </section>
       <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
-    </main>
 
-    <?php include('includes/partials/partners.html'); ?>
+      <?php include('includes/partials/partners.html'); ?>
+    </main>
 
     <?php include('includes/partials/footer.html'); ?>
   </div>

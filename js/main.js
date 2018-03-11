@@ -5,6 +5,18 @@
   let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
   var storyOpen = false;
+  var sectorOpen = false;
+
+  // add event handlers to Business Sectors section of Economics page
+  function checkEconomicsPage() {
+    if(this.classList.contains('economics')) {
+      let sectorButton = document.querySelector('.sector-wrapper > .open');
+      let sectorClose = document.querySelector('.sector-wrapper > .close');
+
+      sectorButton.addEventListener('click', openBusinessSector, false);
+      sectorClose.addEventListener('click', openBusinessSector, false);
+    }
+  }
 
   function init(){
     if(document.querySelector('.home') !== null){
@@ -68,7 +80,6 @@
     }
     else {
       menuOpen = false;
-      // menuTl.reverse();
       hambMenu.classList.remove('ion-android-close');
       hambMenu.classList.add('ion-android-menu');
       header.classList.remove('openmenu');
@@ -120,9 +131,24 @@
       bodyarea.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
   }
 
-  // function openMenu() {
-  //   menuTl.to(menu, 1, {left: 0, opacity: 1, ease: Expo.easeInOut});
-  // }
+  // open Business Sector section on Economics page for mobile
+  function openBusinessSector(evt) {
+    evt.preventDefault();
+    let sectorDiv = document.querySelector('.sector-wrapper');
+    let sectorArrow = document.querySelector( '.sector-wrapper > .open > i');
+    if (!sectorOpen) {
+      sectorOpen = true;
+      sectorDiv.classList.add('open');
+      sectorArrow.classList.remove('ion-arrow-down-b');
+      sectorArrow.classList.add('ion-arrow-up-b');
+    }
+    else {
+      sectorOpen = false;
+      sectorDiv.classList.remove('open');
+      sectorArrow.classList.remove('ion-arrow-up-b');
+      sectorArrow.classList.add('ion-arrow-down-b');
+    }
+  }
 
   function getJobs() {
     let posts = document.querySelector('#job-post');
@@ -248,12 +274,14 @@
       }
     }
   }
-
-
+  
+  checkEconomicsPage.call(document.querySelector('#container'));
   window.addEventListener('load', init, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
+  checkEconomicsPage.call(document.querySelector('#container'));
+  // window.addEventListener('load', getJobs, false);
   // storyArrow.addEventListener('click', showStory, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
