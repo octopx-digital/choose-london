@@ -1,8 +1,7 @@
 (() => {
-
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
-  var storyArrow = document.querySelector('.story-check > i');
+  // var storyArrow = document.querySelector('.story-check > i');
   let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
   var storyOpen = false;
@@ -17,6 +16,52 @@
       sectorButton.addEventListener('click', openBusinessSector, false);
       sectorClose.addEventListener('click', openBusinessSector, false);
     }
+  }
+
+  function init(){
+    if(document.querySelector('.home') !== null){
+      fetchData();
+      getEvents();
+      getJobs();
+
+    }
+  }
+
+  function fetchData(){
+    let url = 'includes/read.php?home';
+    let video = 'includes/read.php?video';
+    let container = document.querySelector('#section-icons');
+    let videoContainer = document.querySelector('#main-video');
+
+    fetch(url)
+      .then((resp) => resp.json())
+        .then((data) => {
+          data.forEach((item) => {
+            if(item.icon){
+              let icon = `<div class="section-icons"><a href="`+item.name+`.php"><img src="images/`+item.icon+`.png" alt=`+item.title+`"><h4>`+item.name+`</h4></a></div>`;
+              container.innerHTML += icon;
+            }
+          })
+        })
+         .catch(function(error){
+          console.log(error);
+        });
+
+    fetch(video)
+      .then((res) => res.json())
+        .then((info) => {
+          info.forEach((entry) => {
+            let div = `<div class="video-header">
+            <img src="images/`+entry.icon+`.svg" alt="`+entry.title+`">
+            <p>`+entry.description+`</p>
+            </div>`;
+            videoContainer.innerHTML += div;
+          });
+        })
+        .catch(function(error){
+         console.log(error);
+       });
+
   }
 
   function checkScrollMenu() {
@@ -105,35 +150,139 @@
     }
   }
 
-  // function getJobs() {
-  //   var posts = document.querySelector('#job-post');
-  //   var data = fetchAPI.jobs;
-  //   console.log(data);
-  //
-  //   data.forEach(({logo, post, position}) => {
-  //     let newDiv = document.createElement('div');
-  //     newDiv.classList.add('responsive');
-  //     let newImg = document.createElement('img');
-  //     let newPost = document.createElement('h1');
-  //     let newPosition = document.createElement('p');
-  //     let button = document.createElement('button');
-  //     let anchor = document.createElement('a');
-  //     anchor.innerHTML = "APPLY";
-  //     button.appendChild(anchor);
-  //     newImg.src = 'images/build/logo_'+logo;
-  //     newPost.textContent = post;
-  //     newPosition.textContent = position;
-  //     newDiv.append(newImg, newPost, newPosition, button);
-  //     posts.appendChild(newDiv);
-  //   });
-  // }
+  function getJobs() {
+    let posts = document.querySelector('#job-post');
+    let data = fetchAPI.jobs;
 
+    data.forEach(({logo, post, position, date}) => {
+      let newDiv = `<div class="space-between"><div class="posts">
+      <div class="job-title"><h3>${post}</h3></div>
+      <div class="content">
+      <img src="images/logo_${logo}">
+      <p>${position}</p>
+      <p>${date}</p>
+      <a href="#">APPLY</a>
+      </div>
+      </div></div>`;
+      posts.innerHTML += newDiv;
+    });
+
+    arrows();
+  }
+
+  function arrows(){
+    let leftArrow = document.querySelector('.arrow-back');
+    let rightArrow = document.querySelector('.arrow-forward');
+    let posts = document.querySelector('#job-post');
+    let thumbs = posts.children.length;
+    let thumbcount = posts.querySelectorAll('.space-between');
+    let thumb = thumbcount[0].offsetWidth;
+    let thumbWidth = posts.offsetWidth;
+    let leftPosition = 0;
+    posts.style.left = leftPosition+"px";
+
+    leftArrow.addEventListener('click', moveBack, false);
+    rightArrow.addEventListener('click', moveForward, false);
+
+    let moveSlide = function (value) {
+        leftPosition += value * thumb;
+        posts.style.left = leftPosition + 'px';
+    };
+    function moveBack(){
+      if(leftPosition !== 0) {
+        moveSlide(1);
+      } else if (leftPosition === 0) {
+          posts.style.left = leftPosition + 'px';
+        } else {
+        leftPosition = (thumbs-1)* -thumbWidth;
+        posts.style.left = leftPosition + 'px';
+      }
+    }
+
+    function moveForward(){
+      if (leftPosition > (thumbs-1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        posts.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+
+  function getEvents(){
+    let container = document.querySelector('#events-container');
+    let events = meetup.events;
+
+    events.forEach(({id,name, venue, local_date, local_time, link}) => {
+      let address = venue.address_1;
+      let month = local_date.slice(5,8);
+      let date = local_date.slice(9,11);
+
+      let image = 'images/'+id+'.jpg';
+      let newEvent = `<div class="events">
+      <div class="event-data">
+      <div class="date"><h5>`+month+`</br>`+date+`</h5></div>
+      <img src="`+image+`">
+      <h2>${name}</h2>
+      <p>`+address+`</br>
+      At ${local_time}</p>
+      <a href="${link}"><p>Event Details</p><span class="share-btn"><i class="ion-android-share-alt"></i></span></a>
+      </div>
+      </div>`;
+
+      container.innerHTML += newEvent;
+    });
+    eventArrows();
+  }
+
+  function eventArrows(){
+    let toLeft = document.querySelector('.nav-back');
+    let toRight = document.querySelector('.nav-forward');
+    let events = document.querySelector('#events-container');
+    let thumbs = events.children.length;
+    let thumbcount = events.querySelectorAll('.events');
+    let thumb = thumbcount[0].offsetWidth;
+    let thumbWidth = events.offsetWidth;
+    let leftPosition = 0;
+    events.style.left = leftPosition+"px";
+
+    toLeft.addEventListener('click', moveBack, false);
+    toRight.addEventListener('click', moveForward, false);
+
+    let moveSlide = function (value) {
+        leftPosition += value * thumb;
+        events.style.left = leftPosition + 'px';
+    };
+    function moveBack(){
+      if(leftPosition !== 0) {
+        moveSlide(1);
+      } else if (leftPosition === 0) {
+          events.style.left = leftPosition + 'px';
+        } else {
+        leftPosition = (thumbs-1)* -thumbWidth;
+        events.style.left = leftPosition + 'px';
+      }
+    }
+
+    function moveForward(){
+      if (leftPosition > (thumbs-1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        events.style.left = leftPosition + 'px';
+      }
+    }
+  }
+  
   checkEconomicsPage.call(document.querySelector('#container'));
-
-  // window.addEventListener('load', getJobs, false);
+  window.addEventListener('load', init, false);
   window.addEventListener('scroll', checkScrollMenu, false);
+  // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
-  storyArrow.addEventListener('click', showStory, false);
+  checkEconomicsPage.call(document.querySelector('#container'));
+  // window.addEventListener('load', getJobs, false);
+  // storyArrow.addEventListener('click', showStory, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);

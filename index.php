@@ -1,5 +1,14 @@
 <?php
   require_once('includes/config.php');
+
+  $sectionData = getSectionContent('home');
+  if(!is_string($sectionData)) {
+    $section = mysqli_fetch_array($sectionData);
+    $categoriesData = getCategories($section['id']);
+  }
+  else {
+    redirect_to('error.php');
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,25 +29,89 @@
 </head>
 <body>
   <div id="container" class="home">
+    <h1 class="hidden">Choose London Home Page</h1>
     <div id="main-banner">
-      <img src="images/downtown_bus.jpg" alt="Downtown London">
+      <!-- <img src="images/downtown_bus.jpg" alt="Downtown London"> -->
+      <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
-
-
     <main>
-      <div>
-              <h1>Some text here</h1>
-              <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum felis nulla, pellentesque eu pretium id, accumsan sit amet felis. Duis ornare sem non mauris rhoncus convallis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris hendrerit ligula vitae dui euismod, ac consectetur est pulvinar. Nunc in mauris pulvinar, volutpat nibh in, tincidunt arcu. Proin fermentum consequat dolor, nec commodo nunc varius suscipit. Mauris gravida augue ac euismod facilisis. Sed et maximus lectus. Integer ac ex fermentum, commodo dolor vel, efficitur arcu. Donec ut sem tincidunt, gravida elit at, interdum mi. Cras iaculis, dui mollis mattis luctus, mauris nunc ornare arcu, interdum vehicula metus ante non felis. Nulla et tempus nisi. Phasellus id sagittis dolor. Nunc ultricies, ipsum mollis tincidunt aliquam, leo sem placerat lacus, et ullamcorper metus eros id velit.
-        </p>
-        <p>
-        Quisque urna nibh, feugiat vitae purus interdum, porta viverra nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus feugiat eget orci et tincidunt. Morbi eros urna, accumsan non consequat et, interdum non lacus. Mauris condimentum sem et ultrices gravida. Sed ultricies vitae massa id interdum. Aliquam gravida dui vel ligula elementum, ut feugiat risus fermentum. Phasellus a magna commodo, egestas diam non, pellentesque purus. Nullam eu diam sit amet nibh dapibus porta nec in diam. Ut porta semper risus eu euismod. Etiam justo turpis, sollicitudin sit amet nisi ut, euismod laoreet eros. Ut tristique eu velit vel tempus. Cras nec sapien massa. Praesent fringilla volutpat elit, vel maximus tellus faucibus vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus scelerisque massa quis risus semper, sit amet sollicitudin ipsum hendrerit.
-        </p>
-        <p>
-        Nullam ultrices ac mauris posuere feugiat. Integer ullamcorper fringilla commodo. Donec interdum, massa vitae mollis sagittis, dolor orci tincidunt nunc, vel ultrices urna magna vel orci. Curabitur fermentum sed urna eget porta. Pellentesque id sodales elit. Nunc sit amet varius lorem, nec eleifend magna. Aenean laoreet, tellus nec hendrerit fermentum, nunc nunc molestie erat, sit amet facilisis dui lacus vitae lorem. Pellentesque odio sapien, placerat id orci vitae, interdum condimentum libero. Integer euismod neque nec leo euismod bibendum. Fusce augue magna, ultricies id egestas a, accumsan sed libero. Aenean sit amet odio risus. Suspendisse sed dui at nisi aliquam fermentum quis eu est. Mauris mollis tortor eget volutpat scelerisque. Ut pulvinar urna sed congue ultrices. Nulla facilisi. Aliquam mattis eget ex eget efficitur.
-        </p>
-      </div>
+      <section>
+        <h2 class="hidden">Discover London</h2>
+        <div id="section-icons">
+
+        </div>
+      </section>
+
+      <section>
+        <h2 class="hidden">Main Video</h2>
+          <div id="main-video"></div>
+
+          <div id="video-wrapper">
+          <!-- <video src="videofile.ogg" poster="posterimage.jpg">
+          </video> -->
+              <div id="over-video">
+                <div id="video-btn">
+                  <i class="ion-play" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <div id="video-controls">
+                <div id="seek-bar">
+                  <span></span>
+                </div>
+              <div id="button-wrapper" class="clearfix">
+                  <div id="play-btn">
+                    <i class="ion-play video-ctrl-bt" aria-hidden="true"></i>
+                  </div>
+                  <p id="video-time">0:00</p>
+                  <div id="full-btn">
+                    <i class="ion-arrow-expand video-ctrl-bt" aria-hidden="true"></i>
+                  </div>
+                  <div id="volume-bar">
+                    <div id="volume-bg"></div>
+                    <div id="volume-fg"></div>
+                  </div>
+                  <div id="volume-btn">
+                    <i class="ion-android-volume-up video-ctrl-bt" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+      </section>
+
+      <section>
+        <h2>London Events</h2>
+        <div id="event-caroussel">
+          <span class="nav-back  arrow"><i class="ion-ios-arrow-back" aria-hidden="true"></i></span>
+            <div class="events-holder">
+
+
+              <div id="events-container">
+
+              </div>
+            </div>
+          <span class="nav-forward  arrow"><i class="ion-ios-arrow-forward" aria-hidden="true"></i></span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Local Stories</h2>
+      </section>
+
+      <section>
+        <h2>London Job Board</h2>
+        <div id="job-cont">
+          <span class="arrow-back"><i class="ion-ios-arrow-back arrow" aria-hidden="true"></i></span>
+            <div class="job-item">
+              <div id="job-post">
+                <!-- Job Posts are appended here with JS -->
+              </div>
+            </div>
+              <span class="arrow-forward"><i class="ion-ios-arrow-forward arrow" aria-hidden="true"></i></span>
+        </div>
+      </section>
         <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
     </main>
 
