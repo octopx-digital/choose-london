@@ -87,7 +87,7 @@ body {
   font-size: 1rem;
   color: #383838; }
 
-.title, #container.home h2, .section-header .section-title, .pre-category .pre-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #partners h2 {
+.title, #container.home h2, .section-header .section-title, .pre-category .pre-title, .category-header .category-info .category-title, .category-preitem, .item .item-title, .item address .item-website, .item.nocontent:before, #container.home .story-index::before, #partners h2 {
   font-family: "Baloo", Times, Georgia, serif;
   color: #454545;
   text-transform: uppercase;
@@ -1173,6 +1173,19 @@ footer {
   color: #000000; }
   #container.social .story .story-wrapper {
     border-color: #000000; }
+
+#container.home .story-index {
+  margin: 2rem 0; }
+  #container.home .story-index .story:nth-child(1) {
+    background-color: #a00046; }
+  #container.home .story-index .story:nth-child(2) {
+    background-color: #005ca7; }
+  #container.home .story-index .story:nth-child(3) {
+    display: none;
+    background-color: #eccd25; }
+#container.home .story-index::before {
+  content: "Local Stories";
+  font-size: 1.5rem; }
 
 .story.open .story-wrapper {
   height: 13rem; }

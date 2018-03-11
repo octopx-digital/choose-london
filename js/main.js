@@ -1,10 +1,11 @@
 (() => {
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
-  // var storyArrow = document.querySelector('.story-check > i');
+  // var storyArrow = document.querySelectorAll('.story-check > i');
+  var storyDiv = document.querySelectorAll('.story');
   let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
-  var storyOpen = false;
+  // var storyOpen = false;
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
@@ -86,19 +87,17 @@
     }
   }
 
-  function showStory() {
-    let story = document.querySelector('.story');
-    if (!storyOpen) {
-      storyOpen = true;
-      story.classList.add('open');
-      storyArrow.classList.remove('ion-arrow-down-b');
-      storyArrow.classList.add('ion-arrow-up-b');
-    }
-    else {
-      storyOpen = false;
-      story.classList.remove('open');
+  function showStory(el) {
+    el = this;
+    let storyArrow = this.querySelector('.story-check > i');
+    if(el.classList.contains('open')){
+      el.classList.remove('open');
       storyArrow.classList.remove('ion-arrow-up-b');
       storyArrow.classList.add('ion-arrow-down-b');
+    } else {
+      el.classList.add('open');
+      storyArrow.classList.remove('ion-arrow-down-b');
+      storyArrow.classList.add('ion-arrow-up-b');
     }
   }
 
@@ -274,15 +273,22 @@
       }
     }
   }
-  
-  checkEconomicsPage.call(document.querySelector('#container'));
+
   window.addEventListener('load', init, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
   // window.addEventListener('load', getJobs, false);
-  // storyArrow.addEventListener('click', showStory, false);
+  storyDiv.forEach((arrow) => {
+    arrow.addEventListener('click', showStory, false);
+  });
+  // storyArrow.forEach((arrow) => {
+  //   arrow.addEventListener('click', showStory, false);
+  // });
+  // for(let j = 0; j < storyArrow.lenght; j++){
+  //   storyArrow[j].addEventListener('click', showStory, false);
+  // }
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);

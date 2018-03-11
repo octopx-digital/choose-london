@@ -1527,6 +1527,26 @@ footer {
   }
 }
 
+#container.home {
+  .story-index{
+    margin: 2rem 0;
+    .story:nth-child(1) {
+      background-color: $colorLifeStory;
+    }
+    .story:nth-child(2) {
+      background-color: $colorEducationStory;
+    }
+    .story:nth-child(3) {
+      display:none;
+      background-color: $colorSocialStory;
+    }
+  } .story-index::before{
+    content: "Local Stories";
+    @extend .title;
+    font-size: 1.5rem;
+  }
+}
+
 .story.open {
   .story-wrapper {
     height: 13rem;
