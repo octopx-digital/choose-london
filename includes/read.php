@@ -32,6 +32,24 @@
     mysqli_close($link);
   }
 
+  function getStories($section){
+    include('connect.php');
+    if($section == 'home'){
+      $queryStory = "SELECT * FROM stories ORDER BY id DESC LIMIT 3";
+    } else {
+      $queryStory = "SELECT * FROM stories WHERE section='{$section}'";
+    }
+    $result = mysqli_query($link, $queryStory);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+    mysqli_close($link);
+  }
+
   function getItems($categoryId) {
     include('connect.php');
 

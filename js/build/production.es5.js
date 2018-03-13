@@ -263,10 +263,11 @@ var meetup = {
 (function () {
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
-  // var storyArrow = document.querySelector('.story-check > i');
+  // var storyArrow = document.querySelectorAll('.story-check > i');
+  var storyDiv = document.querySelectorAll('.story');
   var topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
-  var storyOpen = false;
+  // var storyOpen = false;
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
@@ -280,12 +281,10 @@ var meetup = {
     }
   }
 
-  function init() {
-    if (document.querySelector('.home') !== null) {
-      fetchData();
-      getEvents();
-      getJobs();
-    }
+  if (document.querySelector('.home') !== null) {
+    fetchData.call();
+    getEvents.call();
+    getJobs.call();
   }
 
   function fetchData() {
@@ -340,18 +339,31 @@ var meetup = {
     }
   }
 
-  function showStory() {
-    var story = document.querySelector('.story');
-    if (!storyOpen) {
-      storyOpen = true;
-      story.classList.add('open');
-      storyArrow.classList.remove('ion-arrow-down-b');
-      storyArrow.classList.add('ion-arrow-up-b');
+  function storyArrow() {
+    if (screensize == 'small') {
+      var storyDiv = document.querySelectorAll('.story');
+      storyDiv.forEach(function (arrow) {
+        arrow.addEventListener('click', showStory, false);
+      });
     } else {
-      storyOpen = false;
-      story.classList.remove('open');
+      var storyDiv = document.querySelectorAll('.story');
+      storyDiv.forEach(function (arrow) {
+        arrow.removeEventListener('click', showStory, false);
+      });
+    }
+  }
+
+  function showStory(el) {
+    el = this;
+    var storyArrow = this.querySelector('.story-check > i');
+    if (el.classList.contains('open')) {
+      el.classList.remove('open');
       storyArrow.classList.remove('ion-arrow-up-b');
       storyArrow.classList.add('ion-arrow-down-b');
+    } else {
+      el.classList.add('open');
+      storyArrow.classList.remove('ion-arrow-down-b');
+      storyArrow.classList.add('ion-arrow-up-b');
     }
   }
 
@@ -520,15 +532,12 @@ var meetup = {
       }
     }
   }
-
-  checkEconomicsPage.call(document.querySelector('#container'));
-  window.addEventListener('load', init, false);
+  window.addEventListener('resize', storyArrow, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
   // window.addEventListener('load', getJobs, false);
-  // storyArrow.addEventListener('click', showStory, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);

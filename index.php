@@ -9,6 +9,8 @@
   else {
     redirect_to('error.php');
   }
+  $indexStories = getStories('home');
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,19 +100,78 @@
 
       <section>
         <h2>Local Stories</h2>
+        <div class="story-index">
+        <?php if(!is_string($indexStories)) {
+            foreach($indexStories as $story){  ?>
+
+          <div class="story">
+            <div class="story-wrapper">
+            <div class="story-photo">
+              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
+            </div>
+            <div class="story-text">
+              <div class="story-check">
+                <p>Check out people's view on London's <?php echo $story['section'];?></p>
+                <i class="ion-arrow-down-b"></i>
+              </div>
+              <div class="story-testimony">
+                <p class="story-desc"><?php echo $story['message'];?></p>
+                <p class="story-name"><?php echo $story['name'];?></p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        <?php  }   }
+              else {
+                redirect_to('error.php');
+              } ?>
+
+          <!-- <div class="story">
+            <div class="story-photo">
+              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
+            </div>
+            <div class="story-text">
+              <div class="story-check">
+                <p>Check out people's view on London's <?php echo $story['section'];?></p>
+                <i class="ion-arrow-down-b"></i>
+              </div>
+              <div class="story-testimony">
+                <p class="story-desc"><?php echo $story['message'];?></p>
+                <p class="story-name"><?php echo $story['name'];?></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story">
+            <div class="story-photo">
+              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
+            </div>
+            <div class="story-text">
+              <div class="story-check">
+                <p>Check out people's view on London's <?php echo $story['section'];?></p>
+                <i class="ion-arrow-down-b"></i>
+              </div>
+              <div class="story-testimony">
+                <p class="story-desc"><?php echo $story['message'];?></p>
+                <p class="story-name"><?php echo $story['name'];?></p>
+              </div>
+            </div>
+          </div>-->
+        </div>
       </section>
 
       <section>
-        <h2>London Job Board</h2>
-        <div id="job-cont">
-          <span class="arrow-back"><i class="ion-ios-arrow-back arrow" aria-hidden="true"></i></span>
-            <div class="job-item">
-              <div id="job-post">
-                <!-- Job Posts are appended here with JS -->
+          <h2>London Job Board</h2>
+          <div id="job-cont">
+            <span class="arrow-back"><i class="ion-ios-arrow-back arrow" aria-hidden="true"></i></span>
+              <div class="job-item">
+                <div id="job-post">
+                  <!-- Job Posts are appended here with JS -->
+                </div>
               </div>
-            </div>
-              <span class="arrow-forward"><i class="ion-ios-arrow-forward arrow" aria-hidden="true"></i></span>
-        </div>
+                <span class="arrow-forward"><i class="ion-ios-arrow-forward arrow" aria-hidden="true"></i></span>
+          </div>
       </section>
         <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
     </main>
