@@ -293,13 +293,10 @@ var meetup = {
     }
   }
 
-  function init(){
-    if(document.querySelector('.home') !== null){
-      fetchData();
-      getEvents();
-      getJobs();
-
-    }
+  if(document.querySelector('.home') !== null){
+    fetchData.call();
+    getEvents.call();
+    getJobs.call();
   }
 
   function fetchData(){
@@ -358,6 +355,20 @@ var meetup = {
       hambMenu.classList.remove('ion-android-close');
       hambMenu.classList.add('ion-android-menu');
       header.classList.remove('openmenu');
+    }
+  }
+
+  function storyArrow(){
+    if(screensize == 'small'){
+      var storyDiv = document.querySelectorAll('.story');
+      storyDiv.forEach((arrow) => {
+        arrow.addEventListener('click', showStory, false);
+      });
+    } else {
+      var storyDiv = document.querySelectorAll('.story');
+      storyDiv.forEach((arrow) => {
+        arrow.removeEventListener('click', showStory, false);
+      });
     }
   }
 
@@ -547,22 +558,12 @@ var meetup = {
       }
     }
   }
-
-  window.addEventListener('load', init, false);
+  window.addEventListener('resize', storyArrow, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
   // window.addEventListener('load', getJobs, false);
-  storyDiv.forEach((arrow) => {
-    arrow.addEventListener('click', showStory, false);
-  });
-  // storyArrow.forEach((arrow) => {
-  //   arrow.addEventListener('click', showStory, false);
-  // });
-  // for(let j = 0; j < storyArrow.lenght; j++){
-  //   storyArrow[j].addEventListener('click', showStory, false);
-  // }
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);

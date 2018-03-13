@@ -9,6 +9,8 @@
   else {
     redirect_to('error.php');
   }
+  $indexStories = getStories('home');
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,65 +98,70 @@
         </div>
       </section>
 
-      <section class="story-index">
-        <!-- <h2>Local Stories</h2>  -->
-        <div class="story">
-          <div class="story-wrapper">
+      <section>
+        <h2>Local Stories</h2>
+        <div class="story-index">
+        <?php if(!is_string($indexStories)) {
+            foreach($indexStories as $story){  ?>
+
+          <div class="story">
+            <div class="story-wrapper">
             <div class="story-photo">
-              <img src="images/story-sarah.jpg" alt="Story person">
+              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
             </div>
             <div class="story-text">
               <div class="story-check">
-                <p>Check out people's view on London education</p>
+                <p>Check out people's view on London's <?php echo $story['section'];?></p>
                 <i class="ion-arrow-down-b"></i>
               </div>
               <div class="story-testimony">
-                <p class="story-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget nulla non enim iaculis ultrices. Quisque vel felis ac nisi vestibulum interdum. Vestibulum ullamcorper eleifend justo, a dictum nisl egestas nec.</p>
-                <p class="story-name">Sarah</p>
+                <p class="story-desc"><?php echo $story['message'];?></p>
+                <p class="story-name"><?php echo $story['name'];?></p>
               </div>
             </div>
           </div>
-        </div>
+          </div>
 
-        <div class="story">
-          <div class="story-wrapper">
+        <?php  }   }
+              else {
+                redirect_to('error.php');
+              } ?>
+
+          <!-- <div class="story">
             <div class="story-photo">
-              <img src="images/story-sarah.jpg" alt="Story person">
+              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
             </div>
             <div class="story-text">
               <div class="story-check">
-                <p>Check out people's view on London tech market</p>
+                <p>Check out people's view on London's <?php echo $story['section'];?></p>
                 <i class="ion-arrow-down-b"></i>
               </div>
               <div class="story-testimony">
-                <p class="story-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget nulla non enim iaculis ultrices. Quisque vel felis ac nisi vestibulum interdum. Vestibulum ullamcorper eleifend justo, a dictum nisl egestas nec.</p>
-                <p class="story-name">Sarah</p>
+                <p class="story-desc"><?php echo $story['message'];?></p>
+                <p class="story-name"><?php echo $story['name'];?></p>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="story">
-          <div class="story-wrapper">
+          <div class="story">
             <div class="story-photo">
-              <img src="images/story-sarah.jpg" alt="Story person">
+              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
             </div>
             <div class="story-text">
               <div class="story-check">
-                <p>Check out people's view on London economics</p>
+                <p>Check out people's view on London's <?php echo $story['section'];?></p>
                 <i class="ion-arrow-down-b"></i>
               </div>
               <div class="story-testimony">
-                <p class="story-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget nulla non enim iaculis ultrices. Quisque vel felis ac nisi vestibulum interdum. Vestibulum ullamcorper eleifend justo, a dictum nisl egestas nec.</p>
-                <p class="story-name">Sarah</p>
+                <p class="story-desc"><?php echo $story['message'];?></p>
+                <p class="story-name"><?php echo $story['name'];?></p>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
+      </section>
 
-        </section>
-
-        <section>
+      <section>
           <h2>London Job Board</h2>
           <div id="job-cont">
             <span class="arrow-back"><i class="ion-ios-arrow-back arrow" aria-hidden="true"></i></span>

@@ -1435,7 +1435,6 @@ footer {
   // transform: skew(-5deg, -0.5deg);
 
   .story-wrapper {
-    // width: 90%;
     // height: 90%;
     // margin: 2rem;
     height: 4rem;
@@ -1443,6 +1442,7 @@ footer {
     grid-template-columns: 25% 75%;
     border: 1px dashed #ffffff;
     border-radius: 15px;
+    grid-auto-rows:1fr;
     // transform: skew(-3deg, 0.2deg);
     padding: 0.5rem;
     overflow: hidden;
@@ -1527,23 +1527,33 @@ footer {
   }
 }
 
-#container.home {
-  .story-index{
-    margin: 2rem 0;
-    .story:nth-child(1) {
-      background-color: $colorLifeStory;
+#container.home .story-index{
+  margin: 2rem 0;
+  .story:nth-child(1) {
+    background-color: $colorLifeStory;
+    .story-wrapper {
+      height: 90%;
     }
-    .story:nth-child(2) {
-      background-color: $colorEducationStory;
+  }
+  .story:nth-child(2) {
+    background-color: $colorEducationStory;
+    .story-wrapper {
+      height: 90%;
+      grid-template-columns: 75% 25%;
+      .story-photo {
+        order: 2;
+      }
+      .story-text {
+        order:1;
+      }
     }
-    .story:nth-child(3) {
-      display:none;
-      background-color: $colorSocialStory;
+  }
+  .story:nth-child(3) {
+    display:none;
+    background-color: $colorSocialStory;
+    .story-wrapper {
+      height: 90%;
     }
-  } .story-index::before{
-    content: "Local Stories";
-    @extend .title;
-    font-size: 1.5rem;
   }
 }
 
@@ -1672,6 +1682,19 @@ footer {
       text-align: center;
       position: absolute;
     }
+    .story-index{
+      text-align: center;
+      display: inline-flex;
+      grid-template: 1fr 1fr;
+      padding: 0 40px;
+      .story:nth-child(1){
+        margin-bottom: 10%;
+      }
+      .story:nth-child(2){
+        margin-top: 10%;
+        margin-left: -4%;
+      }
+    }
   }
 
 
@@ -1705,6 +1728,7 @@ footer {
             height: 50%;
             padding: 0 10px;
             .posts{
+              height: 80%;
               width: 100%;
                 .content{
                   img{
@@ -2459,7 +2483,7 @@ footer {
 
     .story-wrapper {
       height: auto;
-      grid-template-columns: 15% 85%;
+      grid-template-columns: 25% 75%;
       transform: skew(-3deg, 0.2deg);
       align-items: center;
       justify-items: center;
@@ -2565,6 +2589,31 @@ footer {
       font-size: 2.5rem;
     }
   }
+
+  #container.home .story-index{
+    display: inline-flex;
+    grid-template: 1fr 1fr 1fr;
+    padding: 0 20px;
+      .story:nth-child(1){
+        margin-bottom: 4%;
+      }
+      .story:nth-child(2){
+        margin-top: 5%;
+        margin-left: -2%;
+      }
+      .story:nth-child(3){
+        display: block;
+        margin-bottom: 4%;
+        margin-left: -1%;
+        .story-testimony{
+          color: #000;
+        }
+        .story-wrapper{
+          border: 1px dashed #000;
+        }
+      }
+    }
+
   #main-video{
     .video-header{
       background: url('../images/header_home_large.jpg') no-repeat;
@@ -2891,7 +2940,7 @@ footer {
     // padding: 0.8rem;
 
     .story-wrapper {
-      // height: auto;
+      height: auto;
       // grid-template-columns: 15% 85%;
       // transform: skew(-3deg, 0.2deg);
       // align-items: center;

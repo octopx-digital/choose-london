@@ -9,7 +9,13 @@
   else {
     redirect_to('error.php');
   }
-
+  $indexStories = getStories('education');
+  if(!is_string($indexStories)) {
+    $story = mysqli_fetch_array($indexStories);
+  }
+  else {
+    redirect_to('error.php');
+  }
  ?>
 
 <!DOCTYPE html>
@@ -145,16 +151,16 @@
         <h2 class="hidden">Story</h2>
         <div class="story-wrapper">
           <div class="story-photo">
-            <img src="images/story-sarah.jpg" alt="Story person">
+            <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
           </div>
           <div class="story-text">
             <div class="story-check">
-              <p>Check out people's view on London economics</p>
+              <p>Check out people's view on London's <?php echo $story['section'];?></p>
               <i class="ion-arrow-down-b"></i>
             </div>
             <div class="story-testimony">
-              <p class="story-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget nulla non enim iaculis ultrices. Quisque vel felis ac nisi vestibulum interdum. Vestibulum ullamcorper eleifend justo, a dictum nisl egestas nec.</p>
-              <p class="story-name">Sarah</p>
+              <p class="story-desc"><?php echo $story['message'];?></p>
+              <p class="story-name"><?php echo $story['name'];?></p>
             </div>
           </div>
         </div>
