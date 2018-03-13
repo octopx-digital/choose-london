@@ -1531,14 +1531,10 @@ footer {
   margin: 2rem 0;
   .story:nth-child(1) {
     background-color: $colorLifeStory;
-    .story-wrapper {
-      height: 90%;
-    }
   }
   .story:nth-child(2) {
     background-color: $colorEducationStory;
     .story-wrapper {
-      height: 90%;
       grid-template-columns: 75% 25%;
       .story-photo {
         order: 2;
@@ -1551,9 +1547,6 @@ footer {
   .story:nth-child(3) {
     display:none;
     background-color: $colorSocialStory;
-    .story-wrapper {
-      height: 90%;
-    }
   }
 }
 
@@ -1689,10 +1682,21 @@ footer {
       padding: 0 40px;
       .story:nth-child(1){
         margin-bottom: 10%;
+        .story-wrapper {
+          height: 90%;
+        }
       }
       .story:nth-child(2){
         margin-top: 10%;
         margin-left: -4%;
+        .story-wrapper {
+          height: 90%;
+        }
+      }
+      .story:nth-child(3){
+        .story-wrapper {
+          height: 90%;
+        }
       }
     }
   }
