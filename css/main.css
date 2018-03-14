@@ -207,15 +207,15 @@ main {
 #container.home #section-icons {
   display: none; }
 
-#main-video .video-header {
+#ldn-banner .video-header {
   background: url("../images/header_home_small.jpg") no-repeat;
   background-color: #666;
   background-blend-mode: multiply;
   background-size: cover; }
-  #main-video .video-header img {
+  #ldn-banner .video-header img {
     padding: 15px 0 0 0;
     width: 80%; }
-  #main-video .video-header p {
+  #ldn-banner .video-header p {
     padding: 40px;
     color: #fff; }
 
@@ -516,7 +516,13 @@ footer {
 #video-wrapper {
   position: relative;
   width: 100%;
-  box-shadow: 0 8px 6px -6px black; }
+  padding: 2rem 0 0 0;
+  box-shadow: 0 6px 6px -6px black; }
+  #video-wrapper #main-video {
+    width: 100%; }
+    #video-wrapper #main-video video[poster] {
+      height: 100%;
+      width: 100%; }
   #video-wrapper #over-video {
     position: absolute;
     top: 0;
@@ -1281,13 +1287,13 @@ footer {
     #container.home .story-index .story:nth-child(3) .story-wrapper {
       height: 90%; }
 
-  #main-video .video-header {
+  #ldn-banner .video-header {
     background: url("../images/header_home_medium.jpg") no-repeat;
     background-color: #666;
     background-blend-mode: multiply; }
-    #main-video .video-header img {
+    #ldn-banner .video-header img {
       width: 70%; }
-    #main-video .video-header p {
+    #ldn-banner .video-header p {
       padding: 45px 60px; }
 
   #job-cont span.arrow-back {
@@ -1893,6 +1899,11 @@ footer {
   #container.life h2 {
     font-size: 2.5rem; }
 
+  #video-wrapper {
+    max-width: 1280px;
+    max-height: 720px;
+    margin: 0 auto; }
+
   #container.home .story-index {
     display: inline-flex;
     grid-template: 1fr 1fr 1fr;
@@ -1911,13 +1922,13 @@ footer {
       #container.home .story-index .story:nth-child(3) .story-wrapper {
         border: 1px dashed #000; }
 
-  #main-video .video-header {
+  #ldn-banner .video-header {
     background: url("../images/header_home_large.jpg") no-repeat;
     background-color: #666;
     background-blend-mode: multiply; }
-    #main-video .video-header img {
+    #ldn-banner .video-header img {
       width: 50%; }
-    #main-video .video-header p {
+    #ldn-banner .video-header p {
       padding: 50px 200px; }
 
   #job-cont .job-item {

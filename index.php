@@ -10,7 +10,7 @@
     redirect_to('error.php');
   }
   $indexStories = getStories('home');
-
+  $video = video();
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,11 +47,14 @@
 
       <section>
         <h2 class="hidden">Main Video</h2>
-          <div id="main-video"></div>
+          <div id="ldn-banner"></div>
 
           <div id="video-wrapper">
-          <!-- <video src="videofile.ogg" poster="posterimage.jpg">
-          </video> -->
+            <!-- <div id="main-video"></div> -->
+            <video id="video" poster="images/<?php echo $video['poster'];?>_medium.jpg">
+              <source src="images/deadpool_2016.mp4"></source>
+            </video>
+
               <div id="over-video">
                 <div id="video-btn">
                   <i class="ion-play" aria-hidden="true"></i>
@@ -126,38 +129,6 @@
               else {
                 redirect_to('error.php');
               } ?>
-
-          <!-- <div class="story">
-            <div class="story-photo">
-              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
-            </div>
-            <div class="story-text">
-              <div class="story-check">
-                <p>Check out people's view on London's <?php echo $story['section'];?></p>
-                <i class="ion-arrow-down-b"></i>
-              </div>
-              <div class="story-testimony">
-                <p class="story-desc"><?php echo $story['message'];?></p>
-                <p class="story-name"><?php echo $story['name'];?></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="story-photo">
-              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
-            </div>
-            <div class="story-text">
-              <div class="story-check">
-                <p>Check out people's view on London's <?php echo $story['section'];?></p>
-                <i class="ion-arrow-down-b"></i>
-              </div>
-              <div class="story-testimony">
-                <p class="story-desc"><?php echo $story['message'];?></p>
-                <p class="story-name"><?php echo $story['name'];?></p>
-              </div>
-            </div>
-          </div>-->
         </div>
       </section>
 
@@ -180,7 +151,8 @@
 
     <?php include('includes/partials/footer.html'); ?>
   </div>
-
+  <script src="js/greensock-js/src/minified/TweenMax.min.js"></script>
   <?php include('includes/partials/scripts.html'); ?>
+
 </body>
 </html>

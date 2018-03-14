@@ -109,4 +109,20 @@
     mysqli_close($link);
   }
 
+  function video(){
+    include('connect.php');
+    $query = "SELECT * FROM video";
+    $result = mysqli_query($link, $query);
+
+    if($result) {
+      $info = mysqli_fetch_array($result);
+      return $info;
+    }
+    else {
+      $error = "There was a problem accessing this information.";
+      return $error;
+    }
+    mysqli_close($link);
+  }
+
  ?>

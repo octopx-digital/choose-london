@@ -182,7 +182,7 @@ main {
   }
 }
 
-#main-video{
+#ldn-banner{
   .video-header{
     background: url('../images/header_home_small.jpg') no-repeat;
     background-color: #666;
@@ -628,7 +628,15 @@ footer {
 #video-wrapper {
     position: relative;
     width: 100%;
-    box-shadow: 0 8px 6px -6px black;
+    padding: 2rem 0 0 0;
+    box-shadow: 0 6px 6px -6px black;
+    #main-video{
+      width: 100%;
+      video[poster]{
+        height:100%;
+        width:100%;
+      }
+    }
     #over-video {
       position: absolute;
       top: 0;
@@ -1702,7 +1710,7 @@ footer {
   }
 
 
-  #main-video{
+  #ldn-banner{
     .video-header{
       background: url('../images/header_home_medium.jpg') no-repeat;
       background-color: #666;
@@ -2593,6 +2601,12 @@ footer {
       font-size: 2.5rem;
     }
   }
+  #video-wrapper{
+    max-width: 1280px;
+    max-height: 720px;
+    margin: 0 auto;
+  }
+
 
   #container.home .story-index{
     display: inline-flex;
@@ -2618,7 +2632,7 @@ footer {
       }
     }
 
-  #main-video{
+  #ldn-banner{
     .video-header{
       background: url('../images/header_home_large.jpg') no-repeat;
       background-color: #666;
