@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2018 at 03:52 PM
+-- Generation Time: Mar 15, 2018 at 02:13 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -429,7 +429,7 @@ CREATE TABLE `video` (
 --
 
 INSERT INTO `video` (`id`, `title`, `video`, `header`, `poster`, `description`, `icon`) VALUES
-(1, 'Choose London Video', NULL, 'header_home', 'video_placeholder', 'London has everything you need: an amazing quality of life, top of the line education institutions, excellent employment opportunities and a thriving social life. A vibrant city with a pulsing personality, a young and creative population and affordable cost of living.', 'logo_white');
+(1, 'Choose London Video', 'choose_london', 'header_home', 'video_placeholder', 'London has everything you need: an amazing quality of life, top of the line education institutions, excellent employment opportunities and a thriving social life. A vibrant city with a pulsing personality, a young and creative population and affordable cost of living.', 'logo_white');
 
 --
 -- Indexes for dumped tables

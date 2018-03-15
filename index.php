@@ -50,8 +50,8 @@
 
           <div id="video-wrapper">
             <video id="video" class="video-change" poster="images/<?php echo $video['poster'];?>_large.jpg">
-              <!-- Change source of video -->
-              <source src="images/deadpool_2016.mp4"></source>
+              <!-- Add other video formats -->
+              <source src="images/<?php echo $video['video'];?>.mp4"></source>
             </video>
 
               <div id="over-video">
