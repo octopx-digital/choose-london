@@ -10,7 +10,7 @@
     redirect_to('error.php');
   }
   $indexStories = getStories('home');
-
+  $video = video();
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,6 @@
   <div id="container" class="home">
     <h1 class="hidden">Choose London Home Page</h1>
     <div id="main-banner">
-      <!-- <img src="images/downtown_bus.jpg" alt="Downtown London"> -->
       <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
@@ -47,11 +46,14 @@
 
       <section>
         <h2 class="hidden">Main Video</h2>
-          <div id="main-video"></div>
+          <div id="ldn-banner"></div>
 
           <div id="video-wrapper">
-          <!-- <video src="videofile.ogg" poster="posterimage.jpg">
-          </video> -->
+            <video id="video" class="video-change" poster="images/<?php echo $video['poster'];?>_large.jpg">
+              <!-- Add other video formats -->
+              <source src="images/<?php echo $video['video'];?>.mp4"></source>
+            </video>
+
               <div id="over-video">
                 <div id="video-btn">
                   <i class="ion-play" aria-hidden="true"></i>
@@ -126,38 +128,6 @@
               else {
                 redirect_to('error.php');
               } ?>
-
-          <!-- <div class="story">
-            <div class="story-photo">
-              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
-            </div>
-            <div class="story-text">
-              <div class="story-check">
-                <p>Check out people's view on London's <?php echo $story['section'];?></p>
-                <i class="ion-arrow-down-b"></i>
-              </div>
-              <div class="story-testimony">
-                <p class="story-desc"><?php echo $story['message'];?></p>
-                <p class="story-name"><?php echo $story['name'];?></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="story-photo">
-              <img src="images/<?php echo $story['photo']; ?>" alt="<?php echo $story['name']; ?>'s Story">
-            </div>
-            <div class="story-text">
-              <div class="story-check">
-                <p>Check out people's view on London's <?php echo $story['section'];?></p>
-                <i class="ion-arrow-down-b"></i>
-              </div>
-              <div class="story-testimony">
-                <p class="story-desc"><?php echo $story['message'];?></p>
-                <p class="story-name"><?php echo $story['name'];?></p>
-              </div>
-            </div>
-          </div>-->
         </div>
       </section>
 
@@ -174,13 +144,15 @@
           </div>
       </section>
         <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
+        <?php include('includes/partials/partners.html'); ?>
     </main>
 
-    <?php include('includes/partials/partners.html'); ?>
+
 
     <?php include('includes/partials/footer.html'); ?>
   </div>
-
+  <script src="js/greensock-js/src/minified/TweenMax.min.js"></script>
   <?php include('includes/partials/scripts.html'); ?>
+
 </body>
 </html>

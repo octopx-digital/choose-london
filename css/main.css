@@ -206,17 +206,22 @@ main {
   margin: 2rem 0; }
 #container.home #section-icons {
   display: none; }
+  #container.home #section-icons h4 {
+    font-weight: 500; }
 
-#main-video .video-header {
-  background: url("../images/header_home_small.jpg") no-repeat;
+#ldn-banner .video-header {
+  background-image: url("../images/header_home_small.jpg");
+  background-repeat: no-repeat;
   background-color: #666;
   background-blend-mode: multiply;
   background-size: cover; }
-  #main-video .video-header img {
+  #ldn-banner .video-header img {
     padding: 15px 0 0 0;
     width: 80%; }
-  #main-video .video-header p {
+  #ldn-banner .video-header p {
     padding: 40px;
+    line-height: 1.2rem;
+    font-size: 1rem;
     color: #fff; }
 
 #job-cont {
@@ -375,6 +380,9 @@ main {
             width: 100%; }
           #event-caroussel .events-holder #events-container .events .event-data span.share-btn {
             background: #f9af1d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             width: 20px;
             height: 20px;
             bottom: 50px;
@@ -516,7 +524,10 @@ footer {
 #video-wrapper {
   position: relative;
   width: 100%;
-  box-shadow: 0 8px 6px -6px black; }
+  padding: 2rem 0 0 0;
+  box-shadow: 0 6px 6px -6px black; }
+  #video-wrapper #video {
+    width: 100%; }
   #video-wrapper #over-video {
     position: absolute;
     top: 0;
@@ -1281,14 +1292,14 @@ footer {
     #container.home .story-index .story:nth-child(3) .story-wrapper {
       height: 90%; }
 
-  #main-video .video-header {
-    background: url("../images/header_home_medium.jpg") no-repeat;
-    background-color: #666;
-    background-blend-mode: multiply; }
-    #main-video .video-header img {
+  #ldn-banner .video-header {
+    background-image: url("../images/header_home_medium.jpg"); }
+    #ldn-banner .video-header img {
       width: 70%; }
-    #main-video .video-header p {
-      padding: 45px 60px; }
+    #ldn-banner .video-header p {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      padding: 45px 100px; }
 
   #job-cont span.arrow-back {
     left: 10px; }
@@ -1297,7 +1308,7 @@ footer {
   #job-cont .job-item {
     width: 90%; }
     #job-cont .job-item #job-post {
-      width: 165%; }
+      width: 165.5%; }
       #job-cont .job-item #job-post .space-between {
         width: 33%;
         height: 50%;
@@ -1365,14 +1376,15 @@ footer {
             padding: 10px;
             line-height: 1rem; }
           #event-caroussel .events-holder #events-container .events .event-data span.share-btn {
-            width: 30px;
-            height: 30px; }
+            width: 25px;
+            height: 25px; }
 
   .back-to-top {
     right: 10px;
     bottom: 10px;
     border-radius: 50px;
-    transition: all 0.4s ease; }
+    transition: all 0.4s ease;
+    z-index: 100; }
     .back-to-top .tooltip {
       width: 40px;
       height: 30px;
@@ -1893,6 +1905,11 @@ footer {
   #container.life h2 {
     font-size: 2.5rem; }
 
+  #video-wrapper {
+    max-width: 1280px;
+    max-height: 720px;
+    margin: 0 auto; }
+
   #container.home .story-index {
     display: inline-flex;
     grid-template: 1fr 1fr 1fr;
@@ -1911,19 +1928,19 @@ footer {
       #container.home .story-index .story:nth-child(3) .story-wrapper {
         border: 1px dashed #000; }
 
-  #main-video .video-header {
-    background: url("../images/header_home_large.jpg") no-repeat;
-    background-color: #666;
-    background-blend-mode: multiply; }
-    #main-video .video-header img {
+  #ldn-banner .video-header {
+    background-image: url("../images/header_home_large.jpg"); }
+    #ldn-banner .video-header img {
       width: 50%; }
-    #main-video .video-header p {
-      padding: 50px 200px; }
+    #ldn-banner .video-header p {
+      font-size: 1.3rem;
+      line-height: 1.7rem;
+      padding: 50px 300px; }
 
   #job-cont .job-item {
     width: 90%; }
     #job-cont .job-item #job-post {
-      width: 165%; }
+      width: 165.5%; }
       #job-cont .job-item #job-post .space-between .content img {
         padding: 0 0 2rem 0; }
       #job-cont .job-item #job-post .space-between .content p {

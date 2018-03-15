@@ -19,17 +19,16 @@
     }
   }
 
-  if(document.querySelector('.home') !== null){
-    fetchData.call();
-    getEvents.call();
-    getJobs.call();
+  function checkResize(){
+    storyArrow();
+    if(document.querySelector('.home') !== null){
+      videoCall();
+    }
   }
 
   function fetchData(){
     let url = 'includes/read.php?home';
-    let video = 'includes/read.php?video';
     let container = document.querySelector('#section-icons');
-    let videoContainer = document.querySelector('#main-video');
 
     fetch(url)
       .then((resp) => resp.json())
@@ -45,6 +44,13 @@
           console.log(error);
         });
 
+  }
+
+  function videoCall(){
+    let video = 'includes/read.php?video';
+    let ldnBanner = document.querySelector('#ldn-banner');
+    let videoContainer = document.querySelector('#main-video');
+
     fetch(video)
       .then((res) => res.json())
         .then((info) => {
@@ -53,13 +59,13 @@
             <img src="images/`+entry.icon+`.svg" alt="`+entry.title+`">
             <p>`+entry.description+`</p>
             </div>`;
-            videoContainer.innerHTML += div;
+            ldnBanner.innerHTML = div;
           });
+
         })
         .catch(function(error){
          console.log(error);
        });
-
   }
 
   function checkScrollMenu() {
@@ -112,7 +118,6 @@
     }
   }
 
-  // var fixButton = debounce(() => {
   function fixButton(){
     let footer = document.querySelector('footer').clientHeight;
     let height = window.scrollY;
@@ -237,7 +242,7 @@
       <h2>${name}</h2>
       <p>`+address+`</br>
       At ${local_time}</p>
-      <a href="${link}"><p>Event Details</p><span class="share-btn"><i class="ion-android-share-alt"></i></span></a>
+      <a href="${link}"><p>Event Details</p><div><span class="share-btn"><i class="ion-android-share-alt"></i></span></div></a>
       </div>
       </div>`;
 
@@ -284,7 +289,8 @@
       }
     }
   }
-  window.addEventListener('resize', storyArrow, false);
+
+  window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
@@ -293,4 +299,15 @@
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);
+
+  //If it's on the homepage, run those functions
+  if(document.querySelector('.home') !== null){
+    videoCall.call();
+    fetchData.call();
+    getEvents.call();
+    getJobs.call();
+    window.addEventListener('load', videoCtrl, false);
+  }
+
+
 })();
