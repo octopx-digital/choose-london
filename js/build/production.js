@@ -61,6 +61,19 @@ function setImageSize() {
   curSize = screensize;
 }
 
+//set videos size (small, medium or large) on load
+function setVideoSize() {
+  for (let i = 0; i < this.length; i++) {
+    this[i].poster = this[i].poster.replace('large', screensize);
+    var vidsource = this[i].querySelectorAll('source');
+    for (let j = 0; j < vidsource.length; j++) {
+      vidsource[j].src = vidsource[j].src.replace('large', screensize);
+    }
+
+  }
+  curSize = screensize;
+}
+
 // change images and videos size (small, medium or large) on screen resize
 function changeImageSize() {
   if (curSize !== screensize) {
@@ -68,13 +81,17 @@ function changeImageSize() {
     for (let i = 0; i < img.length; i++) {
       img[i].src = img[i].src.replace(curSize, screensize);
     }
+    var vid = document.querySelectorAll('.video-change');
+    for (let i = 0; i < vid.length; i++) {
+      vid[i].poster = vid[i].poster.replace(curSize, screensize);
+    }
     curSize = screensize;
   }
 }
 
 checkScreenSize.call(window.innerWidth);
 setImageSize.call(document.querySelectorAll('.media-change'));
-
+setVideoSize.call(document.querySelectorAll('.video-change'));
 window.addEventListener('resize', checkScreenSize, false);
 window.addEventListener('resize', changeImageSize, false);
 
@@ -447,6 +464,7 @@ function reloadVideo() {
   // change volume regarding position clicked on volume bar
   // also change position of colorful area of volume bar
   function volumeChange(evt) {
+    console.log('volume change');
     let pos = evt.pageX;
     let voloffsets = volumefg.getBoundingClientRect();
     let volwidth = voloffsets.right-voloffsets.left;
@@ -519,7 +537,7 @@ function reloadVideo() {
     if(isFullScreen) {
       console.log('is full screen');
       overvideo.style.zIndex = 2147483647;
-      videocontrol.style.zIndex = 2147483647;
+      videocontrol.style.zIndex = 2147483648;
       fullbtn.classList.remove('ion-arrow-expand');
       fullbtn.classList.add('ion-arrow-shrink');
 
@@ -619,11 +637,6 @@ function reloadVideo() {
             <p>`+entry.description+`</p>
             </div>`;
             ldnBanner.innerHTML = div;
-
-            // let video = `<video controls id="video" poster="images/`+entry.poster+`_`+screensize+`.jpg">
-            // <source src="images/deadpool_2016.mp4"></source>
-            // </video>`;
-            // videoContainer.innerHTML = video;
           });
 
         })
@@ -806,7 +819,7 @@ function reloadVideo() {
       <h2>${name}</h2>
       <p>`+address+`</br>
       At ${local_time}</p>
-      <a href="${link}"><p>Event Details</p><span class="share-btn"><i class="ion-android-share-alt"></i></span></a>
+      <a href="${link}"><p>Event Details</p><div><span class="share-btn"><i class="ion-android-share-alt"></i></span></div></a>
       </div>
       </div>`;
 

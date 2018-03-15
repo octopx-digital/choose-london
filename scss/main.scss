@@ -179,12 +179,16 @@ main {
   }
   #section-icons{
     display: none;
+    h4{
+      font-weight: 500;
+    }
   }
 }
 
 #ldn-banner{
   .video-header{
-    background: url('../images/header_home_small.jpg') no-repeat;
+    background-image: url('../images/header_home_small.jpg');
+    background-repeat: no-repeat;
     background-color: #666;
     background-blend-mode: multiply;
     background-size: cover;
@@ -194,6 +198,8 @@ main {
     }
     p {
       padding: 40px;
+      line-height: 1.2rem;
+      font-size: 1rem;
       color: #fff;
     }
   }
@@ -384,6 +390,9 @@ main {
             }
             span.share-btn{
               background: $colorHomeHigh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
               width: 20px;
               height: 20px;
               bottom: 50px;
@@ -630,12 +639,8 @@ footer {
     width: 100%;
     padding: 2rem 0 0 0;
     box-shadow: 0 6px 6px -6px black;
-    #main-video{
+    #video{
       width: 100%;
-      video[poster]{
-        height:100%;
-        width:100%;
-      }
     }
     #over-video {
       position: absolute;
@@ -1712,14 +1717,14 @@ footer {
 
   #ldn-banner{
     .video-header{
-      background: url('../images/header_home_medium.jpg') no-repeat;
-      background-color: #666;
-      background-blend-mode: multiply;
+      background-image: url('../images/header_home_medium.jpg');
       img {
         width: 70%;
       }
       p {
-        padding: 45px 60px;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        padding: 45px 100px;
       }
     }
   }
@@ -1734,7 +1739,7 @@ footer {
       .job-item {
         width: 90%;
         #job-post {
-          width: 165%;
+          width: 165.5%;
           .space-between{
             width: 33%;
             height: 50%;
@@ -1818,8 +1823,8 @@ footer {
             line-height: 1rem;
           }
           span.share-btn{
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
           }
         }
       }
@@ -1833,6 +1838,7 @@ footer {
     bottom: 10px;
     border-radius: 50px;
     transition: all 0.4s ease;
+    z-index: 100;
       .tooltip{
         width: 40px;
         height: 30px;
@@ -2634,14 +2640,14 @@ footer {
 
   #ldn-banner{
     .video-header{
-      background: url('../images/header_home_large.jpg') no-repeat;
-      background-color: #666;
-      background-blend-mode: multiply;
+      background-image: url('../images/header_home_large.jpg');
       img {
         width: 50%;
       }
       p {
-        padding: 50px 200px;
+        font-size: 1.3rem;
+        line-height: 1.7rem;
+        padding: 50px 300px;
       }
     }
   }
@@ -2650,7 +2656,7 @@ footer {
       .job-item {
         width: 90%;
         #job-post {
-          width: 165%;
+          width: 165.5%;
           .space-between{
             .content{
                 img{

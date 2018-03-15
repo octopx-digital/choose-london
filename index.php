@@ -33,7 +33,6 @@
   <div id="container" class="home">
     <h1 class="hidden">Choose London Home Page</h1>
     <div id="main-banner">
-      <!-- <img src="images/downtown_bus.jpg" alt="Downtown London"> -->
       <img class="media-change" src="images/<?php echo $section['photo']; ?>_large.jpg" alt="<?php echo $section['title']; ?>">
       <?php include('includes/partials/header.html'); ?>
     </div>
@@ -50,8 +49,8 @@
           <div id="ldn-banner"></div>
 
           <div id="video-wrapper">
-            <!-- <div id="main-video"></div> -->
-            <video id="video" poster="images/<?php echo $video['poster'];?>_medium.jpg">
+            <video id="video" class="video-change" poster="images/<?php echo $video['poster'];?>_large.jpg">
+              <!-- Change source of video -->
               <source src="images/deadpool_2016.mp4"></source>
             </video>
 
@@ -145,9 +144,10 @@
           </div>
       </section>
         <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
+        <?php include('includes/partials/partners.html'); ?>
     </main>
 
-    <?php include('includes/partials/partners.html'); ?>
+
 
     <?php include('includes/partials/footer.html'); ?>
   </div>

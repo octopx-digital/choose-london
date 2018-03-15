@@ -173,6 +173,7 @@ function reloadVideo() {
   // change volume regarding position clicked on volume bar
   // also change position of colorful area of volume bar
   function volumeChange(evt) {
+    console.log('volume change');
     let pos = evt.pageX;
     let voloffsets = volumefg.getBoundingClientRect();
     let volwidth = voloffsets.right-voloffsets.left;
@@ -245,7 +246,7 @@ function reloadVideo() {
     if(isFullScreen) {
       console.log('is full screen');
       overvideo.style.zIndex = 2147483647;
-      videocontrol.style.zIndex = 2147483647;
+      videocontrol.style.zIndex = 2147483648;
       fullbtn.classList.remove('ion-arrow-expand');
       fullbtn.classList.add('ion-arrow-shrink');
 

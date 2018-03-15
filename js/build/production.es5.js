@@ -54,6 +54,18 @@ function setImageSize() {
   curSize = screensize;
 }
 
+//set videos size (small, medium or large) on load
+function setVideoSize() {
+  for (var i = 0; i < this.length; i++) {
+    this[i].poster = this[i].poster.replace('large', screensize);
+    var vidsource = this[i].querySelectorAll('source');
+    for (var j = 0; j < vidsource.length; j++) {
+      vidsource[j].src = vidsource[j].src.replace('large', screensize);
+    }
+  }
+  curSize = screensize;
+}
+
 // change images and videos size (small, medium or large) on screen resize
 function changeImageSize() {
   if (curSize !== screensize) {
@@ -61,13 +73,17 @@ function changeImageSize() {
     for (var i = 0; i < img.length; i++) {
       img[i].src = img[i].src.replace(curSize, screensize);
     }
+    var vid = document.querySelectorAll('.video-change');
+    for (var _i = 0; _i < vid.length; _i++) {
+      vid[_i].poster = vid[_i].poster.replace(curSize, screensize);
+    }
     curSize = screensize;
   }
 }
 
 checkScreenSize.call(window.innerWidth);
 setImageSize.call(document.querySelectorAll('.media-change'));
-
+setVideoSize.call(document.querySelectorAll('.video-change'));
 window.addEventListener('resize', checkScreenSize, false);
 window.addEventListener('resize', changeImageSize, false);
 
@@ -433,6 +449,7 @@ function videoCtrl() {
   // change volume regarding position clicked on volume bar
   // also change position of colorful area of volume bar
   function volumeChange(evt) {
+    console.log('volume change');
     var pos = evt.pageX;
     var voloffsets = volumefg.getBoundingClientRect();
     var volwidth = voloffsets.right - voloffsets.left;
@@ -501,7 +518,7 @@ function videoCtrl() {
     if (isFullScreen) {
       console.log('is full screen');
       overvideo.style.zIndex = 2147483647;
-      videocontrol.style.zIndex = 2147483647;
+      videocontrol.style.zIndex = 2147483648;
       fullbtn.classList.remove('ion-arrow-expand');
       fullbtn.classList.add('ion-arrow-shrink');
 
@@ -595,11 +612,6 @@ function videoCtrl() {
       info.forEach(function (entry) {
         var div = "<div class=\"video-header\">\n            <img src=\"images/" + entry.icon + ".svg\" alt=\"" + entry.title + "\">\n            <p>" + entry.description + "</p>\n            </div>";
         ldnBanner.innerHTML = div;
-
-        // let video = `<video controls id="video" poster="images/`+entry.poster+`_`+screensize+`.jpg">
-        // <source src="images/deadpool_2016.mp4"></source>
-        // </video>`;
-        // videoContainer.innerHTML = video;
       });
     }).catch(function (error) {
       console.log(error);
@@ -774,7 +786,7 @@ function videoCtrl() {
       var date = local_date.slice(9, 11);
 
       var image = 'images/' + id + '.jpg';
-      var newEvent = "<div class=\"events\">\n      <div class=\"event-data\">\n      <div class=\"date\"><h5>" + month + "</br>" + date + "</h5></div>\n      <img src=\"" + image + ("\">\n      <h2>" + name + "</h2>\n      <p>") + address + ("</br>\n      At " + local_time + "</p>\n      <a href=\"" + link + "\"><p>Event Details</p><span class=\"share-btn\"><i class=\"ion-android-share-alt\"></i></span></a>\n      </div>\n      </div>");
+      var newEvent = "<div class=\"events\">\n      <div class=\"event-data\">\n      <div class=\"date\"><h5>" + month + "</br>" + date + "</h5></div>\n      <img src=\"" + image + ("\">\n      <h2>" + name + "</h2>\n      <p>") + address + ("</br>\n      At " + local_time + "</p>\n      <a href=\"" + link + "\"><p>Event Details</p><div><span class=\"share-btn\"><i class=\"ion-android-share-alt\"></i></span></div></a>\n      </div>\n      </div>");
 
       container.innerHTML += newEvent;
     });

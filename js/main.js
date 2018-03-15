@@ -60,11 +60,6 @@
             <p>`+entry.description+`</p>
             </div>`;
             ldnBanner.innerHTML = div;
-
-            // let video = `<video controls id="video" poster="images/`+entry.poster+`_`+screensize+`.jpg">
-            // <source src="images/deadpool_2016.mp4"></source>
-            // </video>`;
-            // videoContainer.innerHTML = video;
           });
 
         })
@@ -247,7 +242,7 @@
       <h2>${name}</h2>
       <p>`+address+`</br>
       At ${local_time}</p>
-      <a href="${link}"><p>Event Details</p><span class="share-btn"><i class="ion-android-share-alt"></i></span></a>
+      <a href="${link}"><p>Event Details</p><div><span class="share-btn"><i class="ion-android-share-alt"></i></span></div></a>
       </div>
       </div>`;
 
