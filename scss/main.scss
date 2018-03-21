@@ -573,6 +573,13 @@ footer {
   align-items: center;
 }
 
+.icon-wrapper-4 {
+  // clear: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
 .icon-wrapper-3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -607,6 +614,15 @@ footer {
   margin-bottom: 2rem;
   grid-row-gap: 1rem;
   align-items: center;
+}
+
+.icon-1 {
+  text-align: center;
+  a {
+    img {
+      width: 90%;
+    }
+  }
 }
 
 .icon-2-1 {
@@ -2186,6 +2202,23 @@ footer {
 
   .icon-wrapper-3-3 {
     padding: 1rem 2rem 3rem 2rem;
+  }
+
+  .icon-wrapper-4 {
+    // clear: left;
+    // display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 2rem;
+    // align-items: center;
+  }
+
+  .icon-1 {
+    a {
+      img {
+        width: 80%;
+        max-width: 10rem;
+      }
+    }
   }
 
   .icon-wrapper-6 {

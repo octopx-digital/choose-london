@@ -115,9 +115,17 @@
                     <?php
                       $itemIcons = getItemIcons($item['id']);
                       if(!is_string($itemIcons)){
-                        echo "<div class=\"icon-wrapper-3-2 {$item['name']}\">";
-                        while ($icon = mysqli_fetch_assoc($itemIcons)) {
-                          echo "<div class=\"icon icon-1-1-2\"><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                        if($item['name'] === 'get_involved') {
+                          echo "<div class=\"icon-wrapper-4 {$item['name']}\">";
+                          while ($icon = mysqli_fetch_assoc($itemIcons)) {
+                            echo "<div class=\"icon icon-1\"><a href=\"{$icon['longfield']}\" title=\"{$icon['title']}\" target=\"_blank\"><img src=\"images/{$icon['photo']}.png\" alt=\"{$icon['alt']}\"></a></div>";
+                          }
+                        }
+                        else {
+                          echo "<div class=\"icon-wrapper-3-2 {$item['name']}\">";
+                          while ($icon = mysqli_fetch_assoc($itemIcons)) {
+                            echo "<div class=\"icon icon-1-1-2\"><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                          }
                         }
                         echo "</div>";
                       }
