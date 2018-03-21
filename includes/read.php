@@ -125,4 +125,52 @@
     mysqli_close($link);
   }
 
+  function getSectionIcons($sectionId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM section sec, icon ic, section_icon secic WHERE sec.id = {$sectionId} AND sec.id = secic.section_id AND secic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
+  function getCategoryIcons($categoryId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM category cat, icon ic, category_icon catic WHERE cat.id = {$categoryId} AND cat.id = catic.category_id AND catic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
+  function getItemIcons($itemId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM item it, icon ic, item_icon itic WHERE it.id = {$itemId} AND it.id = itic.item_id AND itic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
  ?>

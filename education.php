@@ -100,6 +100,26 @@
             </div>
             <p class="category-desc"><?php echo $category['description']; ?></p>
             <?php
+              if($category['name'] == 'secondary_education') {
+                $iconsData = getCategoryIcons($category['id']);
+                echo "<div class=\"icon-wrapper-3-3 {$category['name']}\">";
+                if(!is_string($iconsData)) {
+                  while ($icon = mysqli_fetch_assoc($iconsData)) {
+                    echo "<div class=\"icon icon-1-1-1\"><div class=\"img-wrapper\"><img src=\"images/{$icon['photo']}.svg\" alt=\"{$icon['alt']}\"></div><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                  }
+                  echo "</div>";
+                }
+              }
+              if($category['name'] == 'english_studies') {
+                $iconsData = getCategoryIcons($category['id']);
+                echo "<div class=\"icon-wrapper-3-2 {$category['name']}\">";
+                if(!is_string($iconsData)) {
+                  while ($icon = mysqli_fetch_assoc($iconsData)) {
+                    echo "<div class=\"icon icon-1-2\"><div class=\"img-wrapper\"><img src=\"images/{$icon['photo']}.svg\" alt=\"{$icon['alt']}\"></div><div><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div></div>";
+                  }
+                  echo "</div>";
+                }
+              }
               $itemData = getItems($category['id']);
               if(!is_string($itemData)){
                 while ($item = mysqli_fetch_assoc($itemData)) {
@@ -111,6 +131,19 @@
                   echo "<p class=\"item-desc\">{$item['description']}</p>";
                 }
                   echo "<img class=\"item-photo media-change\" src=\"images/{$item['photo']}_large.jpg\" alt=\"{$item['title']}\">";
+                  if($category['name'] == 'secondary_education') {
+                    $iconsData = getItemIcons($item['id']);
+                    echo "<div class=\"icon-wrapper-2 {$category['name']}\">";
+                    if(!is_string($iconsData)) {
+                      $icons = array();
+                      while ($icon = mysqli_fetch_assoc($iconsData)) {
+                        $icons[] = $icon;
+                      }
+                      echo "<div class=\"icon icon-1-2-2\"><div class=\"img-wrapper\"><img src=\"images/{$icons[0]['photo']}.svg\" alt=\"{$icons[0]['alt']}\"></div><div><p class=\"icon-title\">{$icons[0]['title']}</p><p class=\"icon-desc\">{$icons[0]['description']}</p></div></div>";
+                      echo "<div class=\"icon icon-1-1-2\"><p class=\"icon-title\">{$icons[1]['title']}</p><div class=\"img-wrapper\"><img src=\"images/{$icons[1]['photo']}.svg\" alt=\"{$icon['alt']}\"></div></div>";
+                      echo "</div>";
+                    }
+                  }
               ?>
               <address>
               <?php
@@ -128,6 +161,20 @@
                 }
               ?>
               </address>
+
+              <?php
+                if($category['name'] == 'post_secondary_education') {
+                  $itemIcons = getItemIcons($item['id']);
+                  echo "<div class=\"icon-wrapper-3-2 {$item['name']}\">";
+                  if(!is_string($itemIcons)){
+                    while ($icon = mysqli_fetch_assoc($itemIcons)) {
+                      echo "<div class=\"icon icon-1-2\"><div class=\"img-wrapper\"><img src=\"images/{$icon['photo']}.svg\" alt=\"{$icon['alt']}\"></div><div><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div></div>";
+                    }
+                  }
+                  echo "</div>";
+                }
+               ?>
+
               <span class="faded-line"></span>
             </section>
             <?php
