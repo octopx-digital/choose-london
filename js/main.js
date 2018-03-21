@@ -1,11 +1,11 @@
 (() => {
-
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
-  var storyArrow = document.querySelector('.story-check > i');
+  // var storyArrow = document.querySelectorAll('.story-check > i');
+  var storyDiv = document.querySelectorAll('.story');
   let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
-  var storyOpen = false;
+  // var storyOpen = false;
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
@@ -17,6 +17,55 @@
       sectorButton.addEventListener('click', openBusinessSector, false);
       sectorClose.addEventListener('click', openBusinessSector, false);
     }
+  }
+
+  function checkResize(){
+    storyArrow();
+    if(document.querySelector('.home') !== null){
+      videoCall();
+    }
+  }
+
+  function fetchData(){
+    let url = 'includes/read.php?home';
+    let container = document.querySelector('#section-icons');
+
+    fetch(url)
+      .then((resp) => resp.json())
+        .then((data) => {
+          data.forEach((item) => {
+            if(item.icon){
+              let icon = `<div class="section-icons"><a href="`+item.name+`.php"><img src="images/`+item.icon+`.png" alt=`+item.title+`"><h4>`+item.name+`</h4></a></div>`;
+              container.innerHTML += icon;
+            }
+          })
+        })
+         .catch(function(error){
+          console.log(error);
+        });
+
+  }
+
+  function videoCall(){
+    let video = 'includes/read.php?video';
+    let ldnBanner = document.querySelector('#ldn-banner');
+    let videoContainer = document.querySelector('#main-video');
+
+    fetch(video)
+      .then((res) => res.json())
+        .then((info) => {
+          info.forEach((entry) => {
+            let div = `<div class="video-header">
+            <img src="images/`+entry.icon+`.svg" alt="`+entry.title+`">
+            <p>`+entry.description+`</p>
+            </div>`;
+            ldnBanner.innerHTML = div;
+          });
+
+        })
+        .catch(function(error){
+         console.log(error);
+       });
   }
 
   function checkScrollMenu() {
@@ -41,23 +90,34 @@
     }
   }
 
-  function showStory() {
-    let story = document.querySelector('.story');
-    if (!storyOpen) {
-      storyOpen = true;
-      story.classList.add('open');
-      storyArrow.classList.remove('ion-arrow-down-b');
-      storyArrow.classList.add('ion-arrow-up-b');
-    }
-    else {
-      storyOpen = false;
-      story.classList.remove('open');
-      storyArrow.classList.remove('ion-arrow-up-b');
-      storyArrow.classList.add('ion-arrow-down-b');
+  function storyArrow(){
+    if(screensize == 'small'){
+      var storyDiv = document.querySelectorAll('.story');
+      storyDiv.forEach((arrow) => {
+        arrow.addEventListener('click', showStory, false);
+      });
+    } else {
+      var storyDiv = document.querySelectorAll('.story');
+      storyDiv.forEach((arrow) => {
+        arrow.removeEventListener('click', showStory, false);
+      });
     }
   }
 
-  // var fixButton = debounce(() => {
+  function showStory(el) {
+    el = this;
+    let storyArrow = this.querySelector('.story-check > i');
+    if(el.classList.contains('open')){
+      el.classList.remove('open');
+      storyArrow.classList.remove('ion-arrow-up-b');
+      storyArrow.classList.add('ion-arrow-down-b');
+    } else {
+      el.classList.add('open');
+      storyArrow.classList.remove('ion-arrow-down-b');
+      storyArrow.classList.add('ion-arrow-up-b');
+    }
+  }
+
   function fixButton(){
     let footer = document.querySelector('footer').clientHeight;
     let height = window.scrollY;
@@ -105,36 +165,149 @@
     }
   }
 
-  // function getJobs() {
-  //   var posts = document.querySelector('#job-post');
-  //   var data = fetchAPI.jobs;
-  //   console.log(data);
-  //
-  //   data.forEach(({logo, post, position}) => {
-  //     let newDiv = document.createElement('div');
-  //     newDiv.classList.add('responsive');
-  //     let newImg = document.createElement('img');
-  //     let newPost = document.createElement('h1');
-  //     let newPosition = document.createElement('p');
-  //     let button = document.createElement('button');
-  //     let anchor = document.createElement('a');
-  //     anchor.innerHTML = "APPLY";
-  //     button.appendChild(anchor);
-  //     newImg.src = 'images/build/logo_'+logo;
-  //     newPost.textContent = post;
-  //     newPosition.textContent = position;
-  //     newDiv.append(newImg, newPost, newPosition, button);
-  //     posts.appendChild(newDiv);
-  //   });
-  // }
+  function getJobs() {
+    let posts = document.querySelector('#job-post');
+    let data = fetchAPI.jobs;
 
-  checkEconomicsPage.call(document.querySelector('#container'));
+    data.forEach(({logo, post, position, date}) => {
+      let newDiv = `<div class="space-between"><div class="posts">
+      <div class="job-title"><h3>${post}</h3></div>
+      <div class="content">
+      <img src="images/logo_${logo}">
+      <p>${position}</p>
+      <p>${date}</p>
+      <a href="#">APPLY</a>
+      </div>
+      </div></div>`;
+      posts.innerHTML += newDiv;
+    });
 
-  // window.addEventListener('load', getJobs, false);
+    arrows();
+  }
+
+  function arrows(){
+    let leftArrow = document.querySelector('.arrow-back');
+    let rightArrow = document.querySelector('.arrow-forward');
+    let posts = document.querySelector('#job-post');
+    let thumbs = posts.children.length;
+    let thumbcount = posts.querySelectorAll('.space-between');
+    let thumb = thumbcount[0].offsetWidth;
+    let thumbWidth = posts.offsetWidth;
+    let leftPosition = 0;
+    posts.style.left = leftPosition+"px";
+
+    leftArrow.addEventListener('click', moveBack, false);
+    rightArrow.addEventListener('click', moveForward, false);
+
+    let moveSlide = function (value) {
+        leftPosition += value * thumb;
+        posts.style.left = leftPosition + 'px';
+    };
+    function moveBack(){
+      if(leftPosition !== 0) {
+        moveSlide(1);
+      } else if (leftPosition === 0) {
+          posts.style.left = leftPosition + 'px';
+        } else {
+        leftPosition = (thumbs-1)* -thumbWidth;
+        posts.style.left = leftPosition + 'px';
+      }
+    }
+
+    function moveForward(){
+      if (leftPosition > (thumbs-1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        posts.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+
+  function getEvents(){
+    let container = document.querySelector('#events-container');
+    let events = meetup.events;
+
+    events.forEach(({id,name, venue, local_date, local_time, link}) => {
+      let address = venue.address_1;
+      let month = local_date.slice(5,8);
+      let date = local_date.slice(9,11);
+
+      let image = 'images/'+id+'.jpg';
+      let newEvent = `<div class="events">
+      <div class="event-data">
+      <div class="date"><h5>`+month+`</br>`+date+`</h5></div>
+      <img src="`+image+`">
+      <h2>${name}</h2>
+      <p>`+address+`</br>
+      At ${local_time}</p>
+      <a href="${link}"><p>Event Details</p><div><span class="share-btn"><i class="ion-android-share-alt"></i></span></div></a>
+      </div>
+      </div>`;
+
+      container.innerHTML += newEvent;
+    });
+    eventArrows();
+  }
+
+  function eventArrows(){
+    let toLeft = document.querySelector('.nav-back');
+    let toRight = document.querySelector('.nav-forward');
+    let events = document.querySelector('#events-container');
+    let thumbs = events.children.length;
+    let thumbcount = events.querySelectorAll('.events');
+    let thumb = thumbcount[0].offsetWidth;
+    let thumbWidth = events.offsetWidth;
+    let leftPosition = 0;
+    events.style.left = leftPosition+"px";
+
+    toLeft.addEventListener('click', moveBack, false);
+    toRight.addEventListener('click', moveForward, false);
+
+    let moveSlide = function (value) {
+        leftPosition += value * thumb;
+        events.style.left = leftPosition + 'px';
+    };
+    function moveBack(){
+      if(leftPosition !== 0) {
+        moveSlide(1);
+      } else if (leftPosition === 0) {
+          events.style.left = leftPosition + 'px';
+        } else {
+        leftPosition = (thumbs-1)* -thumbWidth;
+        events.style.left = leftPosition + 'px';
+      }
+    }
+
+    function moveForward(){
+      if (leftPosition > (thumbs-1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        events.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+  window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
+  // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
-  storyArrow.addEventListener('click', showStory, false);
+  checkEconomicsPage.call(document.querySelector('#container'));
+  // window.addEventListener('load', getJobs, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);
+
+  //If it's on the homepage, run those functions
+  if(document.querySelector('.home') !== null){
+    videoCall.call();
+    fetchData.call();
+    getEvents.call();
+    getJobs.call();
+    window.addEventListener('load', videoCtrl, false);
+  }
+
+
 })();

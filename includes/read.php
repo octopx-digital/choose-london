@@ -32,6 +32,24 @@
     mysqli_close($link);
   }
 
+  function getStories($section){
+    include('connect.php');
+    if($section == 'home'){
+      $queryStory = "SELECT * FROM stories ORDER BY id DESC LIMIT 3";
+    } else {
+      $queryStory = "SELECT * FROM stories WHERE section='{$section}'";
+    }
+    $result = mysqli_query($link, $queryStory);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+    mysqli_close($link);
+  }
+
   function getItems($categoryId) {
     include('connect.php');
 
@@ -47,22 +65,63 @@
 
     mysqli_close($link);
   }
-
   function getItemsByName($categoryName) {
     include('connect.php');
 
     $catIdQuery = "SELECT id FROM category WHERE name = {$categoryName}";
     $catIdRun = mysqli_query($link, $catIdQuery);
-    if($catIdRun) {
-      $category = mysqli_fetch_array($catIdRun);
-      $catItems = getItems($category['id']);
-      return $catItems;
+      if($catIdRun) {
+        $category = mysqli_fetch_array($catIdRun);
+        $catItems = getItems($category['id']);
+        return $catItems;
+      }
+      else {
+        $error = "There was a problem accessing this information.";
+        return $error;
+      }
+    }
+
+  if(isset($_GET['home'])) {
+    include('connect.php');
+    $query = "SELECT * FROM section";
+    $result = mysqli_query($link, $query);
+
+    $rows = array();
+
+      while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+    echo json_encode($rows);
+    mysqli_close($link);
+  }
+
+  if(isset($_GET['video'])) {
+    include('connect.php');
+    $query = "SELECT * FROM video";
+    $result = mysqli_query($link, $query);
+
+    $rows = array();
+
+      while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+    echo json_encode($rows);
+    mysqli_close($link);
+  }
+
+  function video(){
+    include('connect.php');
+    $query = "SELECT * FROM video";
+    $result = mysqli_query($link, $query);
+
+    if($result) {
+      $info = mysqli_fetch_array($result);
+      return $info;
     }
     else {
       $error = "There was a problem accessing this information.";
-			return $error;
+      return $error;
     }
-
     mysqli_close($link);
   }
 
@@ -86,6 +145,22 @@
     include('connect.php');
 
     $iconQuery = "SELECT ic.* FROM category cat, icon ic, category_icon catic WHERE cat.id = {$categoryId} AND cat.id = catic.category_id AND catic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
+  function getItemIcons($itemId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM item it, icon ic, item_icon itic WHERE it.id = {$itemId} AND it.id = itic.item_id AND itic.icon_id = ic.id ORDER BY position";
     $result = mysqli_query($link, $iconQuery);
     if($result) {
 			return $result;
