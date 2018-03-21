@@ -141,10 +141,6 @@
                       }
                       echo "<div class=\"icon icon-1-2-2\"><div class=\"img-wrapper\"><img src=\"images/{$icons[0]['photo']}.svg\" alt=\"{$icons[0]['alt']}\"></div><div><p class=\"icon-title\">{$icons[0]['title']}</p><p class=\"icon-desc\">{$icons[0]['description']}</p></div></div>";
                       echo "<div class=\"icon icon-1-1-2\"><p class=\"icon-title\">{$icons[1]['title']}</p><div class=\"img-wrapper\"><img src=\"images/{$icons[1]['photo']}.svg\" alt=\"{$icon['alt']}\"></div></div>";
-                        // echo ""
-                      // while ($icon = mysqli_fetch_assoc($iconsData)) {
-                      //   echo "<div class=\"icon icon-1-1-1\"><div class=\"img-wrapper\"><img src=\"images/{$icon['photo']}.svg\" alt=\"{$icon['alt']}\"></div><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div>";
-                      // }
                       echo "</div>";
                     }
                   }

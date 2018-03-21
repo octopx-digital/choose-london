@@ -708,6 +708,28 @@ footer {
   }
 }
 
+#positions .icon-wrapper-3-2 {
+  margin: 1.5rem 0;
+  .icon-1-1-2 {
+    margin: 1.5rem 0;
+    .icon-title {
+      color: $colorWorkButtons;
+      -webkit-text-stroke-color: $colorWorkButtons;
+      sub {
+        font-size: 1.8rem;
+      }
+    }
+    .icon-desc {
+      color: #74c0e0;
+      font-weight: 500;
+      font-size: 1.4rem;
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
 .icon-1-2,
 .icon-1-2-2 {
   display: flex;

@@ -579,6 +579,22 @@ footer {
     display: inline-block;
     text-align: center; }
 
+#positions .icon-wrapper-3-2 {
+  margin: 1.5rem 0; }
+  #positions .icon-wrapper-3-2 .icon-1-1-2 {
+    margin: 1.5rem 0; }
+    #positions .icon-wrapper-3-2 .icon-1-1-2 .icon-title {
+      color: #327fab;
+      -webkit-text-stroke-color: #327fab; }
+      #positions .icon-wrapper-3-2 .icon-1-1-2 .icon-title sub {
+        font-size: 1.8rem; }
+    #positions .icon-wrapper-3-2 .icon-1-1-2 .icon-desc {
+      color: #74c0e0;
+      font-weight: 500;
+      font-size: 1.4rem; }
+      #positions .icon-wrapper-3-2 .icon-1-1-2 .icon-desc span {
+        font-size: 1rem; }
+
 .icon-1-2,
 .icon-1-2-2 {
   display: flex;

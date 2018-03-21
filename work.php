@@ -83,7 +83,6 @@
 
             echo "<p class=\"open-category-desc\">{$short}</p>";
             echo "<button class=\"open-category-click\">Click here</button>"
-            // echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>";
             ?>
           </div>
           <section id="<?php echo $category['name']; ?>" class="category">
@@ -113,6 +112,16 @@
                     <li class="item-count"><p><?php echo $count; ?></p></li>
                     <h3 class="item-title"><?php echo $item['title']; ?></h3>
                     <p class="item-desc"><?php echo $item['description']; ?></p>
+                    <?php
+                      $itemIcons = getItemIcons($item['id']);
+                      if(!is_string($itemIcons)){
+                        echo "<div class=\"icon-wrapper-3-2 {$item['name']}\">";
+                        while ($icon = mysqli_fetch_assoc($itemIcons)) {
+                          echo "<div class=\"icon icon-1-1-2\"><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                        }
+                        echo "</div>";
+                      }
+                     ?>
                   </section>
             <?php
                 }
