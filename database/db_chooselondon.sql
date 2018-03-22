@@ -112,7 +112,7 @@ CREATE TABLE `icon` (
   `alt` varchar(100) DEFAULT NULL,
   `longfield` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `icon` (
 
 LOCK TABLES `icon` WRITE;
 /*!40000 ALTER TABLE `icon` DISABLE KEYS */;
-INSERT INTO `icon` VALUES (1,'population','494,069','People live in the city','icon-life-people','People icon','long'),(2,'large_city','15<sup>th</sup>','Largest city <br>in Canada','icon-life-arrow','Arrow up icon',NULL),(3,'safe_city','10<sup>th</sup>','Safest city <br>in Ontario','',NULL,NULL),(4,'trees','358,000','Trees planted for the <br>Million Tree Challenge',NULL,NULL,'long'),(5,'crime_rate','-12<sup>%</sup>','Crime rate the <br>past 5 years',NULL,NULL,NULL),(6,'women_live','6<sup>th</sup>','Best Place for <br>women to live',NULL,NULL,NULL),(7,'best_neighborhood','Woodfield','Best neighborhood <br>in Canada in 2016','icon-life-stars','Stars icon','long'),(8,'volunteer','60<sup>%</sup>','of Londoners <br>volunteer','',NULL,NULL),(9,'high_schools','156','High Schools','education-high','High Schools',NULL),(10,'middle_schools','150','Middle Schools','education-middle','Middle Schools',NULL),(11,'elementary_schools','152','Elementary Schools','education-elementary','Elementary Schools',NULL),(12,'jack_chambers_position','119','2900','education-trophy','Jack Chambers Position',NULL),(13,'jack_chambers_rating','8.5',NULL,'education-4stars','4 stars',NULL),(14,'masonville_school_position','157','2900','education-trophy','Masonville School Position',NULL),(15,'masonville_school_rating','8.3',NULL,'education-4stars','4 stars',NULL),(16,'london_central_position','6','740','education-trophy','London Central Position',NULL),(17,'london_central_rating','9.0',NULL,'education-5stars','5 stars',NULL),(18,'western_alumni','310,000','Alumni living worldwide','education-globe','Student globe',NULL),(19,'western_founded','1878','Founded in','education-flag','Flag',NULL),(20,'western_students','+29,000','Undergraduate and <br>Graduate students','education-students-wes','Students',NULL),(21,'fanshawe_programs','+200','Programs','education-programs','Programs',NULL),(22,'fanshawe_students','43,000','Students each year','education-students-fan','Students',NULL),(23,'fanshawe_countries','65 <span>countries</span>','Students came from','education-countries','Map',NULL),(24,'esl_immigrants','94,690','Immigrants in London','education-passport','Passport',NULL),(25,'esl_first_language','17.8%','English/French is <br>not 1st language','education-book','Book',NULL),(26,'esl_english_french','6,485','Don\'t speak English <br>nor French','education-en-fr','English and French',NULL),(27,'employment_rate','+16<sub>%</sub>','2017 <span>vs</span> 2016',NULL,NULL,NULL),(28,'job_postings','7,400','Job postings',NULL,NULL,NULL),(29,'full_time_positions','77<sub>%</sub>','Full-time',NULL,NULL,NULL);
+INSERT INTO `icon` VALUES (1,'population','494,069','People live in the city','icon-life-people','People icon','long'),(2,'large_city','15<sup>th</sup>','Largest city <br>in Canada','icon-life-arrow','Arrow up icon',NULL),(3,'safe_city','10<sup>th</sup>','Safest city <br>in Ontario','',NULL,NULL),(4,'trees','358,000','Trees planted for the <br>Million Tree Challenge',NULL,NULL,'long'),(5,'crime_rate','-12<sup>%</sup>','Crime rate the <br>past 5 years',NULL,NULL,NULL),(6,'women_live','6<sup>th</sup>','Best Place for <br>women to live',NULL,NULL,NULL),(7,'best_neighborhood','Woodfield','Best neighborhood <br>in Canada in 2016','icon-life-stars','Stars icon','long'),(8,'volunteer','60<sup>%</sup>','of Londoners <br>volunteer','',NULL,NULL),(9,'high_schools','156','High Schools','education-high','High Schools',NULL),(10,'middle_schools','150','Middle Schools','education-middle','Middle Schools',NULL),(11,'elementary_schools','152','Elementary Schools','education-elementary','Elementary Schools',NULL),(12,'jack_chambers_position','119','2900','education-trophy','Jack Chambers Position',NULL),(13,'jack_chambers_rating','8.5',NULL,'education-4stars','4 stars',NULL),(14,'masonville_school_position','157','2900','education-trophy','Masonville School Position',NULL),(15,'masonville_school_rating','8.3',NULL,'education-4stars','4 stars',NULL),(16,'london_central_position','6','740','education-trophy','London Central Position',NULL),(17,'london_central_rating','9.0',NULL,'education-5stars','5 stars',NULL),(18,'western_alumni','310,000','Alumni living worldwide','education-globe','Student globe',NULL),(19,'western_founded','1878','Founded in','education-flag','Flag',NULL),(20,'western_students','+29,000','Undergraduate and <br>Graduate students','education-students-wes','Students',NULL),(21,'fanshawe_programs','+200','Programs','education-programs','Programs',NULL),(22,'fanshawe_students','43,000','Students each year','education-students-fan','Students',NULL),(23,'fanshawe_countries','65 <span>countries</span>','Students came from','education-countries','Map',NULL),(24,'esl_immigrants','94,690','Immigrants in London','education-passport','Passport',NULL),(25,'esl_first_language','17.8%','English/French is <br>not 1st language','education-book','Book',NULL),(26,'esl_english_french','6,485','Don\'t speak English <br>nor French','education-en-fr','English and French',NULL),(27,'employment_rate','+16<sub>%</sub>','2017 <span>vs</span> 2016',NULL,NULL,NULL),(28,'job_postings','7,400','Job postings',NULL,NULL,NULL),(29,'full_time_positions','77<sub>%</sub>','Full-time',NULL,NULL,NULL),(30,'charity_village','Charity Village',NULL,'logo_charity_village','Charity Village logo','https://charityvillage.com'),(31,'ymca_canada','YMCA of Western Ontario',NULL,'logo_ymca','YMCA Canada logo','http://ymcawo.ca'),(32,'food_bank','London Food Bank',NULL,'logo_food_bank','Food Bank logo','http://www.londonfoodbank.ca'),(33,'pillar','Pillar Nonprofit Network',NULL,'logo_pillar','Pillar logo','http://www.pillarnonprofit.ca');
 /*!40000 ALTER TABLE `icon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `item_icon` (
   `icon_id` smallint(6) NOT NULL,
   `position` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `item_icon` (
 
 LOCK TABLES `item_icon` WRITE;
 /*!40000 ALTER TABLE `item_icon` DISABLE KEYS */;
-INSERT INTO `item_icon` VALUES (1,2,3,1),(2,2,4,2),(3,2,5,3),(4,2,6,4),(5,2,7,5),(6,2,8,6),(7,10,18,1),(8,10,19,2),(9,10,20,3),(10,11,21,1),(11,11,22,2),(12,11,23,3),(13,37,27,1),(14,37,28,2),(15,37,29,3),(16,12,12,1),(17,12,13,2),(18,13,14,1),(19,13,15,2),(20,14,16,1),(21,14,17,2);
+INSERT INTO `item_icon` VALUES (1,2,3,1),(2,2,4,2),(3,2,5,3),(4,2,6,4),(5,2,7,5),(6,2,8,6),(7,10,18,1),(8,10,19,2),(9,10,20,3),(10,11,21,1),(11,11,22,2),(12,11,23,3),(13,37,27,1),(14,37,28,2),(15,37,29,3),(16,12,12,1),(17,12,13,2),(18,13,14,1),(19,13,15,2),(20,14,16,1),(21,14,17,2),(22,35,30,1),(23,35,31,2),(24,35,32,3),(25,35,33,4);
 /*!40000 ALTER TABLE `item_icon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-20 23:44:40
+-- Dump completed on 2018-03-22  0:29:20

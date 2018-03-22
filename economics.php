@@ -124,15 +124,16 @@
 
       <div id="category-wrapper">
         <?php
-
+          $counter = 0;
           for($i = 2; $i < 5; $i++) {
+            $counter++;
         ?>
         <?php
-          echo "<div class=\"open-category economics {$categories[$i]['name']}\">";
+          echo "<div data-id=\"{$counter}\" class=\"open-category economics {$categories[$i]['name']}\">";
           echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\">{$categories[$i]['title']}</button>";
           echo "</div>";
         ?>
-        <section id="<?php echo $categories[$i]['name']; ?>" class="category">
+        <section id="<?php echo $categories[$i]['name']; ?>" data-id="<?php echo $counter; ?>" class="category">
           <div class="category-header">
             <div class="photo-wrapper">
               <img class="media-change" src="images/<?php echo $categories[$i]['header_photo']; ?>_large.jpg" alt="<?php echo $categories['title']; ?>">
@@ -216,7 +217,7 @@
                 <section class="entrepreneur-orgs">
                   <h3 class="hidden">Entrepreneurship Organizations</h3>
                   <?php for($i = 3; $i < 7; $i++) { ?>
-                  <img src="images/<?php echo $items[$i]['photo']; ?>.png" alt="<?php echo $items[$i]['title']; ?> Logo">
+                  <a href="<?php echo $items[$i]['website']; ?>" title="<?php echo $items[$i]['title']; ?>" target="_blank"><img src="images/<?php echo $items[$i]['photo']; ?>.png" alt="<?php echo $items[$i]['title']; ?> Logo"></a>
                 <?php } ?>
                 </section>
                 <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>

@@ -578,11 +578,13 @@ function reloadVideo() {
 (() => {
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
+  var catButtons = document.querySelectorAll('.open-category');
+  var categories = document.querySelectorAll('.category');
   // var storyArrow = document.querySelectorAll('.story-check > i');
   var storyDiv = document.querySelectorAll('.story');
   let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
-  // var storyOpen = false;
+  var catOpen = 0;
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
@@ -867,6 +869,34 @@ function reloadVideo() {
     }
   }
 
+  function toggleCategory(e) {
+    let id = e.currentTarget.dataset.id;
+    if(id === catOpen) {
+      console.log(categories[(id - 1)]);
+      categories[(id-1)].classList.remove('selected');
+      e.currentTarget.classList.remove('selected');
+      catButtons.forEach((button) => {
+        button.classList.remove('dim');
+      });
+      catOpen = 0;
+    }
+    else {
+      categories.forEach((category, index) => {
+        if(category.dataset.id === id) {
+          category.classList.add('selected');
+          catButtons[index].classList.remove('dim');
+          catButtons[index].classList.add('selected');
+        }
+        else {
+          category.classList.remove('selected');
+          catButtons[index].classList.remove('selected');
+          catButtons[index].classList.add('dim');
+        }
+      });
+      catOpen = id;
+    }
+  }
+
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
@@ -876,6 +906,13 @@ function reloadVideo() {
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);
+
+  catButtons.forEach((button) => {
+    if (!('ontouchstart' in document.documentElement)) {
+      button.classList.add('no-touch');
+    }
+    button.addEventListener('click', toggleCategory, false);
+  });
 
   //If it's on the homepage, run those functions
   if(document.querySelector('.home') !== null){

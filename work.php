@@ -72,11 +72,13 @@
 
       <div id="category-wrapper">
         <?php
+          $counter = 0;
           if(!is_string($categoriesData)) {
             while ($category = mysqli_fetch_assoc($categoriesData)) {
+              $counter++;
         ?>
             <?php
-            echo "<div class=\"open-category work {$category['name']}\">";
+            echo "<div data-id=\"{$counter}\" class=\"open-category work {$category['name']}\">";
             echo "<div class=\"open-category-btn\"><div><img class=\"open-category-img\" src=\"images/{$category['banner_photo']}.svg\" alt=\"{$category['title']}\"><p>{$category['title']}</p></div></div>";
 
             $short = str_replace("<br>", "", $category['description']);
@@ -85,7 +87,7 @@
             echo "<button class=\"open-category-click\">Click here</button>"
             ?>
           </div>
-          <section id="<?php echo $category['name']; ?>" class="category">
+          <section id="<?php echo $category['name']; ?>" data-id="<?php echo $counter; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
                 <img class="media-change" src="images/<?php echo $category['header_photo']; ?>_large.jpg" alt="<?php echo $category['title']; ?>">
