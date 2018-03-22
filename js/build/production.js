@@ -886,6 +886,9 @@ function reloadVideo() {
           category.classList.add('selected');
           catButtons[index].classList.remove('dim');
           catButtons[index].classList.add('selected');
+          let closeButton = category.querySelector('.close-category-btn');
+          // console.log(closeButton);
+          closeButton.addEventListener('click', toggleCategory, false);
         }
         else {
           category.classList.remove('selected');

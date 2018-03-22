@@ -918,7 +918,6 @@ footer {
 }
 
 .open-category.work.dim {
-  // background-color: #5f9bbd;
   div {
     .open-category-img {
       opacity: 1;
@@ -1134,6 +1133,7 @@ footer {
 
 
 .open-category.work {
+  transition: background-color 0.3s ease-in-out;
   .open-category-btn {
     width: 90%;
     margin: 2rem auto 0 auto;
@@ -1159,11 +1159,13 @@ footer {
         text-align: left;
         margin-left: 2rem;
         align-self: center;
+        transition: color 0.3s ease-in-out;
       }
     }
   }
   .open-category-click {
     display: none;
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -1361,17 +1363,20 @@ footer {
 }
 
 #container.work .open-category.selected {
-  background-color: #5f9bbd;
+  // background-color: #5f9bbd;
+  transition: background-color 0.3s ease-in-out;
   .open-category-btn {
     border: none;
   }
   p {
     color: #ffffff;
+    transition: color 0.3s ease-in-out;
   }
   .open-category-click {
     border: 1px solid $colorWorkButtons;
     color: $colorWorkButtons;
     background-color: #ffffff;
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -2534,6 +2539,11 @@ footer {
     padding: 6px 18px;
     cursor: pointer;
   }
+}
+
+#container.work .open-category.selected {
+  background-color: #5f9bbd;
+
 }
 
 .open-category.work.no-touch:hover {

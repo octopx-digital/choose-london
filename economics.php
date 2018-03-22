@@ -165,7 +165,7 @@
                   <p><?php echo $items[2]['description']; ?></p>
                 </div>
                 <a href="https://www.expatistan.com/cost-of-living">Cost of life calculator</a>
-                <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+                <button class="close-category-btn btn-1" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
               </section>
           <?php
               }
@@ -185,7 +185,7 @@
           <?php
                 }
                 echo "</div>";
-                echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
+                echo "<button class=\"close-category-btn btn-2\" type=\"button\" name=\"{$categories[$i]['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
               }
               else {
                 redirect_to('error.php');
@@ -216,11 +216,11 @@
                 </section>
                 <section class="entrepreneur-orgs">
                   <h3 class="hidden">Entrepreneurship Organizations</h3>
-                  <?php for($i = 3; $i < 7; $i++) { ?>
-                  <a href="<?php echo $items[$i]['website']; ?>" title="<?php echo $items[$i]['title']; ?>" target="_blank"><img src="images/<?php echo $items[$i]['photo']; ?>.png" alt="<?php echo $items[$i]['title']; ?> Logo"></a>
+                  <?php for($j = 3; $j < 7; $j++) { ?>
+                  <a href="<?php echo $items[$j]['website']; ?>" title="<?php echo $items[$j]['title']; ?>" target="_blank"><img src="images/<?php echo $items[$j]['photo']; ?>.png" alt="<?php echo $items[$j]['title']; ?> Logo"></a>
                 <?php } ?>
                 </section>
-                <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+                <button class="close-category-btn btn-3" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
             <?php
               }
             }
