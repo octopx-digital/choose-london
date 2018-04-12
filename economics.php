@@ -164,7 +164,7 @@
                 <div class="cost-desc">
                   <p><?php echo $items[2]['description']; ?></p>
                 </div>
-                <a href="https://www.expatistan.com/cost-of-living">Cost of life calculator</a>
+                <a href="https://www.expatistan.com/cost-of-living" target="_blank">Cost of life calculator</a>
                 <button class="close-category-btn btn-1" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
               </section>
           <?php
@@ -180,7 +180,7 @@
                 while ($item = mysqli_fetch_assoc($itemData)) {
           ?>
                 <div class="item clearfix companies">
-                  <a href="<?php echo $item['website']; ?>" title="<?php echo $item['title']; ?>"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
+                  <a href="<?php echo $item['website']; ?>" title="<?php echo $item['title']; ?>" target="_blank"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
                 </div>
           <?php
                 }
