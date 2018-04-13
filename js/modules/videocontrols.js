@@ -3,7 +3,6 @@ function videoCtrl(){
   var videosec = document.querySelector('#video-wrapper');
   var overvideo = videosec.querySelector('#over-video');
   var videobtn = overvideo.querySelector('#video-btn');
-  // var videocontainer = videosec.querySelector('#main-video');
   var video = document.querySelector('#video');
   var videocontrol = videosec.querySelector("#video-controls");
   var videotime = videocontrol.querySelector('#video-time');
@@ -18,10 +17,6 @@ function videoCtrl(){
   var videoduration;
   var videoPlaying = false;
   video.volume = 0.8;
-
-  var videoCtrlTl = new TimelineLite({
-  paused: true
-});
 
   // function to play/pause video
   function togglePlayVideo() {
@@ -41,14 +36,13 @@ function videoCtrl(){
       pauseToPlayBtn(icon);
       videobtn.style.display = 'block';
       removeVideoListeners();
-      videoCtrlTl.reverse();
+      showVideoControl();
       videoPlaying = false;
     }
   }
 
   // function to present video on full screen
   function fullScreenVideo() {
-    console.log('full screen');
     let isFullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
     if (isFullScreen) {
       if (document.exitFullscreen) {
@@ -128,21 +122,26 @@ function updateVideoCurrentTime() {
     return time;
   }
 
-// function to check if video control must be hidden when video is playing and cursor is not over the video
-  // plays timeline to hide video control
+  // function to check if video control must be hidden when video is playing and cursor is not over the video
+  // calls function to hide video control
   function outVideoControl() {
-    videoCtrlTl.play();
+    hideVideoControl();
   }
 
   // function to check if video control must be shown when video is playing and cursor is over the video
-  // plays timeline in reverse to show video control
+  // calls function in reverse to show video control
   function overVideoControl() {
-    videoCtrlTl.reverse();
+    showVideoControl()
   }
 
-  // timelines to hide video control when video is playing and mouse is not over the video
+  // hide video control when video is playing and mouse is not over the video
   function hideVideoControl() {
-    videoCtrlTl.to(videocontrol, 1, {opacity: 0});
+    TweenLite.to(videocontrol, 1, {opacity: 0});
+  }
+
+  // show video control when video is playing and mouse is over the video
+  function showVideoControl() {
+    TweenLite.to(videocontrol, 1, {opacity: 1});
   }
 
   // change Play button from play to pause icon
@@ -165,7 +164,7 @@ function reloadVideo() {
   videobtn.style.display = 'block';
   videotime.innerHTML = '0:00 / '+videoduration;
   removeVideoListeners();
-  videoCtrlTl.reverse();
+  showVideoControl();
   videoPlaying = false;
   progressbar.style.width = null;
 }
@@ -173,7 +172,6 @@ function reloadVideo() {
   // change volume regarding position clicked on volume bar
   // also change position of colorful area of volume bar
   function volumeChange(evt) {
-    console.log('volume change');
     let pos = evt.pageX;
     let voloffsets = volumefg.getBoundingClientRect();
     let volwidth = voloffsets.right-voloffsets.left;
@@ -207,7 +205,6 @@ function reloadVideo() {
 
   // change volume button icon regarding video volume level
   function volumeChangeBtn() {
-    console.log('volume');
     let icon = volumebtn.querySelector('.video-ctrl-bt');
     let curclass;
     for (let i = 0; i < icon.classList.length; i++) {
@@ -244,7 +241,6 @@ function reloadVideo() {
   function checkFullscreen() {
     let isFullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
     if(isFullScreen) {
-      console.log('is full screen');
       overvideo.style.zIndex = 2147483647;
       videocontrol.style.zIndex = 2147483648;
       fullbtn.classList.remove('ion-arrow-expand');
@@ -257,7 +253,6 @@ function reloadVideo() {
       }
     }
     else {
-        console.log('not full screen');
       overvideo.style.zIndex = null;
       videocontrol.style.zIndex = null;
       fullbtn.classList.remove('ion-arrow-shrink');
