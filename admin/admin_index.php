@@ -47,6 +47,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="shortcut icon" href="../favicon.ico">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="../css/main.css">
   <title>Admin | Home Page</title>
@@ -77,7 +80,6 @@
         <li><a href="list_all.php?tbl=section&order=name"><i class="ion-ios-film"></i>Sections</a></li>
         <li><a href="list_all.php?tbl=category&order=name"><i class="ion-ios-pricetags"></i>Categories</a></li>
         <li><a href="list_all.php?tbl=item&order=name"><i class="ion-happy"></i>Items</a></li>
-        <li><a href="list_all.php?tbl=icon&order=name"><i class="ion-film-marker"></i>Icons</a></li>
         <li><a href="list_all.php?tbl=stories&order=name"><i class="ion-briefcase"></i>Stories</a></li>
         <li><a href="list_all.php?tbl=video&order=title"><i class="ion-briefcase"></i>Videos</a></li>
       </ul>

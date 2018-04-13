@@ -26,6 +26,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="shortcut icon" href="../favicon.ico">
   <link rel="stylesheet" href="../css/main.css">
   <title>Admin Login</title>
 </head>
@@ -33,8 +36,7 @@
   <h1 class="hidden">Choose London | Admin Login Page</h1>
   <main id="container" class="login-cont">
     <section id="form-wrapper">
-      <h2 class="hidden">Login Form</h2>
-      <p class="title">Choose London | Admin Login</p>
+      <h2 class="title">Choose London | Admin Login</h2>
       <?php if (!empty($message)){
         echo "<p class=\"error-message\">".$message."</p>";
       } ?>
