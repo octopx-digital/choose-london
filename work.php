@@ -72,21 +72,22 @@
 
       <div id="category-wrapper">
         <?php
+          $counter = 0;
           if(!is_string($categoriesData)) {
             while ($category = mysqli_fetch_assoc($categoriesData)) {
+              $counter++;
         ?>
             <?php
-            echo "<div class=\"open-category work {$category['name']}\">";
+            echo "<div data-id=\"{$counter}\" class=\"open-category work {$category['name']}\">";
             echo "<div class=\"open-category-btn\"><div><img class=\"open-category-img\" src=\"images/{$category['banner_photo']}.svg\" alt=\"{$category['title']}\"><p>{$category['title']}</p></div></div>";
 
             $short = str_replace("<br>", "", $category['description']);
 
             echo "<p class=\"open-category-desc\">{$short}</p>";
             echo "<button class=\"open-category-click\">Click here</button>"
-            // echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$category['name']}\">{$category['title']}</button>";
             ?>
           </div>
-          <section id="<?php echo $category['name']; ?>" class="category">
+          <section id="<?php echo $category['name']; ?>" data-id="<?php echo $counter; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
                 <img class="media-change" src="images/<?php echo $category['header_photo']; ?>_large.jpg" alt="<?php echo $category['title']; ?>">
@@ -113,6 +114,24 @@
                     <li class="item-count"><p><?php echo $count; ?></p></li>
                     <h3 class="item-title"><?php echo $item['title']; ?></h3>
                     <p class="item-desc"><?php echo $item['description']; ?></p>
+                    <?php
+                      $itemIcons = getItemIcons($item['id']);
+                      if(!is_string($itemIcons)){
+                        if($item['name'] === 'get_involved') {
+                          echo "<div class=\"icon-wrapper-4 {$item['name']}\">";
+                          while ($icon = mysqli_fetch_assoc($itemIcons)) {
+                            echo "<div class=\"icon icon-1\"><a href=\"{$icon['longfield']}\" title=\"{$icon['title']}\" target=\"_blank\"><img src=\"images/{$icon['photo']}.png\" alt=\"{$icon['alt']}\"></a></div>";
+                          }
+                        }
+                        else {
+                          echo "<div class=\"icon-wrapper-3-2 {$item['name']}\">";
+                          while ($icon = mysqli_fetch_assoc($itemIcons)) {
+                            echo "<div class=\"icon icon-1-1-2\"><p class=\"icon-title\">{$icon['title']}</p><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                          }
+                        }
+                        echo "</div>";
+                      }
+                     ?>
                   </section>
             <?php
                 }

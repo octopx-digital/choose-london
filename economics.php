@@ -124,15 +124,16 @@
 
       <div id="category-wrapper">
         <?php
-
+          $counter = 0;
           for($i = 2; $i < 5; $i++) {
+            $counter++;
         ?>
         <?php
-          echo "<div class=\"open-category economics {$categories[$i]['name']}\">";
+          echo "<div data-id=\"{$counter}\" class=\"open-category economics {$categories[$i]['name']}\">";
           echo "<button class=\"open-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\">{$categories[$i]['title']}</button>";
           echo "</div>";
         ?>
-        <section id="<?php echo $categories[$i]['name']; ?>" class="category">
+        <section id="<?php echo $categories[$i]['name']; ?>" data-id="<?php echo $counter; ?>" class="category">
           <div class="category-header">
             <div class="photo-wrapper">
               <img class="media-change" src="images/<?php echo $categories[$i]['header_photo']; ?>_large.jpg" alt="<?php echo $categories['title']; ?>">
@@ -163,8 +164,8 @@
                 <div class="cost-desc">
                   <p><?php echo $items[2]['description']; ?></p>
                 </div>
-                <a href="https://www.expatistan.com/cost-of-living">Cost of life calculator</a>
-                <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+                <a href="https://www.expatistan.com/cost-of-living" target="_blank">Cost of life calculator</a>
+                <button class="close-category-btn btn-1" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
               </section>
           <?php
               }
@@ -179,12 +180,12 @@
                 while ($item = mysqli_fetch_assoc($itemData)) {
           ?>
                 <div class="item clearfix companies">
-                  <a href="<?php echo $item['website']; ?>" title="<?php echo $item['title']; ?>"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
+                  <a href="<?php echo $item['website']; ?>" title="<?php echo $item['title']; ?>" target="_blank"><img src="images/<?php echo $item['photo']; ?>.png" alt="<?php echo $item['name']; ?>"></a>
                 </div>
           <?php
                 }
                 echo "</div>";
-                echo "<button class=\"close-category-btn\" type=\"button\" name=\"{$categories[$i]['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
+                echo "<button class=\"close-category-btn btn-2\" type=\"button\" name=\"{$categories[$i]['name']}\"><i class=\"ion-android-close\"></i>Close section</button>";
               }
               else {
                 redirect_to('error.php');
@@ -215,11 +216,11 @@
                 </section>
                 <section class="entrepreneur-orgs">
                   <h3 class="hidden">Entrepreneurship Organizations</h3>
-                  <?php for($i = 3; $i < 7; $i++) { ?>
-                  <img src="images/<?php echo $items[$i]['photo']; ?>.png" alt="<?php echo $items[$i]['title']; ?> Logo">
+                  <?php for($j = 3; $j < 7; $j++) { ?>
+                  <a href="<?php echo $items[$j]['website']; ?>" title="<?php echo $items[$j]['title']; ?>" target="_blank"><img src="images/<?php echo $items[$j]['photo']; ?>.png" alt="<?php echo $items[$j]['title']; ?> Logo"></a>
                 <?php } ?>
                 </section>
-                <button class="close-category-btn" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
+                <button class="close-category-btn btn-3" type="button" name="<?php echo $categories[$i]['name']; ?>"><i class="ion-android-close"></i>Close section</button>
             <?php
               }
             }

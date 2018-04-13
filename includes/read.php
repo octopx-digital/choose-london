@@ -125,4 +125,106 @@
     mysqli_close($link);
   }
 
+  function getSectionIcons($sectionId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM section sec, icon ic, section_icon secic WHERE sec.id = {$sectionId} AND sec.id = secic.section_id AND secic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
+  function getCategoryIcons($categoryId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM category cat, icon ic, category_icon catic WHERE cat.id = {$categoryId} AND cat.id = catic.category_id AND catic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
+  function getItemIcons($itemId) {
+    include('connect.php');
+
+    $iconQuery = "SELECT ic.* FROM item it, icon ic, item_icon itic WHERE it.id = {$itemId} AND it.id = itic.item_id AND itic.icon_id = ic.id ORDER BY position";
+    $result = mysqli_query($link, $iconQuery);
+    if($result) {
+			return $result;
+		}
+    else {
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+
+    mysqli_close($link);
+  }
+
+  function getAll($tbl, $order = "id") {
+		include('connect.php');
+		$queryAll = "SELECT * FROM {$tbl} ORDER BY {$order}";
+		$runAll = mysqli_query($link, $queryAll);
+		if($runAll){
+			return $runAll;
+		}else{
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+		mysqli_close($link);
+	}
+
+	function getSingle($tbl, $col, $id) {
+		include('connect.php');
+		$querySingle = "SELECT * FROM {$tbl} WHERE {$col} = {$id}";
+		$runSingle = mysqli_query($link, $querySingle);
+		if($runSingle){
+			return $runSingle;
+		}else{
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+		mysqli_close($link);
+	}
+
+	function filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter) {
+		include('connect.php');
+
+		$filterQuery = "SELECT * FROM {$tbl}, {$tbl2}, {$tbl3} WHERE {$tbl}.{$col} = {$tbl3}.{$col} AND {$tbl2}.{$col2} = {$tbl3}.{$col2} AND {$tbl2}.{$col3}='{$filter}'";
+		//echo $filterQuery;
+		$runQuery = mysqli_query($link, $filterQuery);
+		if($runQuery){
+			return $runQuery;
+		}else{
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+		mysqli_close($link);
+	}
+
+  function getRelation($tbl, $tbl2, $tbl3, $col, $col2, $id, $order = "id") {
+		include('connect.php');
+		$queryRel = "SELECT {$tbl2}.*, {$tbl3}.position FROM {$tbl}, {$tbl2}, {$tbl3} WHERE {$tbl}.{$col} = {$id} AND {$tbl}.{$col} = {$tbl3}.{$tbl}_{$col} AND {$tbl3}.{$tbl2}_{$col2} = {$tbl2}.{$col2} ORDER BY {$order}";
+		$runRel = mysqli_query($link, $queryRel);
+		if($runRel){
+			return $runRel;
+		}else{
+			$error = "There was a problem accessing this information.";
+			return $error;
+		}
+		mysqli_close($link);
+	}
+
  ?>

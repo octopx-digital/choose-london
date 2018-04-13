@@ -5,6 +5,7 @@
   if(!is_string($sectionData)) {
     $section = mysqli_fetch_array($sectionData);
     $categoriesData = getCategories($section['id']);
+    $iconsData = getSectionIcons($section['id']);
   }
   else {
     redirect_to('error.php');
@@ -63,6 +64,13 @@
         <div class="section-info">
           <?php
             if($section) {
+              echo "<div class=\"icon-wrapper-3 {$section['name']}\">";
+              if(!is_string($iconsData)) {
+                while ($icon = mysqli_fetch_assoc($iconsData)) {
+                  echo "<div class=\"icon icon-2-1\"><div class=\"img-wrapper {$icon['longfield']}\"><div><img src=\"images/{$icon['photo']}.svg\" alt=\"{$icon['alt']}\"></div><div><p>{$icon['title']}</p></div></div><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                }
+                echo "</div>";
+              }
               echo "<p class=\"section-desc\">{$section['description']}</p>";
             }
             else {
@@ -74,11 +82,13 @@
 
       <div id="category-wrapper">
         <?php
+          $counter = 0;
           if(!is_string($categoriesData)) {
             while ($category = mysqli_fetch_assoc($categoriesData)) {
+              $counter++;
         ?>
             <?php
-            echo "<div class=\"open-category {$category['name']}\">";
+            echo "<div data-id=\"{$counter}\" class=\"open-category {$category['name']}\">";
             echo "<div><img class=\"open-category-img media-change\" src=\"images/{$category['banner_photo']}_large.jpg\" alt=\"{$category['title']}\"></div>";
 
             $short = str_replace("<br>", "", $category['short_desc']);
@@ -88,7 +98,7 @@
             ?>
           </div>
 
-          <section id="<?php echo $category['name']; ?>" class="category">
+          <section id="<?php echo $category['name']; ?>" data-id="<?php echo $counter; ?>" class="category">
             <div class="category-header">
               <div class="photo-wrapper">
                 <img class="media-change" src="images/<?php echo $category['header_photo']; ?>_large.jpg" alt="<?php echo $category['title']; ?>">
@@ -100,6 +110,16 @@
             </div>
             <p class="category-desc"><?php echo $category['description']; ?></p>
             <?php
+              if($category['name'] == 'safety') {
+                $iconsData = getCategoryIcons($category['id']);
+                echo "<div class=\"icon-wrapper-6 {$category['name']}\">";
+                if(!is_string($iconsData)) {
+                  while ($icon = mysqli_fetch_assoc($iconsData)) {
+                    echo "<div class=\"icon icon-1-1\"><div><p class=\"icon-title {$icon['longfield']}\">{$icon['title']}</p></div><p class=\"icon-desc\">{$icon['description']}</p></div>";
+                  }
+                  echo "</div>";
+                }
+              }
               $itemData = getItems($category['id']);
               if(!is_string($itemData)){
                 while ($item = mysqli_fetch_assoc($itemData)) {
