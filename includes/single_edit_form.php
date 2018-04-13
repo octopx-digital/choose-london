@@ -20,11 +20,7 @@
       $optionTbl = "category";
       $options = getAll($optionTbl, "name");
       $selections = getRelation($tbl, $optionTbl, $optionTbl."_".$tbl, "id", "id", $id);
-      // $selected = array();
 
-      // while ($sel = mysqli_fetch_assoc($selections)) {
-      //   $selected[] = $sel['id'];
-      // }
       $sel = mysqli_fetch_array($selections, MYSQLI_ASSOC);
       $selected = $sel['id'];
       $position = $sel['position'];
@@ -63,18 +59,14 @@
       echo "<fieldset class=\"form-options\">";
       echo "<legend>{$optionTbl}:</legend>";
 
-      // echo "<div>";
       echo "<select name=\"option\">";
       while($option = mysqli_fetch_array($options)) {
         $checked = "";
-        // if(in_array($option['id'], $selected)) {
         if($option['id'] == $selected) {
           $checked = "selected";
         }
-        // echo "<input type=\"checkbox\" name=\"option[]\" value=\"{$option['id']}\" {$checked}>{$option[1]}<br>";
         echo "<option value=\"{$option['id']}\" {$checked}>{$option['name']}</option>";
       }
-      // echo "</div>";
       echo "</select>";
 
       echo "<legend>Position:</legend>";

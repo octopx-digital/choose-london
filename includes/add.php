@@ -1,13 +1,12 @@
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 function addLinkRow($tbl, $col, $col2, $id, $id2, $position) {
   include('connect.php');
 
   $addRow = "INSERT INTO {$tbl} ($col, $col2, position) VALUES ($id, $id2, $position)";
-  // var_dump($addRow); die;
 
   $addQuery = mysqli_query($link, $addRow);
 
@@ -95,7 +94,6 @@ function addCategory($name, $title, $description, $short_desc, $banner_photo, $h
             $lastId = $row['id'];
 
             return $lastId;
-
           }
         }
       }
@@ -141,7 +139,6 @@ function addItem($name, $title, $description, $address, $phone, $hours, $website
         $lastId = $row['id'];
 
         return $lastId;
-
       }
     }
   }
