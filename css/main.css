@@ -393,6 +393,54 @@ main {
               color: #fff;
               font-size: 1.2rem; }
 
+.form-container {
+  width: 80%;
+  margin: 50px auto 20px auto;
+  border: 2px solid #005a58;
+  border-radius: 6px;
+  padding: 8vw 5vw;
+  position: relative; }
+  .form-container p {
+    font-size: 1rem;
+    padding: 0 2vw; }
+  .form-container #form-header {
+    width: 90%;
+    position: absolute;
+    background-color: #005a58;
+    color: #fff;
+    border-radius: 6px;
+    top: -10%;
+    padding: 3px; }
+    .form-container #form-header h3 {
+      font-size: 1rem;
+      padding: 1.6vw;
+      border-radius: 6px;
+      border: 1px dashed #fff;
+      text-transform: uppercase; }
+  .form-container .subscribe-form {
+    display: flex;
+    flex-grow: 1;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 2vw 0; }
+    .form-container .subscribe-form input {
+      line-height: 1.8rem;
+      border: 1px solid #f9af1d;
+      margin: 5px 0;
+      padding: 5px;
+      box-shadow: 0 6px 6px -6px black; }
+    .form-container .subscribe-form input[type='submit'] {
+      width: 60%;
+      margin: 20px auto;
+      padding: 2vw 0;
+      border-radius: 3px;
+      border-color: #f9af1d;
+      background-color: #f9af1d;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 500; }
+
 footer {
   color: #ffffff;
   padding: 1rem 0;
@@ -1603,6 +1651,23 @@ footer {
             width: 25px;
             height: 25px; }
 
+  .form-container {
+    padding: 8vw 5vw 2vw 5vw; }
+    .form-container p {
+      padding: 0 4vw; }
+    .form-container #form-header {
+      width: 88%;
+      top: -7%;
+      margin: 0 auto; }
+      .form-container #form-header h3 {
+        font-size: 1.2rem; }
+    .form-container .subscribe-form input {
+      font-size: 1rem; }
+    .form-container .subscribe-form input[type='submit'] {
+      padding: 1.3vw 0;
+      margin: 20px auto 0 auto;
+      font-size: 1.1rem; }
+
   .back-to-top {
     right: 10px;
     bottom: 10px;
@@ -2232,6 +2297,23 @@ footer {
 
   #event-caroussel .events-holder #events-container .events .event-data .date h2 {
     font-size: 1.2rem; }
+
+  .form-container {
+    width: 60%;
+    margin: 50px auto 20px auto;
+    padding: 5vw 3vw 1vw 3vw; }
+    .form-container p {
+      font-size: 1.2rem;
+      padding: 0 5vw; }
+    .form-container #form-header {
+      width: 85%;
+      top: -10%;
+      left: 7%; }
+      .form-container #form-header h3 {
+        font-size: 1.4rem; }
+    .form-container .subscribe-form input[type='submit'] {
+      width: 50%;
+      padding: 1vw 0; }
 
   footer {
     display: grid;
