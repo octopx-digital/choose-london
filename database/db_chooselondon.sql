@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.2.13-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.16  Distrib 10.2.14-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: db_chooselondon
 -- ------------------------------------------------------
--- Server version	10.2.13-MariaDB
+-- Server version	10.2.14-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -290,6 +290,38 @@ INSERT INTO `stories` VALUES (1,'Sarah Lindsey','Cupcake ipsum dolor sit amet. W
 UNLOCK TABLES;
 
 --
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `user_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `user_fname` varchar(250) NOT NULL,
+  `user_name` varchar(250) NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  `user_email` varchar(250) NOT NULL,
+  `user_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_ip` varchar(50) NOT NULL DEFAULT 'no',
+  `user_level` int(11) NOT NULL,
+  `user_last_login` datetime DEFAULT NULL,
+  `user_attempt_fail` int(11) DEFAULT 0,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Mauricio','mauricio','$2y$10$CPDwxHyThFBUshrmXoDU7Otr7RM6fGIn.XysTxUj851zEVlQ79f7i','mauricio@email.com','2018-02-12 05:00:00','::1',1,'2018-04-11 17:10:49',0),(3,'Justin','justin','$2y$10$.0gtgypzrMfWQ7e726R/ce2eU6kdCnCa10IHVyTGptpebzt80oXsS','justin@email.com','2018-02-11 05:00:00','::1',2,'2018-02-24 09:53:42',0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `video`
 --
 
@@ -327,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-22  0:29:20
+-- Dump completed on 2018-04-11 20:29:42
