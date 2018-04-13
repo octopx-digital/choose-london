@@ -76,6 +76,10 @@ function changeImageSize() {
     var vid = document.querySelectorAll('.video-change');
     for (var _i = 0; _i < vid.length; _i++) {
       vid[_i].poster = vid[_i].poster.replace(curSize, screensize);
+      var vidsource = vid[_i].querySelectorAll('source');
+      for (var j = 0; j < vidsource.length; j++) {
+        vidsource[j].src = vidsource[j].src.replace(curSize, screensize);
+      }
     }
     curSize = screensize;
   }
@@ -281,7 +285,6 @@ function videoCtrl() {
   var videosec = document.querySelector('#video-wrapper');
   var overvideo = videosec.querySelector('#over-video');
   var videobtn = overvideo.querySelector('#video-btn');
-  // var videocontainer = videosec.querySelector('#main-video');
   var video = document.querySelector('#video');
   var videocontrol = videosec.querySelector("#video-controls");
   var videotime = videocontrol.querySelector('#video-time');
@@ -297,10 +300,6 @@ function videoCtrl() {
   var prevvol = 0;
   var videoPlaying = false;
   video.volume = 0.8;
-
-  var videoCtrlTl = new TimelineLite({
-    paused: true
-  });
 
   // function to play/pause video
   function togglePlayVideo() {
@@ -319,14 +318,13 @@ function videoCtrl() {
       pauseToPlayBtn(icon);
       videobtn.style.display = 'block';
       removeVideoListeners();
-      videoCtrlTl.reverse();
+      showVideoControl();
       videoPlaying = false;
     }
   }
 
   // function to present video on full screen
   function fullScreenVideo() {
-    console.log('full screen');
     var isFullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
     if (isFullScreen) {
       if (document.exitFullscreen) {
@@ -406,20 +404,25 @@ function videoCtrl() {
   }
 
   // function to check if video control must be hidden when video is playing and cursor is not over the video
-  // plays timeline to hide video control
+  // calls function to hide video control
   function outVideoControl() {
-    videoCtrlTl.play();
+    hideVideoControl();
   }
 
   // function to check if video control must be shown when video is playing and cursor is over the video
-  // plays timeline in reverse to show video control
+  // calls function in reverse to show video control
   function overVideoControl() {
-    videoCtrlTl.reverse();
+    showVideoControl();
   }
 
-  // timelines to hide video control when video is playing and mouse is not over the video
+  // hide video control when video is playing and mouse is not over the video
   function hideVideoControl() {
-    videoCtrlTl.to(videocontrol, 1, { opacity: 0 });
+    TweenLite.to(videocontrol, 1, { opacity: 0 });
+  }
+
+  // show video control when video is playing and mouse is over the video
+  function showVideoControl() {
+    TweenLite.to(videocontrol, 1, { opacity: 1 });
   }
 
   // change Play button from play to pause icon
@@ -442,7 +445,7 @@ function videoCtrl() {
     videobtn.style.display = 'block';
     videotime.innerHTML = '0:00 / ' + videoduration;
     removeVideoListeners();
-    videoCtrlTl.reverse();
+    showVideoControl();
     videoPlaying = false;
     progressbar.style.width = null;
   }
@@ -450,7 +453,6 @@ function videoCtrl() {
   // change volume regarding position clicked on volume bar
   // also change position of colorful area of volume bar
   function volumeChange(evt) {
-    console.log('volume change');
     var pos = evt.pageX;
     var voloffsets = volumefg.getBoundingClientRect();
     var volwidth = voloffsets.right - voloffsets.left;
@@ -483,7 +485,6 @@ function videoCtrl() {
 
   // change volume button icon regarding video volume level
   function volumeChangeBtn() {
-    console.log('volume');
     var icon = volumebtn.querySelector('.video-ctrl-bt');
     var curclass = void 0;
     for (var i = 0; i < icon.classList.length; i++) {
@@ -517,7 +518,6 @@ function videoCtrl() {
   function checkFullscreen() {
     var isFullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
     if (isFullScreen) {
-      console.log('is full screen');
       overvideo.style.zIndex = 2147483647;
       videocontrol.style.zIndex = 2147483648;
       fullbtn.classList.remove('ion-arrow-expand');
@@ -529,7 +529,6 @@ function videoCtrl() {
         outVideoControl();
       }
     } else {
-      console.log('not full screen');
       overvideo.style.zIndex = null;
       videocontrol.style.zIndex = null;
       fullbtn.classList.remove('ion-arrow-shrink');
@@ -838,7 +837,7 @@ function videoCtrl() {
   function toggleCategory(e) {
     var id = e.currentTarget.dataset.id;
     if (id === catOpen) {
-      console.log(categories[id - 1]);
+      // console.log(categories[(id - 1)]);
       categories[id - 1].classList.remove('selected');
       e.currentTarget.classList.remove('selected');
       catButtons.forEach(function (button) {
@@ -873,6 +872,7 @@ function videoCtrl() {
     }
   }
 
+  window.addEventListener('load', storyArrow, false);
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);

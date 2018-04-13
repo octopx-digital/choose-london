@@ -51,7 +51,9 @@
           <div id="video-wrapper">
             <video id="video" class="video-change" poster="images/<?php echo $video['poster'];?>_large.jpg">
               <!-- Add other video formats -->
-              <source src="images/<?php echo $video['video'];?>.mp4"></source>
+              <source src="video/<?php echo $video['video'];?>_large.mp4"></source>
+              <source src="video/<?php echo $video['video'];?>_large.webm"></source>
+              <source src="video/<?php echo $video['video'];?>_large.ogv"></source>
             </video>
 
               <div id="over-video">
