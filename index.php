@@ -145,6 +145,20 @@
                 <span class="arrow-forward"><i class="ion-ios-arrow-forward arrow" aria-hidden="true"></i></span>
           </div>
       </section>
+
+      <section class="form-container">
+        <div id="form-header">
+          <h3>Check out what's happening in London!</h3>
+        </div>
+
+        <p>Want to hear about the latest job posts, get exclusive deals on events and learn what's happening in the city?</p>
+        <form class="subscribe-form" action="#" method="post">
+          <input type="text" required name="fname" placeholder="First Name" value="">
+          <input type="email" required name="email" placeholder="Email" value="">
+          <input type="submit" name="submit" id="form-submit" value="Subscribe Here">
+        </form>
+      </section>
+
         <?php echo "<div class=\"back-to-top\"><span class=\"tooltip\" title=\"Go to Top\"><i class=\"ion-arrow-up-c\"></i></span></div>"; ?>
         <?php include('includes/partials/partners.html'); ?>
     </main>

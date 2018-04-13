@@ -323,7 +323,16 @@
     }
   }
 
-  window.addEventListener('load', storyArrow, false);
+  function submitForm(e){
+    e.preventDefault;
+    if(document.querySelector('.subscribe-form input[type=text]').value !== "" || document.querySelector('.subscribe-form input[type=email]').value !== ""){
+      let form = document.querySelector('.subscribe-form');
+      let message = `<h2>Thanks for subscribing!</h2>`;
+      form.innerHTML = message;
+    }
+  }
+(
+  window.addEventListener('load', storyArrow, false);)
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
@@ -348,6 +357,11 @@
     getEvents.call();
     getJobs.call();
     window.addEventListener('load', videoCtrl, false);
+  }
+
+  if(document.querySelector('#form-submit') !== null){
+    let submit = document.querySelector('#form-submit');
+    submit.addEventListener('click', submitForm, false);
   }
 
 

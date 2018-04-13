@@ -15,6 +15,7 @@ function videoCtrl(){
   var volumebtn = videocontrol.querySelector('#volume-btn');
   var fullbtn = videocontrol.querySelector('#full-btn > .video-ctrl-bt');
   var videoduration;
+  var prevvol = 0;
   var videoPlaying = false;
   video.volume = 0.8;
 
