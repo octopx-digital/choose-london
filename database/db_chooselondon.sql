@@ -285,7 +285,7 @@ CREATE TABLE `stories` (
 
 LOCK TABLES `stories` WRITE;
 /*!40000 ALTER TABLE `stories` DISABLE KEYS */;
-INSERT INTO `stories` VALUES (1,'Sarah Lindsey','Cupcake ipsum dolor sit amet. Wafer pastry tiramisu liquorice. Apple pie carrot cake gummies. Pastry dessert jujubes chupa chups jujubes.\r\n\r\nPudding gingerbread gummi bears lollipop donut chocolate fruitcake.','story-sarah.jpg','work'),(2,'Thomas Orlof','Caramels gingerbread chocolate cake. Powder chocolate chocolate cake gummi bears lollipop candy canes bonbon.\r\n\r\nSweet cheesecake biscuit candy jelly beans.','story-thomas.jpg','economics'),(3,'Miguel Caran','Lollipop oat cake jelly-o marzipan pudding. Donut pastry jelly-o toffee candy canes candy jelly jelly.\r\nGingerbread ice cream caramels dessert lemon drops.','story-miguel.jpg','social'),(4,'Rebecca Hopps','Bear claw sweet roll fruitcake brownie jelly beans croissant powder gingerbread. Cupcake jelly-o tiramisu wafer.\r\nChocolate wafer cheesecake liquorice.','story-rebecca.jpg','education'),(5,'Peter Sagan','Jelly-o tart cotton candy. Chocolate bar jelly beans tart chupa chups jelly-o sweet candy canes.\r\nCaramels gingerbread chocolate cake.','story-peter.jpg','life');
+INSERT INTO `stories` VALUES (1,'Sarah Lindsey','After graduating Fanshawe College I found the work environment in London to be very welcoming to newcomers in the workforce. Today, I work as a project manager for a marketing agency in the city.','story-sarah.jpg','work'),(2,'Thomas Orlof','When I first started my business I had no problem finding a talented pool of workers to choose from. I was provided with a young passionate group of individuals that helped build my business to what it is today.','story-thomas.jpg','economics'),(3,'Miguel Caran','I found London, Ontario to be a very diverse place when I first moved here. It is wonderful a thing when I am able to experience a new culture while being able to connect with my own at the same time.','story-miguel.jpg','social'),(4,'Rebecca Hopps','When I first started attending Western University I wasn\'t sure what I wanted to do for a career. But, I loved learning and the environment in London, so I stayed in school for as long as I could and found myself working at the University.','story-rebecca.jpg','education'),(5,'Peter Sagan','Growing up in London I experienced a lot of freedom that a city usually doesn\'t often offer people. I have a lot of great memories of growing up around here and wouldn\'t trade it for any other place.','story-peter.jpg','life');
 /*!40000 ALTER TABLE `stories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-11 20:29:42
+-- Dump completed on 2018-04-13 18:17:03

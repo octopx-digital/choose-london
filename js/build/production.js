@@ -871,7 +871,7 @@ function reloadVideo() {
   function toggleCategory(e) {
     let id = e.currentTarget.dataset.id;
     if(id === catOpen) {
-      console.log(categories[(id - 1)]);
+      // console.log(categories[(id - 1)]);
       categories[(id-1)].classList.remove('selected');
       e.currentTarget.classList.remove('selected');
       catButtons.forEach((button) => {
@@ -899,6 +899,7 @@ function reloadVideo() {
     }
   }
 
+  window.addEventListener('load', storyArrow, false);
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
