@@ -24,8 +24,6 @@
       </div>
       <p id="error-message">The page you are looking <br>for could not be found.</p>
       <div id="action-buttons">
-        <!-- <a id="back-button" href="javascript:history.back()">Go back to <br><span>previous</span> page</a>
-        <a id="home-button" href="index.php">Go to <br><span>home</span> page</a> -->
         <a id="back-button" href="javascript:history.back()">Previous page</a>
         <a id="home-button" href="index.php">Home page</a>
       </div>

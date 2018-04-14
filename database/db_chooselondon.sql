@@ -317,7 +317,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Mauricio','mauricio','$2y$10$CPDwxHyThFBUshrmXoDU7Otr7RM6fGIn.XysTxUj851zEVlQ79f7i','mauricio@email.com','2018-02-12 05:00:00','::1',1,'2018-04-11 17:10:49',0),(3,'Justin','justin','$2y$10$.0gtgypzrMfWQ7e726R/ce2eU6kdCnCa10IHVyTGptpebzt80oXsS','justin@email.com','2018-02-11 05:00:00','::1',2,'2018-02-24 09:53:42',0);
+INSERT INTO `users` VALUES (1,'Administrator','admin','$2y$10$CPDwxHyThFBUshrmXoDU7Otr7RM6fGIn.XysTxUj851zEVlQ79f7i','admin@email.com','2018-02-12 05:00:00','::1',1,'2018-04-14 18:56:15',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-13 18:17:03
+-- Dump completed on 2018-04-14 19:19:12
