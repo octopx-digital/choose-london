@@ -37,7 +37,7 @@
   <section class="list-rows admin-container">
 
     <h1 class="list-title"><?php echo $tbl; ?></h1>
-    <a class="list-new" href="admin_add_<?php echo $tbl; ?>.php">New</a>
+    <a class="list-new admin-button" href="admin_add_<?php echo $tbl; ?>.php">New</a>
     <ol class="list-items">
       <?php
         while($row = mysqli_fetch_array($list)) {

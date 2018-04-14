@@ -1610,27 +1610,25 @@ footer {
       width: 60%;
       border-bottom: 1px solid #005a58; }
       #container.admin-container .list-items li p, .admin-container .list-items li p {
-        width: 100px; }
+        width: 200px; }
   #container.admin-container .list-edit, .admin-container .list-edit {
     padding: 5px 20px;
     font-size: 12px;
-    margin-top: -45px;
-    margin-left: 60%;
     text-decoration: none;
+    margin-left: 60%;
     background-color: #327fab; }
     #container.admin-container .list-edit:hover, .admin-container .list-edit:hover {
       background-color: #005ca7; }
   #container.admin-container .list-delete, .admin-container .list-delete {
     padding: 5px 20px;
     font-size: 12px;
-    margin-top: -15px;
     text-decoration: none;
     background-color: #b10d0e; }
     #container.admin-container .list-delete:hover, .admin-container .list-delete:hover {
       background-color: #7c0000; }
   #container.admin-container .back-index, .admin-container .back-index {
     padding: 5px 20px;
-    float: left; }
+    text-align: left; }
     #container.admin-container .back-index a, .admin-container .back-index a {
       text-decoration: none;
       margin-top: 5px; }

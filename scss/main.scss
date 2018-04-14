@@ -2162,17 +2162,15 @@ footer {
       width: 60%;
       border-bottom: 1px solid $colorHomeFooter;
       p{
-        width: 100px;
+        width: 200px;
       }
     }
   }
   .list-edit{
   padding: 5px 20px;
   font-size: 12px;
-  // margin: 30px 10px;
-  margin-top: -45px;
-  margin-left: 60%;
   text-decoration: none;
+  margin-left: 60%;
   background-color: $colorWorkButtons;
   &:hover{
   background-color: $colorEducationStory;
@@ -2181,21 +2179,21 @@ footer {
   .list-delete{
     padding: 5px 20px;
     font-size: 12px;
-    margin-top: -15px;
-    // margin: 30px 10px;
-    // margin-left: 50%;
     text-decoration: none;
     background-color: $colorEconomicsButtons;
     &:hover{
     background-color: $colorEconomicsFooter;
   }
   }
-  .back-index{
+  .back-index,{
     padding: 5px 20px;
-    float: left;
-    a{text-decoration: none;
-    margin-top: 5px;}
+    text-align: left;
+    a{
+    text-decoration: none;
+    margin-top: 5px;
   }
+  }
+
 }
 
 // 640px
