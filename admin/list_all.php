@@ -35,16 +35,16 @@
     <div class="new-section">
       <h1 class="list-title"><?php echo $tbl; ?></h1>
       <a class="list-new admin-button" href="admin_add_<?php echo $tbl; ?>.php">New</a>
-    </div>
+    </div><br><br><br><br>
 
     <ol class="list-items">
       <?php
         while($row = mysqli_fetch_array($list)) {
           if($tbl === "video") {
-            echo "<li><p>{$row['title']}</p><a class=\"list-edit admin-button\" href=\"edit_all.php?tbl={$tbl}&id={$row['id']}\">Edit</a><a class=\"list-delete admin-button\" href=\"../includes/caller.php?caller_id=deleteRow&tbl={$tbl}&col=$col&id={$row['id']}\">Delete</a></li>";
+            echo "<li><p>{$row['title']}</p><br><a class=\"list-edit\" href=\"edit_all.php?tbl={$tbl}&id={$row['id']}\">Edit</a><a class=\"list-delete\" href=\"../includes/caller.php?caller_id=deleteRow&tbl={$tbl}&col=$col&id={$row['id']}\">Delete</a></li>";
           }
           else {
-            echo "<li><p>{$row['name']}</p><a class=\"list-edit admin-button\" href=\"edit_all.php?tbl={$tbl}&id={$row['id']}\">Edit</a><a class=\"list-delete admin-button\" href=\"../includes/caller.php?caller_id=deleteRow&tbl={$tbl}&col=$col&id={$row['id']}\">Delete</a></li>";
+            echo "<li><p>{$row['name']}</p><a class=\"list-edit\" href=\"edit_all.php?tbl={$tbl}&id={$row['id']}\">Edit</a><a class=\"list-delete\" href=\"../includes/caller.php?caller_id=deleteRow&tbl={$tbl}&col=$col&id={$row['id']}\">Delete</a></li>";
           }
         }
        ?>

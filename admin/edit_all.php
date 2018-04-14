@@ -16,17 +16,25 @@
   <title>Admin | Edit <?php echo $tbl ?></title>
 </head>
 <body>
-  <main id="container" class="create-cont">
+  <header class="admin-header">
+      <nav>
+        <h2 class="hidden">Main Navigation</h2>
+        <ul>
+          <li><a href="admin_index.php">Home</a></li>
+          <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
+        </ul>
+      </nav>
+      <img src="../images/logo_white.svg" alt="Choose London Logo">
+  </header>
+  <main id="container" class="create-cont admin-container">
     <section class="edit-row">
-
-
       <?php
         $col = "id";
         echo singleEdit($tbl, $col, $id);
 
        ?>
      </section>
-     <a class="back-index movie" href="admin_index.php">Go Back</a>
+     <a class="back-index admin-button" href="admin_index.php">Go Back</a><br><br><br><br>
    </main>
 </body>
 </html>

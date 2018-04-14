@@ -28,13 +28,13 @@
  </header>
  <body>
    <h1 class="hidden">Admin Delete User</h1>
-  
-   <main id="container" class="create-cont">
+
+   <main id="container" class="create-cont admin-container">
      <h2 class="greetings">Delete User</h2>
      <ul id="delete-list">
        <?php
          while($row = mysqli_fetch_array($users)) {
-           echo "<li><p>{$row['user_fname']}</p><a href=\"../includes/caller.php?caller_id=delete&id={$row['user_id']}\">Delete</a></li>";
+           echo "<li class=\"list-items\"><p>{$row['user_fname']}</p><a href=\"../includes/caller.php?caller_id=delete&id={$row['user_id']}\" class=\"delete-user-button\">Delete</a></li><br><br>";
          }
        ?>
      </ul>

@@ -1559,7 +1559,7 @@ footer {
     clear: both; }
   #container.admin-container input.login-input, .admin-container input.login-input, .create-cont input.login-input {
     width: 30%; }
-  #container.admin-container input, #container.admin-container textarea, #container.admin-container select, .admin-container input, .admin-container textarea, .admin-container select, .create-cont input, .create-cont textarea, .create-cont select {
+  #container.admin-container input, #container.admin-container select, .admin-container input, .admin-container select, .create-cont input, .create-cont select {
     border: 1px solid #005a58;
     border-radius: 5px;
     margin-top: 20px;
@@ -1572,8 +1572,16 @@ footer {
     -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74);
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74); }
   #container.admin-container textarea, .admin-container textarea, .create-cont textarea {
-    padding-top: 15px;
-    height: 150px; }
+    border: 1px solid #005a58;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #005a58;
+    height: 100px;
+    width: 96%;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74); }
   #container.admin-container .admin-button, .admin-container .admin-button, .create-cont .admin-button {
     width: 100px;
     height: 30px;
@@ -1609,31 +1617,53 @@ footer {
     color: #f9af1d;
     font-size: 18px;
     margin-right: 15px; }
+  #container.admin-container #delete-list, .admin-container #delete-list, .create-cont #delete-list {
+    width: 200px;
+    margin: 0 auto; }
   #container.admin-container .list-items, .admin-container .list-items, .create-cont .list-items {
     text-align: left;
-    margin-left: 30%;
+    margin-left: 10%;
     margin-bottom: 50px; }
     #container.admin-container .list-items li, .admin-container .list-items li, .create-cont .list-items li {
       margin-top: 20px;
-      width: 60%;
+      width: 80%;
       border-bottom: 1px solid #005a58; }
       #container.admin-container .list-items li p, .admin-container .list-items li p, .create-cont .list-items li p {
         width: 200px;
+        padding: 15px;
         position: relative;
         z-index: 1; }
-  #container.admin-container .list-edit, #container.admin-container .list-delete, .admin-container .list-edit, .admin-container .list-delete, .create-cont .list-edit, .create-cont .list-delete {
-    padding: 5px 20px;
+  #container.admin-container .list-edit, #container.admin-container .list-delete, #container.admin-container .delete-user-button, .admin-container .list-edit, .admin-container .list-delete, .admin-container .delete-user-button, .create-cont .list-edit, .create-cont .list-delete, .create-cont .delete-user-button {
+    width: 50px;
+    line-height: 20px;
+    height: 20px;
+    margin-right: 15px;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    background-color: #f9af1d;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    padding: 5px 10px 5px 25px;
     font-size: 12px;
     text-decoration: none;
-    position: relative;
-    z-index: 10;
-    margin-top: -25px; }
+    font-size: 10px;
+    float: right; }
+  #container.admin-container .delete-user-button, .admin-container .delete-user-button, .create-cont .delete-user-button {
+    margin-top: -20px;
+    background-color: #b10d0e; }
+    #container.admin-container .delete-user-button:hover, .admin-container .delete-user-button:hover, .create-cont .delete-user-button:hover {
+      background-color: #7c0000; }
   #container.admin-container .list-edit, .admin-container .list-edit, .create-cont .list-edit {
-    margin-left: 60%;
+    margin-top: -40px;
     background-color: #327fab; }
     #container.admin-container .list-edit:hover, .admin-container .list-edit:hover, .create-cont .list-edit:hover {
       background-color: #005ca7; }
   #container.admin-container .list-delete, .admin-container .list-delete, .create-cont .list-delete {
+    margin-top: -40px;
     background-color: #b10d0e; }
     #container.admin-container .list-delete:hover, .admin-container .list-delete:hover, .create-cont .list-delete:hover {
       background-color: #7c0000; }
@@ -1647,15 +1677,18 @@ footer {
 .new-section {
   float: right;
   clear: both;
-  margin-bottom: 50px;
-  margin-right: -15px;
-  width: 65%; }
+  margin: 10px 25px 50px 0; }
   .new-section h1.list-title {
     margin: 15px 10px 20px 0;
     text-transform: uppercase;
     font-weight: bold;
     color: #005a58; }
 
+.edit-row h1, .create-form h1 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #005a58;
+  font-weight: bold; }
 .edit-row form, .create-form form {
   width: 300px;
   margin: 0 auto; }
