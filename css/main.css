@@ -1510,6 +1510,131 @@ footer {
     max-width: 5rem;
     padding-bottom: 1rem; }
 
+.admin-header {
+  background-color: #005a58;
+  height: 70px;
+  text-align: center;
+  color: white;
+  margin-bottom: 30px; }
+  .admin-header img {
+    height: 50px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 5px; }
+  .admin-header .logout-button {
+    float: left;
+    clear: both; }
+  .admin-header nav ul li {
+    display: inline;
+    float: left;
+    margin-left: 20px;
+    text-transform: uppercase;
+    padding-top: 25px; }
+    .admin-header nav ul li a {
+      color: white;
+      text-decoration: none; }
+      .admin-header nav ul li a:hover {
+        color: #f9af1d; }
+
+#container.admin-container, .admin-container {
+  max-width: 1440px;
+  min-width: 312px;
+  min-height: 350px;
+  margin: 20px auto 40px auto;
+  width: 90%;
+  text-align: center;
+  border: solid 3px #005a58; }
+  #container.admin-container h2, .admin-container h2 {
+    margin-top: 30px;
+    margin-bottom: 20px; }
+  #container.admin-container label, .admin-container label {
+    text-transform: capitalize;
+    margin-top: 30px;
+    overflow: hidden;
+    clear: both; }
+  #container.admin-container input, #container.admin-container textarea, .admin-container input, .admin-container textarea {
+    border: 1px solid #005a58;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 30px;
+    width: 30%;
+    padding-left: 10px;
+    color: #005a58;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.74); }
+  #container.admin-container textarea, .admin-container textarea {
+    padding-top: 15px;
+    height: 150px; }
+  #container.admin-container .admin-button, .admin-container .admin-button {
+    width: 100px;
+    height: 30px;
+    margin-right: 15px;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    background-color: #f9af1d;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5); }
+    #container.admin-container .admin-button:hover, .admin-container .admin-button:hover {
+      background-color: #e2b301; }
+  #container.admin-container .name, .admin-container .name {
+    color: #005a58;
+    font-weight: bold; }
+  #container.admin-container p.welcome-message, .admin-container p.welcome-message {
+    padding: 10px; }
+  #container.admin-container .functions li, .admin-container .functions li {
+    text-align: left;
+    padding: 15px 0;
+    margin-left: 40%; }
+  #container.admin-container .functions a, .admin-container .functions a {
+    color: #005a58;
+    font-weight: 600;
+    text-decoration: none; }
+    #container.admin-container .functions a:hover, .admin-container .functions a:hover {
+      text-decoration: underline; }
+  #container.admin-container .functions i, .admin-container .functions i {
+    color: #f9af1d;
+    font-size: 18px;
+    margin-right: 15px; }
+  #container.admin-container .list-items, .admin-container .list-items {
+    text-align: left;
+    margin-left: 30%;
+    margin-bottom: 50px; }
+    #container.admin-container .list-items li, .admin-container .list-items li {
+      margin-top: 20px;
+      width: 60%;
+      border-bottom: 1px solid #005a58; }
+      #container.admin-container .list-items li p, .admin-container .list-items li p {
+        width: 100px; }
+  #container.admin-container .list-edit, .admin-container .list-edit {
+    padding: 5px 20px;
+    font-size: 12px;
+    margin-top: -45px;
+    margin-left: 60%;
+    text-decoration: none;
+    background-color: #327fab; }
+    #container.admin-container .list-edit:hover, .admin-container .list-edit:hover {
+      background-color: #005ca7; }
+  #container.admin-container .list-delete, .admin-container .list-delete {
+    padding: 5px 20px;
+    font-size: 12px;
+    margin-top: -15px;
+    text-decoration: none;
+    background-color: #b10d0e; }
+    #container.admin-container .list-delete:hover, .admin-container .list-delete:hover {
+      background-color: #7c0000; }
+  #container.admin-container .back-index, .admin-container .back-index {
+    padding: 5px 20px;
+    float: left; }
+    #container.admin-container .back-index a, .admin-container .back-index a {
+      text-decoration: none;
+      margin-top: 5px; }
+
 @media screen and (min-width: 40rem) {
   #main-banner header {
     position: absolute;

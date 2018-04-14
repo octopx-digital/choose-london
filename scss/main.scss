@@ -2041,6 +2041,162 @@ footer {
     }
   }
 }
+//CMS
+.admin-header{
+  background-color: $colorHomeFooter;
+  height: 70px;
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  img{
+    height: 50px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 5px;
+  }
+  .logout-button{
+    float: left;
+    clear: both;
+  }
+  nav ul li{
+    display: inline;
+    float: left;
+    margin-left: 20px;
+    text-transform: uppercase;
+    padding-top: 25px;
+    a{
+      color: white;
+      text-decoration: none;
+      &:hover{
+      color: $colorHomeHigh;
+    }
+    }
+  }
+}
+#container.admin-container, .admin-container{
+  max-width: 1440px;
+  min-width: 312px;
+  min-height: 350px;
+  margin: 20px auto 40px auto;
+  width: 90%;
+  text-align: center;
+  // background-color: purple;
+  border: solid 3px $colorHomeFooter;
+  h2{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  label {
+    text-transform: capitalize;
+    margin-top: 30px;
+    overflow: hidden;
+    clear: both;
+  }
+  input, textarea{
+    border: 1px solid $colorHomeFooter;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 30px;
+    width: 30%;
+    padding-left: 10px;
+    color: $colorHomeFooter;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.74);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.74);
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.74);
+  }
+  textarea {
+  padding-top: 15px;
+  height: 150px;
+  }
+  .admin-button{
+    width: 100px;
+    height: 30px;
+    margin-right: 15px;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    background-color: $colorHomeHigh;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.50);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.50);
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.50);
+    &:hover{
+      background-color: $colorEducationButtons;
+    }
+  }
+  .name{
+    color: $colorHomeFooter;
+    font-weight: bold;
+  }
+  p.welcome-message{
+    padding: 10px;
+  }
+  .functions{
+    li{
+      text-align: left;
+      padding: 15px 0;
+      margin-left: 40%;
+    }
+    a{
+      color: $colorHomeFooter;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    i{
+      color: $colorHomeHigh;
+      font-size: 18px;
+      margin-right: 15px;
+    }
+  }
+  .list-items{
+    text-align: left;
+    margin-left: 30%;
+    margin-bottom: 50px;
+    li{
+      margin-top: 20px;
+      width: 60%;
+      border-bottom: 1px solid $colorHomeFooter;
+      p{
+        width: 100px;
+      }
+    }
+  }
+  .list-edit{
+  padding: 5px 20px;
+  font-size: 12px;
+  // margin: 30px 10px;
+  margin-top: -45px;
+  margin-left: 60%;
+  text-decoration: none;
+  background-color: $colorWorkButtons;
+  &:hover{
+  background-color: $colorEducationStory;
+    }
+  }
+  .list-delete{
+    padding: 5px 20px;
+    font-size: 12px;
+    margin-top: -15px;
+    // margin: 30px 10px;
+    // margin-left: 50%;
+    text-decoration: none;
+    background-color: $colorEconomicsButtons;
+    &:hover{
+    background-color: $colorEconomicsFooter;
+  }
+  }
+  .back-index{
+    padding: 5px 20px;
+    float: left;
+    a{text-decoration: none;
+    margin-top: 5px;}
+  }
+}
 
 // 640px
 @media screen and (min-width: 40rem) {
@@ -3736,3 +3892,4 @@ footer {
     }
   }
 }
+//CMS

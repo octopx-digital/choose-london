@@ -42,9 +42,10 @@
 </head>
 <body>
   <h1 class="hidden">Admin | Add Category</h1>
-  <main id="container" class="create-cont">
+  <main id="container" class="create-cont admin-container">
     <section class="edit-row">
       <h1 class="title">Add Category</h1>
+      
       <?php if (!empty($message)){
         echo "<p class=\"error-message\">".$message."</p>";
       } ?>

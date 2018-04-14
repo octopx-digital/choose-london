@@ -34,18 +34,23 @@
 </head>
 <body>
   <h1 class="hidden">Choose London | Admin Login Page</h1>
+    <div class="admin-header">
+      <img src="../images/logo_white.svg" alt="Choose London Logo">
+    </div>
+
+  </div>
   <main id="container" class="login-cont">
-    <section id="form-wrapper">
+    <section id="form-wrapper" class="admin-container">
       <h2 class="title">Choose London | Admin Login</h2>
       <?php if (!empty($message)){
         echo "<p class=\"error-message\">".$message."</p>";
       } ?>
       <form action="admin_login.php" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" value="">
-        <label for="password">Password</label>
-        <input type="password" name="password" value="">
-        <input class="button" type="submit" name="submit" value="Login">
+        <label for="username">Username</label><br>
+        <input type="text" name="username" value=""><br><br><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password" value=""><br>
+        <input class="button admin-button" type="submit" name="submit" value="Login"><br>
       </form>
     </section>
   </main>
