@@ -62,8 +62,6 @@
         <h2 class="hidden">Main Navigation</h2>
         <ul>
           <li><a href="admin_index.php">Home</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Profiles</a></li>
           <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
         </ul>
       </nav>

@@ -49,17 +49,18 @@
 <body>
   <h1 class="hidden">Admin Edit User</h1>
   <header>
-    <a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a>
-    <nav>
-      <h2 class="hidden">Main Navigation</h2>
-      <ul>
-        <li><a href="admin_index.php">Home</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profiles</a></li>
-      </ul>
-    </nav>
+    <div class="admin-header">
+      <nav>
+        <h2 class="hidden">Main Navigation</h2>
+        <ul>
+          <li><a href="admin_index.php">Home</a></li>
+          <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
+        </ul>
+      </nav>
+      <img src="../images/logo_white.svg" alt="Choose London Logo">
+  </div>
   </header>
-  <main id="container" class="create-cont">
+  <main id="container" class="create-cont admin-container edit-row">
     <h2 class="greetings">Edit User</h2>
     <?php
       if(!empty($message)) {
@@ -79,10 +80,10 @@
       <label for="email">Password:</label>
       <input type="password" name="password" value="">
       <div>
-        <input type="submit" name="submit" value="Save">
+        <input class="admin-button" type="submit" name="submit" value="Save">
       </div>
     </form>
-    <a class="back-index" href="admin_index.php">Go Back</a>
+    <a class="back-index admin-button" href="admin_index.php">Go Back</a><br><br><br><br>
 </main>
 </body>
 </html>

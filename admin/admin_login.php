@@ -47,9 +47,9 @@
       } ?>
       <form action="admin_login.php" method="post">
         <label for="username">Username</label><br>
-        <input type="text" name="username" value=""><br><br><br>
+        <input class="login-input" type="text" name="username" value=""><br><br><br>
         <label for="password">Password</label><br>
-        <input type="password" name="password" value=""><br>
+        <input class="login-input" type="password" name="password" value=""><br>
         <input class="button admin-button" type="submit" name="submit" value="Login"><br>
       </form>
     </section>

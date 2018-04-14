@@ -18,26 +18,25 @@
   <title>Admin | List <?php echo $tbl ?>s</title>
 </head>
 <body>
-  <header>
-    <div class="admin-header">
+  <header class="admin-header">
       <nav>
         <h2 class="hidden">Main Navigation</h2>
         <ul>
           <li><a href="admin_index.php">Home</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Profiles</a></li>
           <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
         </ul>
       </nav>
       <img src="../images/logo_white.svg" alt="Choose London Logo">
-  </div>
   </header>
 
 
   <section class="list-rows admin-container">
 
-    <h1 class="list-title"><?php echo $tbl; ?></h1>
-    <a class="list-new admin-button" href="admin_add_<?php echo $tbl; ?>.php">New</a>
+    <div class="new-section">
+      <h1 class="list-title"><?php echo $tbl; ?></h1>
+      <a class="list-new admin-button" href="admin_add_<?php echo $tbl; ?>.php">New</a>
+    </div>
+
     <ol class="list-items">
       <?php
         while($row = mysqli_fetch_array($list)) {
@@ -50,7 +49,7 @@
         }
        ?>
      </ol>
-     <a class="back-index admin-button" href="admin_index.php">Go Back</a>
+     <a class="back-index admin-button" href="admin_index.php">Go Back</a><br><br><br><br>
 
    </section>
 

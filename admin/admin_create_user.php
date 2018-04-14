@@ -1,5 +1,5 @@
 <?php
-  require_once(',,/includes/config.php');
+  require_once('../includes/config.php');
   confirmLoggedIn();
 
   if(isset($_POST['submit'])) {
@@ -47,17 +47,18 @@
 <body>
   <h1 class="hidden">Admin Create User</h1>
   <header>
-    <a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a>
-    <nav>
-      <h2 class="hidden">Main Navigation</h2>
-      <ul>
-        <li><a href="admin_index.php">Home</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profiles</a></li>
-      </ul>
-    </nav>
+    <div class="admin-header">
+      <nav>
+        <h2 class="hidden">Main Navigation</h2>
+        <ul>
+          <li><a href="admin_index.php">Home</a></li>
+          <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
+        </ul>
+      </nav>
+      <img src="../images/logo_white.svg" alt="Choose London Logo">
+  </div>
   </header>
-  <main id="container" class="create-cont">
+  <main id="container" class="create-cont edit-row">
     <h2 class="greetings">Create User</h2>
     <?php
       if(!empty($message)) {
@@ -80,10 +81,10 @@
           <option value="2">Web Admin</option>
           <option value="1">Web Master</option>
         </select>
-        <input type="submit" name="submit" value="Save">
+        <input class="button admin-button" type="submit" name="submit" value="Save">
       </div>
     </form>
-    <a class="back-index" href="admin_index.php">Go Back</a>
+    <a class="back-index admin-button" href="admin_index.php">Go Back</a><br><br><br><br>
 </main>
 </body>
 </html>
