@@ -40,17 +40,28 @@
   <link rel="stylesheet" href="../css/main.css">
   <title>Admin | Add Category</title>
 </head>
+<header class="admin-header">
+    <nav>
+      <h2 class="hidden">Main Navigation</h2>
+      <ul>
+        <li><a href="admin_index.php">Home</a></li>
+        <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
+      </ul>
+    </nav>
+    <img src="../images/logo_white.svg" alt="Choose London Logo">
+</header>
 <body>
   <h1 class="hidden">Admin | Add Category</h1>
-  <main id="container" class="create-cont">
+  <main id="container" class="create-cont admin-container">
     <section class="edit-row">
       <h1 class="title">Add Category</h1>
+
       <?php if (!empty($message)){
         echo "<p class=\"error-message\">".$message."</p>";
       } ?>
       <form action="admin_add_category.php" method="post" enctype="multipart/form-data">
 
-        <label for="name">Category Name:</label>
+        <label for="name">Category Name:</label><br>
         <input type="text" name="name" value="" required>
 
         <label for="title">Category Title:</label>
@@ -81,9 +92,9 @@
         <label for="position">Category Section Position:</label>
         <input type="text" name="position" value="" required>
 
-        <input class="button" type="submit" name="submit" value="Save Category">
+        <input class="button admin-button" type="submit" name="submit" value="Save Category">
       </form>
-      <a class="back-index" href="admin_index.php">Go Back</a>
+      <a class="back-index admin-button" href="admin_index.php">Go Back</a><br><br><br><br>
     </section>
   </main>
 </body>

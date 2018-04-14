@@ -73,7 +73,7 @@
       echo "<input type=\"text\" name=\"position\" value=\"{$position}\">";
       echo "</fieldset>";
     }
-    echo "<input type=\"submit\" name=\"submit\" value=\"Save Content\">";
+    echo "<input class=\"admin-button\" type=\"submit\" name=\"submit\" value=\"Save Content\">";
     echo "</form>";
   }
 

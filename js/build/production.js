@@ -705,6 +705,7 @@ function reloadVideo() {
 }
 
 (() => {
+  
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
   var catButtons = document.querySelectorAll('.open-category');
@@ -716,6 +717,7 @@ function reloadVideo() {
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
+
   function checkEconomicsPage() {
     if(this.classList.contains('economics')) {
       let sectorButton = document.querySelector('.sector-wrapper > .open');
