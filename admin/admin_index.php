@@ -82,7 +82,6 @@
         <li><a href="list_all.php?tbl=category&order=name"><i class="ion-ios-pricetags"></i>Categories</a></li>
         <li><a href="list_all.php?tbl=item&order=name"><i class="ion-happy"></i>Items</a></li>
         <li><a href="list_all.php?tbl=stories&order=name"><i class="ion-briefcase"></i>Stories</a></li>
-        <li><a href="list_all.php?tbl=video&order=title"><i class="ion-briefcase"></i>Videos</a></li>
       </ul>
     </section>
 
