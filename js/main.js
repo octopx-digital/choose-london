@@ -184,23 +184,23 @@
       posts.innerHTML += newDiv;
     });
 
-    arrows();
+    jobArrows();
   }
 
   function getEvents(){
     let container = document.querySelector('#events-container');
     let events = meetup.events;
 
-    events.forEach(({id,name, venue, local_date, local_time, link}) => {
+    events.forEach(({id,name, image, venue, local_date, local_time, link}) => {
       let address = venue.address_1;
       let month = local_date.slice(5,8);
       let date = local_date.slice(9,11);
 
-      let image = 'images/'+id+'.jpg';
+      let img = 'images/'+image;
       let newEvent = `<div class="events">
       <div class="event-data">
       <div class="date"><h5>`+month+`</br>`+date+`</h5></div>
-      <img src="`+image+`">
+      <img src="`+img+`">
       <h2>${name}</h2>
       <p>`+address+`</br>
       At ${local_time}</p>

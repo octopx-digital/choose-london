@@ -200,37 +200,37 @@ function eventArrows(){
 
 
 
-  function arrows(){
+  function jobArrows(){
     let leftArrow = document.querySelector('.arrow-back');
     let rightArrow = document.querySelector('.arrow-forward');
-    let posts = document.querySelector('#job-post');
-    let thumbs = posts.children.length;
-    let thumbcount = posts.querySelectorAll('.space-between');
+    let cont = document.querySelector('#job-post');
+    let thumbs = cont.children.length;
+    let thumbcount = cont.querySelectorAll('.space-between');
     let thumb = thumbcount[0].offsetWidth;
-    let thumbWidth = posts.offsetWidth;
+    let thumbWidth = cont.offsetWidth;
     var holder = document.querySelector('#job-cont').getBoundingClientRect().right;
     let leftPosition = 0;
-    posts.style.left = leftPosition+"px";
+    cont.style.left = leftPosition+"px";
 
 
     let moveSlide = function (value) {
         leftPosition += value * thumb;
-        posts.style.left = leftPosition + 'px';
+        cont.style.left = leftPosition + 'px';
     };
 
     function moveBack(){
       if(leftPosition !== 0) {
         moveSlide(1);
       } else if (leftPosition === 0) {
-          posts.style.left = leftPosition + 'px';
+          cont.style.left = leftPosition + 'px';
         } else {
         leftPosition = (thumbs-1)* -thumbWidth;
-        posts.style.left = leftPosition + 'px';
+        cont.style.left = leftPosition + 'px';
       }
     }
 
     function moveForward(){
-      let rightPos = posts.getBoundingClientRect().right;
+      let rightPos = cont.getBoundingClientRect().right;
       //If it's not mobile
       if (window.innerWidth > 640){
         //Check if the right position are proximate enough
@@ -238,13 +238,13 @@ function eventArrows(){
         //If difference is smaller than 5, return container at position 0
         if( diff < 5 ) {
             leftPosition = 0;
-            posts.style.left = '0px';
+            cont.style.left = '0px';
         } else {
           if (leftPosition > (thumbs-1) * -thumb) {
             moveSlide(-1);
           } else {
             leftPosition = 0;
-            posts.style.left = leftPosition + 'px';
+            cont.style.left = leftPosition + 'px';
           }
         }
       }
@@ -253,7 +253,7 @@ function eventArrows(){
           moveSlide(-1);
         } else {
           leftPosition = 0;
-          posts.style.left = leftPosition + 'px';
+          cont.style.left = leftPosition + 'px';
         }
       }
     }
@@ -344,6 +344,7 @@ var meetup = {
             "created":1445266131000,
             "duration":7200000,
             "id":"kqqpllyxfbdc",
+            "image": "front_end_dev_meetup.jpg",
             "name":"Front-End Development Meetup",
             "status":"upcoming",
             "time":1521759600000,
@@ -394,6 +395,7 @@ var meetup = {
             },
             "id":"239148427",
             "name":"World Usability Day - UX and UI",
+            "image": "ladies_that_ux.jpg",
             "status":"upcoming",
             "time":1520548200000,
             "local_date":"2018-mar-08",
@@ -437,6 +439,7 @@ var meetup = {
             "duration":10800000,
             "id":"245574300",
             "name":"Build a Child Theme in Wordpress",
+            "image": "wordpress_london.jpg",
             "rsvp_limit":25,
             "status":"upcoming",
             "time":1521586800000,
@@ -481,6 +484,7 @@ var meetup = {
             "duration":10800000,
             "id":"247906863",
             "name":"Female Artists\u2019 Music Night at Cowboys!!",
+            "image": "london_activity_group.jpg",
             "status":"upcoming",
             "time":1520121600000,
             "local_date":"2018-mar-03",
@@ -990,23 +994,23 @@ function reloadVideo() {
       posts.innerHTML += newDiv;
     });
 
-    arrows();
+    jobArrows();
   }
 
   function getEvents(){
     let container = document.querySelector('#events-container');
     let events = meetup.events;
 
-    events.forEach(({id,name, venue, local_date, local_time, link}) => {
+    events.forEach(({id,name, image, venue, local_date, local_time, link}) => {
       let address = venue.address_1;
       let month = local_date.slice(5,8);
       let date = local_date.slice(9,11);
 
-      let image = 'images/'+id+'.jpg';
+      let img = 'images/'+image;
       let newEvent = `<div class="events">
       <div class="event-data">
       <div class="date"><h5>`+month+`</br>`+date+`</h5></div>
-      <img src="`+image+`">
+      <img src="`+img+`">
       <h2>${name}</h2>
       <p>`+address+`</br>
       At ${local_time}</p>

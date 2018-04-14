@@ -192,36 +192,36 @@ var fetchAPI = {
   toRight.addEventListener('click', moveForward, false);
 }
 
-function arrows() {
+function jobArrows() {
   var leftArrow = document.querySelector('.arrow-back');
   var rightArrow = document.querySelector('.arrow-forward');
-  var posts = document.querySelector('#job-post');
-  var thumbs = posts.children.length;
-  var thumbcount = posts.querySelectorAll('.space-between');
+  var cont = document.querySelector('#job-post');
+  var thumbs = cont.children.length;
+  var thumbcount = cont.querySelectorAll('.space-between');
   var thumb = thumbcount[0].offsetWidth;
-  var thumbWidth = posts.offsetWidth;
+  var thumbWidth = cont.offsetWidth;
   var holder = document.querySelector('#job-cont').getBoundingClientRect().right;
   var leftPosition = 0;
-  posts.style.left = leftPosition + "px";
+  cont.style.left = leftPosition + "px";
 
   var moveSlide = function moveSlide(value) {
     leftPosition += value * thumb;
-    posts.style.left = leftPosition + 'px';
+    cont.style.left = leftPosition + 'px';
   };
 
   function moveBack() {
     if (leftPosition !== 0) {
       moveSlide(1);
     } else if (leftPosition === 0) {
-      posts.style.left = leftPosition + 'px';
+      cont.style.left = leftPosition + 'px';
     } else {
       leftPosition = (thumbs - 1) * -thumbWidth;
-      posts.style.left = leftPosition + 'px';
+      cont.style.left = leftPosition + 'px';
     }
   }
 
   function moveForward() {
-    var rightPos = posts.getBoundingClientRect().right;
+    var rightPos = cont.getBoundingClientRect().right;
     //If it's not mobile
     if (window.innerWidth > 640) {
       //Check if the right position are proximate enough
@@ -229,13 +229,13 @@ function arrows() {
       //If difference is smaller than 5, return container at position 0
       if (diff < 5) {
         leftPosition = 0;
-        posts.style.left = '0px';
+        cont.style.left = '0px';
       } else {
         if (leftPosition > (thumbs - 1) * -thumb) {
           moveSlide(-1);
         } else {
           leftPosition = 0;
-          posts.style.left = leftPosition + 'px';
+          cont.style.left = leftPosition + 'px';
         }
       }
     } else {
@@ -243,7 +243,7 @@ function arrows() {
         moveSlide(-1);
       } else {
         leftPosition = 0;
-        posts.style.left = leftPosition + 'px';
+        cont.style.left = leftPosition + 'px';
       }
     }
   }
@@ -330,6 +330,7 @@ var meetup = {
     "created": 1445266131000,
     "duration": 7200000,
     "id": "kqqpllyxfbdc",
+    "image": "front_end_dev_meetup.jpg",
     "name": "Front-End Development Meetup",
     "status": "upcoming",
     "time": 1521759600000,
@@ -379,6 +380,7 @@ var meetup = {
     },
     "id": "239148427",
     "name": "World Usability Day - UX and UI",
+    "image": "ladies_that_ux.jpg",
     "status": "upcoming",
     "time": 1520548200000,
     "local_date": "2018-mar-08",
@@ -421,6 +423,7 @@ var meetup = {
     "duration": 10800000,
     "id": "245574300",
     "name": "Build a Child Theme in Wordpress",
+    "image": "wordpress_london.jpg",
     "rsvp_limit": 25,
     "status": "upcoming",
     "time": 1521586800000,
@@ -464,6 +467,7 @@ var meetup = {
     "duration": 10800000,
     "id": "247906863",
     "name": "Female Artists\u2019 Music Night at Cowboys!!",
+    "image": "london_activity_group.jpg",
     "status": "upcoming",
     "time": 1520121600000,
     "local_date": "2018-mar-03",
@@ -953,7 +957,7 @@ function videoCtrl() {
       posts.innerHTML += newDiv;
     });
 
-    arrows();
+    jobArrows();
   }
 
   function getEvents() {
@@ -963,6 +967,7 @@ function videoCtrl() {
     events.forEach(function (_ref2) {
       var id = _ref2.id,
           name = _ref2.name,
+          image = _ref2.image,
           venue = _ref2.venue,
           local_date = _ref2.local_date,
           local_time = _ref2.local_time,
@@ -972,8 +977,8 @@ function videoCtrl() {
       var month = local_date.slice(5, 8);
       var date = local_date.slice(9, 11);
 
-      var image = 'images/' + id + '.jpg';
-      var newEvent = "<div class=\"events\">\n      <div class=\"event-data\">\n      <div class=\"date\"><h5>" + month + "</br>" + date + "</h5></div>\n      <img src=\"" + image + ("\">\n      <h2>" + name + "</h2>\n      <p>") + address + ("</br>\n      At " + local_time + "</p>\n      <a href=\"" + link + "\"><p>Event Details</p><div><span class=\"share-btn\"><i class=\"ion-android-share-alt\"></i></span></div></a>\n      </div>\n      </div>");
+      var img = 'images/' + image;
+      var newEvent = "<div class=\"events\">\n      <div class=\"event-data\">\n      <div class=\"date\"><h5>" + month + "</br>" + date + "</h5></div>\n      <img src=\"" + img + ("\">\n      <h2>" + name + "</h2>\n      <p>") + address + ("</br>\n      At " + local_time + "</p>\n      <a href=\"" + link + "\"><p>Event Details</p><div><span class=\"share-btn\"><i class=\"ion-android-share-alt\"></i></span></div></a>\n      </div>\n      </div>");
 
       container.innerHTML += newEvent;
     });
