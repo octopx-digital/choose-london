@@ -209,6 +209,61 @@ main {
   #container.home #section-icons h4 {
     font-weight: 500; }
 
+#container.error {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0; }
+  #container.error img {
+    width: 100%;
+    max-width: inherit;
+    height: 100vh;
+    max-height: inherit;
+    -o-object-fit: cover;
+    object-fit: cover; }
+  #container.error #content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center; }
+    #container.error #content #main-logo {
+      width: 15rem;
+      margin: 2rem auto; }
+      #container.error #content #main-logo a img {
+        width: 100%;
+        height: 100%; }
+    #container.error #content #error-message {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin: 1rem;
+      text-shadow: 1px 1px 3px #000000; }
+    #container.error #content #action-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      position: absolute;
+      width: 100%;
+      bottom: 3rem; }
+      #container.error #content #action-buttons #back-button,
+      #container.error #content #action-buttons #home-button {
+        width: 40%;
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #ffffff;
+        padding: 0.5rem;
+        border-radius: 8px;
+        background-color: #005a58;
+        box-shadow: 2px 3px 10px -2px #000000; }
+
 #ldn-banner .video-header {
   background-image: url("../images/header_home_small.jpg");
   background-repeat: no-repeat;
@@ -1571,6 +1626,25 @@ footer {
     #container.home .story-index .story:nth-child(3) .story-wrapper {
       height: 90%; }
 
+  #container.error #content #main-logo {
+    width: 30rem;
+    margin: 3rem auto; }
+  #container.error #content #error-message {
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    font-size: 2.2rem;
+    line-height: 2.6rem;
+    margin: 3rem auto; }
+  #container.error #content #action-buttons {
+    bottom: 4rem; }
+    #container.error #content #action-buttons #back-button,
+    #container.error #content #action-buttons #home-button {
+      width: 30%;
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      padding: 1rem; }
+
   #ldn-banner .video-header {
     background-image: url("../images/header_home_medium.jpg"); }
     #ldn-banner .video-header img {
@@ -2281,6 +2355,27 @@ footer {
         color: #000; }
       #container.home .story-index .story:nth-child(3) .story-wrapper {
         border: 1px dashed #000; }
+
+  #container.error #content #main-logo {
+    width: 32rem;
+    margin: 3rem; }
+  #container.error #content #error-message {
+    position: absolute;
+    width: auto;
+    text-align: center;
+    top: 45%;
+    right: 3rem;
+    font-size: 3rem;
+    line-height: 3.6rem;
+    margin: 0; }
+  #container.error #content #action-buttons {
+    bottom: 4rem; }
+    #container.error #content #action-buttons #back-button,
+    #container.error #content #action-buttons #home-button {
+      width: 20%;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      padding: 1.4rem; }
 
   #ldn-banner .video-header {
     background-image: url("../images/header_home_large.jpg"); }

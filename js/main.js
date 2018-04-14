@@ -3,7 +3,6 @@
   var hambMenu = header.querySelector('#hamburger-menu');
   var catButtons = document.querySelectorAll('.open-category');
   var categories = document.querySelectorAll('.category');
-  // var storyArrow = document.querySelectorAll('.story-check > i');
   var storyDiv = document.querySelectorAll('.story');
   let topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
