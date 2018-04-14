@@ -331,8 +331,8 @@
       form.innerHTML = message;
     }
   }
-(
-  window.addEventListener('load', storyArrow, false);)
+  
+  window.addEventListener('load', storyArrow, false);
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   // window.addEventListener('load', openMenu, false);
