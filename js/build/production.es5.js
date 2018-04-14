@@ -28,9 +28,233 @@ var fetchAPI = {
     date: "Posted Mar 22nd"
   }]
 
-  // Functions to set and resize images
+  //
+  //
+  // function eventArrows(){
+  //   let toLeft = document.querySelector('.nav-back');
+  //   let toRight = document.querySelector('.nav-forward');
+  //   let events = document.querySelector('#events-container');
+  //   let thumbs = events.children.length;
+  //   let thumbcount = events.querySelectorAll('.events');
+  //   let thumb = thumbcount[0].offsetWidth;
+  //   let thumbWidth = events.offsetWidth;
+  //   var holder = document.querySelector('.events-holder').getBoundingClientRect().right;
+  //   let leftPosition = 0;
+  //   // events.style.left = leftPosition+"px";
+  //
+  //   let moveSlide = function (value) {
+  //     leftPosition += value * thumb;
+  //     events.style.left = leftPosition + 'px';
+  //   };
+  //   function moveBack(){
+  //     // console.log('back');
+  //     if(leftPosition !== 0) {
+  //       moveSlide(1);
+  //     } else if (leftPosition === 0) {
+  //         events.style.left = leftPosition + 'px';
+  //       } else {
+  //       leftPosition = (thumbs-1)* -thumbWidth;
+  //       events.style.left = leftPosition + 'px';
+  //     }
+  //   }
+  //
+  //   function moveForward(){
+  //     let rightPos = events.getBoundingClientRect().right;
+  //     //If it's not mobile
+  //     if (window.innerWidth > 640){
+  //       //Check if the right position are proximate enough
+  //       var diff = ( rightPos - holder );
+  //       //If difference is smaller than 5, return container at position 0
+  //       if( diff < 5 ) {
+  //           leftPosition = 0;
+  //           events.style.left = '0px';
+  //       } else {
+  //         if (leftPosition > (thumbs-1) * -thumb) {
+  //           moveSlide(-1);
+  //         } else {
+  //           leftPosition = 0;
+  //           events.style.left = leftPosition + 'px';
+  //         }
+  //       }
+  //     }
+  //     else{
+  //       if (leftPosition > (thumbs-1) * -thumb) {
+  //         moveSlide(-1);
+  //       } else {
+  //         leftPosition = 0;
+  //         events.style.left = leftPosition + 'px';
+  //       }
+  //     }
+  //   }
+  //
+  //   toLeft.addEventListener('click', moveBack, false);
+  //   toRight.addEventListener('click', moveForward, false);
+  // }
+  //
+  //
+  //
+  //   function arrows(){
+  //     let leftArrow = document.querySelector('.arrow-back');
+  //     let rightArrow = document.querySelector('.arrow-forward');
+  //     let posts = document.querySelector('#job-post');
+  //     let thumbs = posts.children.length;
+  //     let thumbcount = posts.querySelectorAll('.space-between');
+  //     let thumb = thumbcount[0].offsetWidth;
+  //     let thumbWidth = posts.offsetWidth;
+  //     let leftPosition = 0;
+  //     posts.style.left = leftPosition+"px";
+  //
+  //     leftArrow.addEventListener('click', moveBack, false);
+  //     rightArrow.addEventListener('click', moveForward, false);
+  //
+  //     let moveSlide = function (value) {
+  //         leftPosition += value * thumb;
+  //         posts.style.left = leftPosition + 'px';
+  //     };
+  //     function moveBack(){
+  //       if(leftPosition !== 0) {
+  //         moveSlide(1);
+  //       } else if (leftPosition === 0) {
+  //           posts.style.left = leftPosition + 'px';
+  //         } else {
+  //         leftPosition = (thumbs-1)* -thumbWidth;
+  //         posts.style.left = leftPosition + 'px';
+  //       }
+  //     }
+  //
+  //     function moveForward(){
+  //       if (leftPosition > (thumbs-1) * -thumb) {
+  //         moveSlide(-1);
+  //       } else {
+  //         leftPosition = 0;
+  //         posts.style.left = leftPosition + 'px';
+  //       }
+  //     }
+  //   }
 
-};var MIN = 320;
+
+};function eventArrows() {
+  var toLeft = document.querySelector('.nav-back');
+  var toRight = document.querySelector('.nav-forward');
+  var events = document.querySelector('#events-container');
+  var thumbs = events.children.length;
+  var thumbcount = events.querySelectorAll('.events');
+  var thumb = thumbcount[0].offsetWidth;
+  var thumbWidth = events.offsetWidth;
+  var holder = document.querySelector('.events-holder').getBoundingClientRect().right;
+  var leftPosition = 0;
+
+  var moveSlide = function moveSlide(value) {
+    leftPosition += value * thumb;
+    events.style.left = leftPosition + 'px';
+  };
+  function moveBack() {
+    // console.log('back');
+    if (leftPosition !== 0) {
+      moveSlide(1);
+    } else if (leftPosition === 0) {
+      events.style.left = leftPosition + 'px';
+    } else {
+      leftPosition = (thumbs - 1) * -thumbWidth;
+      events.style.left = leftPosition + 'px';
+    }
+  }
+
+  function moveForward() {
+    var rightPos = events.getBoundingClientRect().right;
+    //If it's not mobile
+    if (window.innerWidth > 640) {
+      //Check if the right position are proximate enough
+      var diff = rightPos - holder;
+      //If difference is smaller than 5, return container at position 0
+      if (diff < 5) {
+        leftPosition = 0;
+        events.style.left = '0px';
+      } else {
+        if (leftPosition > (thumbs - 1) * -thumb) {
+          moveSlide(-1);
+        } else {
+          leftPosition = 0;
+          events.style.left = leftPosition + 'px';
+        }
+      }
+    } else {
+      if (leftPosition > (thumbs - 1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        events.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+  toLeft.addEventListener('click', moveBack, false);
+  toRight.addEventListener('click', moveForward, false);
+}
+
+function arrows() {
+  var leftArrow = document.querySelector('.arrow-back');
+  var rightArrow = document.querySelector('.arrow-forward');
+  var posts = document.querySelector('#job-post');
+  var thumbs = posts.children.length;
+  var thumbcount = posts.querySelectorAll('.space-between');
+  var thumb = thumbcount[0].offsetWidth;
+  var thumbWidth = posts.offsetWidth;
+  var holder = document.querySelector('#job-cont').getBoundingClientRect().right;
+  var leftPosition = 0;
+  posts.style.left = leftPosition + "px";
+
+  var moveSlide = function moveSlide(value) {
+    leftPosition += value * thumb;
+    posts.style.left = leftPosition + 'px';
+  };
+
+  function moveBack() {
+    if (leftPosition !== 0) {
+      moveSlide(1);
+    } else if (leftPosition === 0) {
+      posts.style.left = leftPosition + 'px';
+    } else {
+      leftPosition = (thumbs - 1) * -thumbWidth;
+      posts.style.left = leftPosition + 'px';
+    }
+  }
+
+  function moveForward() {
+    var rightPos = posts.getBoundingClientRect().right;
+    //If it's not mobile
+    if (window.innerWidth > 640) {
+      //Check if the right position are proximate enough
+      var diff = rightPos - holder;
+      //If difference is smaller than 5, return container at position 0
+      if (diff < 5) {
+        leftPosition = 0;
+        posts.style.left = '0px';
+      } else {
+        if (leftPosition > (thumbs - 1) * -thumb) {
+          moveSlide(-1);
+        } else {
+          leftPosition = 0;
+          posts.style.left = leftPosition + 'px';
+        }
+      }
+    } else {
+      if (leftPosition > (thumbs - 1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        posts.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+  leftArrow.addEventListener('click', moveBack, false);
+  rightArrow.addEventListener('click', moveForward, false);
+}
+
+// Functions to set and resize images
+
+var MIN = 320;
 var MEDIUM = 640;
 var LARGE = 1024;
 var screensize;
@@ -732,45 +956,6 @@ function videoCtrl() {
     arrows();
   }
 
-  function arrows() {
-    var leftArrow = document.querySelector('.arrow-back');
-    var rightArrow = document.querySelector('.arrow-forward');
-    var posts = document.querySelector('#job-post');
-    var thumbs = posts.children.length;
-    var thumbcount = posts.querySelectorAll('.space-between');
-    var thumb = thumbcount[0].offsetWidth;
-    var thumbWidth = posts.offsetWidth;
-    var leftPosition = 0;
-    posts.style.left = leftPosition + "px";
-
-    leftArrow.addEventListener('click', moveBack, false);
-    rightArrow.addEventListener('click', moveForward, false);
-
-    var moveSlide = function moveSlide(value) {
-      leftPosition += value * thumb;
-      posts.style.left = leftPosition + 'px';
-    };
-    function moveBack() {
-      if (leftPosition !== 0) {
-        moveSlide(1);
-      } else if (leftPosition === 0) {
-        posts.style.left = leftPosition + 'px';
-      } else {
-        leftPosition = (thumbs - 1) * -thumbWidth;
-        posts.style.left = leftPosition + 'px';
-      }
-    }
-
-    function moveForward() {
-      if (leftPosition > (thumbs - 1) * -thumb) {
-        moveSlide(-1);
-      } else {
-        leftPosition = 0;
-        posts.style.left = leftPosition + 'px';
-      }
-    }
-  }
-
   function getEvents() {
     var container = document.querySelector('#events-container');
     var events = meetup.events;
@@ -793,45 +978,6 @@ function videoCtrl() {
       container.innerHTML += newEvent;
     });
     eventArrows();
-  }
-
-  function eventArrows() {
-    var toLeft = document.querySelector('.nav-back');
-    var toRight = document.querySelector('.nav-forward');
-    var events = document.querySelector('#events-container');
-    var thumbs = events.children.length;
-    var thumbcount = events.querySelectorAll('.events');
-    var thumb = thumbcount[0].offsetWidth;
-    var thumbWidth = events.offsetWidth;
-    var leftPosition = 0;
-    events.style.left = leftPosition + "px";
-
-    toLeft.addEventListener('click', moveBack, false);
-    toRight.addEventListener('click', moveForward, false);
-
-    var moveSlide = function moveSlide(value) {
-      leftPosition += value * thumb;
-      events.style.left = leftPosition + 'px';
-    };
-    function moveBack() {
-      if (leftPosition !== 0) {
-        moveSlide(1);
-      } else if (leftPosition === 0) {
-        events.style.left = leftPosition + 'px';
-      } else {
-        leftPosition = (thumbs - 1) * -thumbWidth;
-        events.style.left = leftPosition + 'px';
-      }
-    }
-
-    function moveForward() {
-      if (leftPosition > (thumbs - 1) * -thumb) {
-        moveSlide(-1);
-      } else {
-        leftPosition = 0;
-        events.style.left = leftPosition + 'px';
-      }
-    }
   }
 
   function toggleCategory(e) {
@@ -875,10 +1021,10 @@ function videoCtrl() {
   window.addEventListener('load', storyArrow, false);
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
+  window.addEventListener('resize', eventArrows, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
-  // window.addEventListener('load', getJobs, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);
