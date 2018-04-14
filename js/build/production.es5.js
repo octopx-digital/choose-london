@@ -27,10 +27,130 @@ var fetchAPI = {
     position: "Part Time",
     date: "Posted Mar 22nd"
   }]
+};
 
-  // Functions to set and resize images
+function eventArrows() {
+  var toLeft = document.querySelector('.nav-back');
+  var toRight = document.querySelector('.nav-forward');
+  var events = document.querySelector('#events-container');
+  var thumbs = events.children.length;
+  var thumbcount = events.querySelectorAll('.events');
+  var thumb = thumbcount[0].offsetWidth;
+  var thumbWidth = events.offsetWidth;
+  var holder = document.querySelector('.events-holder').getBoundingClientRect().right;
+  var leftPosition = 0;
 
-};var MIN = 320;
+  var moveSlide = function moveSlide(value) {
+    leftPosition += value * thumb;
+    events.style.left = leftPosition + 'px';
+  };
+  function moveBack() {
+    // console.log('back');
+    if (leftPosition !== 0) {
+      moveSlide(1);
+    } else if (leftPosition === 0) {
+      events.style.left = leftPosition + 'px';
+    } else {
+      leftPosition = (thumbs - 1) * -thumbWidth;
+      events.style.left = leftPosition + 'px';
+    }
+  }
+
+  function moveForward() {
+    var rightPos = events.getBoundingClientRect().right;
+    //If it's not mobile
+    if (window.innerWidth > 640) {
+      //Check if the right position are proximate enough
+      var diff = rightPos - holder;
+      //If difference is smaller than 5, return container at position 0
+      if (diff < 5) {
+        leftPosition = 0;
+        events.style.left = '0px';
+      } else {
+        if (leftPosition > (thumbs - 1) * -thumb) {
+          moveSlide(-1);
+        } else {
+          leftPosition = 0;
+          events.style.left = leftPosition + 'px';
+        }
+      }
+    } else {
+      if (leftPosition > (thumbs - 1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        events.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+  toLeft.addEventListener('click', moveBack, false);
+  toRight.addEventListener('click', moveForward, false);
+}
+
+function jobArrows() {
+  var leftArrow = document.querySelector('.arrow-back');
+  var rightArrow = document.querySelector('.arrow-forward');
+  var cont = document.querySelector('#job-post');
+  var thumbs = cont.children.length;
+  var thumbcount = cont.querySelectorAll('.space-between');
+  var thumb = thumbcount[0].offsetWidth;
+  var thumbWidth = cont.offsetWidth;
+  var holder = document.querySelector('#job-cont').getBoundingClientRect().right;
+  var leftPosition = 0;
+  cont.style.left = leftPosition + "px";
+
+  var moveSlide = function moveSlide(value) {
+    leftPosition += value * thumb;
+    cont.style.left = leftPosition + 'px';
+  };
+
+  function moveBack() {
+    if (leftPosition !== 0) {
+      moveSlide(1);
+    } else if (leftPosition === 0) {
+      cont.style.left = leftPosition + 'px';
+    } else {
+      leftPosition = (thumbs - 1) * -thumbWidth;
+      cont.style.left = leftPosition + 'px';
+    }
+  }
+
+  function moveForward() {
+    var rightPos = cont.getBoundingClientRect().right;
+    //If it's not mobile
+    if (window.innerWidth > 640) {
+      //Check if the right position are proximate enough
+      var diff = rightPos - holder;
+      //If difference is smaller than 5, return container at position 0
+      if (diff < 5) {
+        leftPosition = 0;
+        cont.style.left = '0px';
+      } else {
+        if (leftPosition > (thumbs - 1) * -thumb) {
+          moveSlide(-1);
+        } else {
+          leftPosition = 0;
+          cont.style.left = leftPosition + 'px';
+        }
+      }
+    } else {
+      if (leftPosition > (thumbs - 1) * -thumb) {
+        moveSlide(-1);
+      } else {
+        leftPosition = 0;
+        cont.style.left = leftPosition + 'px';
+      }
+    }
+  }
+
+  leftArrow.addEventListener('click', moveBack, false);
+  rightArrow.addEventListener('click', moveForward, false);
+}
+
+// Functions to set and resize images
+
+var MIN = 320;
 var MEDIUM = 640;
 var LARGE = 1024;
 var screensize;
@@ -106,6 +226,7 @@ var meetup = {
     "created": 1445266131000,
     "duration": 7200000,
     "id": "kqqpllyxfbdc",
+    "image": "front_end_dev_meetup.jpg",
     "name": "Front-End Development Meetup",
     "status": "upcoming",
     "time": 1521759600000,
@@ -155,6 +276,7 @@ var meetup = {
     },
     "id": "239148427",
     "name": "World Usability Day - UX and UI",
+    "image": "ladies_that_ux.jpg",
     "status": "upcoming",
     "time": 1520548200000,
     "local_date": "2018-mar-08",
@@ -197,6 +319,7 @@ var meetup = {
     "duration": 10800000,
     "id": "245574300",
     "name": "Build a Child Theme in Wordpress",
+    "image": "wordpress_london.jpg",
     "rsvp_limit": 25,
     "status": "upcoming",
     "time": 1521586800000,
@@ -240,6 +363,7 @@ var meetup = {
     "duration": 10800000,
     "id": "247906863",
     "name": "Female Artists\u2019 Music Night at Cowboys!!",
+    "image": "london_activity_group.jpg",
     "status": "upcoming",
     "time": 1520121600000,
     "local_date": "2018-mar-03",
@@ -556,11 +680,11 @@ function videoCtrl() {
 }
 
 (function () {
+
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
   var catButtons = document.querySelectorAll('.open-category');
   var categories = document.querySelectorAll('.category');
-  // var storyArrow = document.querySelectorAll('.story-check > i');
   var storyDiv = document.querySelectorAll('.story');
   var topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
@@ -568,6 +692,7 @@ function videoCtrl() {
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
+
   function checkEconomicsPage() {
     if (this.classList.contains('economics')) {
       var sectorButton = document.querySelector('.sector-wrapper > .open');
@@ -729,46 +854,7 @@ function videoCtrl() {
       posts.innerHTML += newDiv;
     });
 
-    arrows();
-  }
-
-  function arrows() {
-    var leftArrow = document.querySelector('.arrow-back');
-    var rightArrow = document.querySelector('.arrow-forward');
-    var posts = document.querySelector('#job-post');
-    var thumbs = posts.children.length;
-    var thumbcount = posts.querySelectorAll('.space-between');
-    var thumb = thumbcount[0].offsetWidth;
-    var thumbWidth = posts.offsetWidth;
-    var leftPosition = 0;
-    posts.style.left = leftPosition + "px";
-
-    leftArrow.addEventListener('click', moveBack, false);
-    rightArrow.addEventListener('click', moveForward, false);
-
-    var moveSlide = function moveSlide(value) {
-      leftPosition += value * thumb;
-      posts.style.left = leftPosition + 'px';
-    };
-    function moveBack() {
-      if (leftPosition !== 0) {
-        moveSlide(1);
-      } else if (leftPosition === 0) {
-        posts.style.left = leftPosition + 'px';
-      } else {
-        leftPosition = (thumbs - 1) * -thumbWidth;
-        posts.style.left = leftPosition + 'px';
-      }
-    }
-
-    function moveForward() {
-      if (leftPosition > (thumbs - 1) * -thumb) {
-        moveSlide(-1);
-      } else {
-        leftPosition = 0;
-        posts.style.left = leftPosition + 'px';
-      }
-    }
+    jobArrows();
   }
 
   function getEvents() {
@@ -778,6 +864,7 @@ function videoCtrl() {
     events.forEach(function (_ref2) {
       var id = _ref2.id,
           name = _ref2.name,
+          image = _ref2.image,
           venue = _ref2.venue,
           local_date = _ref2.local_date,
           local_time = _ref2.local_time,
@@ -787,51 +874,12 @@ function videoCtrl() {
       var month = local_date.slice(5, 8);
       var date = local_date.slice(9, 11);
 
-      var image = 'images/' + id + '.jpg';
-      var newEvent = "<div class=\"events\">\n      <div class=\"event-data\">\n      <div class=\"date\"><h5>" + month + "</br>" + date + "</h5></div>\n      <img src=\"" + image + ("\">\n      <h2>" + name + "</h2>\n      <p>") + address + ("</br>\n      At " + local_time + "</p>\n      <a href=\"" + link + "\"><p>Event Details</p><div><span class=\"share-btn\"><i class=\"ion-android-share-alt\"></i></span></div></a>\n      </div>\n      </div>");
+      var img = 'images/' + image;
+      var newEvent = "<div class=\"events\">\n      <div class=\"event-data\">\n      <div class=\"date\"><h5>" + month + "</br>" + date + "</h5></div>\n      <img src=\"" + img + ("\">\n      <h2>" + name + "</h2>\n      <p>") + address + ("</br>\n      At " + local_time + "</p>\n      <a href=\"" + link + "\"><p>Event Details</p><div><span class=\"share-btn\"><i class=\"ion-android-share-alt\"></i></span></div></a>\n      </div>\n      </div>");
 
       container.innerHTML += newEvent;
     });
     eventArrows();
-  }
-
-  function eventArrows() {
-    var toLeft = document.querySelector('.nav-back');
-    var toRight = document.querySelector('.nav-forward');
-    var events = document.querySelector('#events-container');
-    var thumbs = events.children.length;
-    var thumbcount = events.querySelectorAll('.events');
-    var thumb = thumbcount[0].offsetWidth;
-    var thumbWidth = events.offsetWidth;
-    var leftPosition = 0;
-    events.style.left = leftPosition + "px";
-
-    toLeft.addEventListener('click', moveBack, false);
-    toRight.addEventListener('click', moveForward, false);
-
-    var moveSlide = function moveSlide(value) {
-      leftPosition += value * thumb;
-      events.style.left = leftPosition + 'px';
-    };
-    function moveBack() {
-      if (leftPosition !== 0) {
-        moveSlide(1);
-      } else if (leftPosition === 0) {
-        events.style.left = leftPosition + 'px';
-      } else {
-        leftPosition = (thumbs - 1) * -thumbWidth;
-        events.style.left = leftPosition + 'px';
-      }
-    }
-
-    function moveForward() {
-      if (leftPosition > (thumbs - 1) * -thumb) {
-        moveSlide(-1);
-      } else {
-        leftPosition = 0;
-        events.style.left = leftPosition + 'px';
-      }
-    }
   }
 
   function toggleCategory(e) {
@@ -875,10 +923,10 @@ function videoCtrl() {
   window.addEventListener('load', storyArrow, false);
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
+  window.addEventListener('resize', eventArrows, false);
   // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
-  // window.addEventListener('load', getJobs, false);
   window.addEventListener('scroll', fixButton);
   window.addEventListener('mousemove', fixButton);
   topButton.addEventListener('click', topPage, false);
