@@ -837,6 +837,20 @@ footer {
     left: 0;
     transition: left 0.3s 0.3s ease-in-out; }
 
+#chart h2 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  padding: 12px 10px; }
+#chart .spacing {
+  margin: 20px 0; }
+#chart .svg-title {
+  color: #fff;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: inherit;
+  height: inherit; }
+
 #video-wrapper {
   position: relative;
   width: 100%;
@@ -2600,6 +2614,9 @@ footer {
     .form-container .subscribe-form input[type='submit'] {
       width: 50%;
       padding: 1vw 0; }
+
+  #chart h2 {
+    font-size: 1.8rem; }
 
   footer {
     display: grid;

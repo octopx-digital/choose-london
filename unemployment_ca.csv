@@ -1,62 +1,6 @@
-date,rate
-November 2012,7.2
-December 2012,7.2
-January 2013,7.1
-February 2013,7.1
-March 2013,7.3
-April 2013,7.1
-May 2013,7.0
-June 2013,7.1
-July 2013,7.2
-August 2013,7.1
-September 2013,7.0
-October 2013,7.0
-November 2013,7.0
-December 2013,7.2
-January 2014,7.0
-February 2014,7.0
-March 2014,7.0
-April 2014,7.0
-May 2014,7.0
-June 2014,7.0
-July 2014,7.1
-August 2014,7.0
-September 2014,6.9
-October 2014,6.7
-November 2014,6.7
-December 2014,6.7
-January 2015,6.6
-February 2015,6.8
-March 2015,6.9
-April 2015,6.8
-May 2015,6.8
-June 2015,6.8
-July 2015,6.9
-August 2015,7.0
-September 2015,7.0
-October 2015,7.0
-November 2015,7.1
-December 2015,7.1
-January 2016,7.2
-February 2016,7.2
-March 2016,7.1
-April 2016,7.1
-May 2016,6.9
-June 2016,6.8
-July 2016,7.0
-August 2016,7.0
-September 2016,7.0
-October 2016,7.0
-November 2016,6.8
-December 2016,6.9
-January 2017,6.8
-February 2017,6.6
-March 2017,6.7
-April 2017,6.5
-May 2017,6.6
-June 2017,6.5
-July 2017,6.3
-August 2017,6.2
-September 2017,6.2
-October 2017,6.3
-November 2017,5.9
+Date,Unemployment rate (percentage),Employment rate (percentage)
+Jan-14,6.7,58.5
+Jan-15,5.9,58.5
+Jan-16,5,59.4
+Jan-17,5.5,57.8
+Jan-18,6.1,56.6
