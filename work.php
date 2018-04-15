@@ -137,6 +137,11 @@
                         echo "<div id=\"chart\">
                         <h2>Employment in London Economic Region</h2><svg></svg></div>";
                       }
+                      if($item['name'] === 'hot_positions'){
+                        echo "<div class=\"item-links one\">";
+                        echo "<a href=\"Current_Opportunities_April_4.pdf\">Who's hiring now</a>";
+                        echo "</div>";
+                      }
                       if($item['name'] === 'looking_job') {
                         echo "<div class=\"item-links\">";
                         echo "<a href=\"https://www.indeed.ca\" target=\"_blank\">Indeed</a>";
