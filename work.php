@@ -137,6 +137,25 @@
                         echo "<div id=\"chart\">
                         <h2>Employment in London Economic Region</h2><svg></svg></div>";
                       }
+                      if($item['name'] === 'looking_job') {
+                        echo "<div class=\"item-links\">";
+                        echo "<a href=\"https://www.indeed.ca\" target=\"_blank\">Indeed</a>";
+                        echo "<a href=\"https://www.workopolis.com\" target=\"_blank\">Workopolis</a>";
+                        echo "<a href=\"https://www.monster.ca\" target=\"_blank\">Monster</a>";
+                        echo "<a href=\"https://www.jobbank.gc.ca\" target=\"_blank\">Canada Job Bank</a>";
+                        echo "<a href=\"https://www.knighthunter.com\" target=\"_blank\">Knight Hunter</a>";
+                        echo "<a href=\"https://allstarjobs.ca\" target=\"_blank\">All Star Jobs</a>";
+                        echo "</div>";
+                      }
+                      if($item['name'] === 'extra_help') {
+                        echo "<div class=\"item-links\">";
+                        echo "<a href=\"http://www.immploy.ca\" target=\"_blank\">Immploy</a>";
+                        echo "<a href=\"http://www.wil.ca\" target=\"_blank\">WIL</a>";
+                        echo "<a href=\"https://www.canada.ca/en/services/youth.html\" target=\"_blank\">Canada Youth</a>";
+                        echo "<a href=\"https://www.jobbank.gc.ca\" target=\"_blank\">Canada Job Bank</a>";
+                        echo "<a href=\"http://www.peopleready.com\" target=\"_blank\">PeopleReady</a>";
+                        echo "</div>";
+                      }
                      ?>
                   </section>
             <?php
