@@ -1,4 +1,4 @@
-# Choose London - In Progress
+# Choose London
 
 This project is a multiplatform design web-oriented campaign focusing on captivate and attract talented people to fulfill available tech job positions in London, Ontario. Moreover, this campaign intends to bring awareness to technology companies and new entrepreneurs about the benefits of settling, building and running a business in this city.
 

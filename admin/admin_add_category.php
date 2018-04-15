@@ -14,14 +14,6 @@
     $position = $_POST['position'];
 
     $categoryId = addCategory($name, $title, $description, $short_desc, $banner_photo, $header_photo);
-    // var_dump($categoryId); die;
-
-    // echo $result;
-    // if(!empty($genres)) {
-    //   foreach($genres as $row) {
-    //     $result = addLinkRow("movie_genre", "movie_id", "genre_id", $movieId, $row);
-    //   }
-    // }
 
     if(!empty($section)) {
       $result = addLinkRow("section_category", "section_id", "category_id", $section, $categoryId, $position);
