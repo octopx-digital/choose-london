@@ -1642,6 +1642,9 @@ footer {
       justify-self: center
     }
   }
+  .item-links.one {
+    grid-template-columns: 1fr;
+  }
 }
 
 .item:last-of-type {

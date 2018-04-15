@@ -1315,6 +1315,8 @@ footer {
     padding: 0.8rem 0.2rem;
     align-self: center;
     justify-self: center; }
+.item .item-links.one {
+  grid-template-columns: 1fr; }
 
 .item:last-of-type .faded-line {
   display: none; }
