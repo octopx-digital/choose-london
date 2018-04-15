@@ -33,6 +33,7 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
   <link rel="stylesheet" href="css/main.min.css">
   <title>Choose London | Work</title>
 </head>
@@ -130,6 +131,11 @@
                           }
                         }
                         echo "</div>";
+
+                      }
+                      if($item['name'] === 'employment_rates'){
+                        echo "<div id=\"chart\">
+                        <h2>Employment in London Economic Region</h2><svg></svg></div>";
                       }
                       if($item['name'] === 'looking_job') {
                         echo "<div class=\"item-links\">";
@@ -194,7 +200,7 @@
 
     <?php include('includes/partials/footer.html'); ?>
   </div>
-
   <?php include('includes/partials/scripts.html'); ?>
+  <?php echo "<script src=\"js/chart_data.js\"></script>"; ?>
 </body>
 </html>
