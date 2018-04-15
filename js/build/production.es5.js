@@ -45,7 +45,6 @@ function eventArrows() {
     events.style.left = leftPosition + 'px';
   };
   function moveBack() {
-    // console.log('back');
     if (leftPosition !== 0) {
       moveSlide(1);
     } else if (leftPosition === 0) {
@@ -680,11 +679,11 @@ function videoCtrl() {
 }
 
 (function () {
+
   var header = document.querySelector('header');
   var hambMenu = header.querySelector('#hamburger-menu');
   var catButtons = document.querySelectorAll('.open-category');
   var categories = document.querySelectorAll('.category');
-  // var storyArrow = document.querySelectorAll('.story-check > i');
   var storyDiv = document.querySelectorAll('.story');
   var topButton = document.querySelector('.back-to-top');
   var menuOpen = false;
@@ -692,6 +691,7 @@ function videoCtrl() {
   var sectorOpen = false;
 
   // add event handlers to Business Sectors section of Economics page
+
   function checkEconomicsPage() {
     if (this.classList.contains('economics')) {
       var sectorButton = document.querySelector('.sector-wrapper > .open');
@@ -803,19 +803,13 @@ function videoCtrl() {
       } else if (height > 50 && window.innerHeight + window.pageYOffset < document.body.offsetHeight - footer) {
         topButton.classList.remove('bottom');
         topButton.classList.add('fadein');
-        // setTimeout(out, 5000);
       } else {
         topButton.classList.remove('fadein');
         topButton.classList.add('bottom');
       }
     }
   }
-  //
-  // function out(){
-  //   console.log("fade out called");
-  //   topButton.classList.remove('fadein');
-  //   topButton.classList.remove('bottom');
-  // }
+
   function topPage() {
     var bodyarea = document.querySelector('body');
     bodyarea.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
@@ -884,7 +878,6 @@ function videoCtrl() {
   function toggleCategory(e) {
     var id = e.currentTarget.dataset.id;
     if (id === catOpen) {
-      // console.log(categories[(id - 1)]);
       categories[id - 1].classList.remove('selected');
       e.currentTarget.classList.remove('selected');
       catButtons.forEach(function (button) {
@@ -898,7 +891,6 @@ function videoCtrl() {
           catButtons[index].classList.remove('dim');
           catButtons[index].classList.add('selected');
           var closeButton = category.querySelector('.close-category-btn');
-          // console.log(closeButton);
           closeButton.addEventListener('click', toggleCategory, false);
         } else {
           category.classList.remove('selected');
@@ -923,7 +915,6 @@ function videoCtrl() {
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
   window.addEventListener('resize', eventArrows, false);
-  // window.addEventListener('load', openMenu, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
   window.addEventListener('scroll', fixButton);

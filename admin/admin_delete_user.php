@@ -16,29 +16,29 @@
    <link rel="stylesheet" href="../css/main.css">
    <title>Admin | Delete User</title>
  </head>
- <body>
-   <h1 class="hidden">Admin Delete User</h1>
-   <header>
-     <a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a>
+ <header class="admin-header">
      <nav>
        <h2 class="hidden">Main Navigation</h2>
        <ul>
          <li><a href="admin_index.php">Home</a></li>
-         <li><a href="#">Settings</a></li>
-         <li><a href="#">Profiles</a></li>
+         <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
        </ul>
      </nav>
-   </header>
-   <main id="container" class="create-cont">
+     <img src="../images/logo_white.svg" alt="Choose London Logo">
+ </header>
+ <body>
+   <h1 class="hidden">Admin Delete User</h1>
+
+   <main id="container" class="create-cont admin-container">
      <h2 class="greetings">Delete User</h2>
      <ul id="delete-list">
        <?php
          while($row = mysqli_fetch_array($users)) {
-           echo "<li><p>{$row['user_fname']}</p><a href=\"../includes/caller.php?caller_id=delete&id={$row['user_id']}\">Delete</a></li>";
+           echo "<li class=\"list-items\"><p>{$row['user_fname']}</p><a href=\"../includes/caller.php?caller_id=delete&id={$row['user_id']}\" class=\"delete-user-button\">Delete</a></li><br><br>";
          }
        ?>
      </ul>
-     <a class="back-index" href="admin_index.php">Go Back</a>
+     <a class="back-index admin-button" href="admin_index.php">Go Back</a>
    </main>
  </body>
  </html>

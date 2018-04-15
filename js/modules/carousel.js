@@ -15,7 +15,6 @@ function eventArrows(){
     events.style.left = leftPosition + 'px';
   };
   function moveBack(){
-    // console.log('back');
     if(leftPosition !== 0) {
       moveSlide(1);
     } else if (leftPosition === 0) {

@@ -8,7 +8,7 @@
     $message = $_POST['message'];
     $subject = $_POST['subject'];
 
-    $direct = "../index.html#contact";
+    $direct = "../index.php";
 
     if($subject === "") {
       $sendMail = submitMessage($name, $email, $message, $direct);

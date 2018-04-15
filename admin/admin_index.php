@@ -57,20 +57,21 @@
 <body>
   <h1 class="hidden">Admin Home Page</h1>
   <header>
-    <a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a>
-    <nav>
-      <h2 class="hidden">Main Navigation</h2>
-      <ul>
-        <li><a href="admin_index.php">Home</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profiles</a></li>
-      </ul>
-    </nav>
+    <div class="admin-header">
+      <nav>
+        <h2 class="hidden">Main Navigation</h2>
+        <ul>
+          <li><a href="admin_index.php">Home</a></li>
+          <li><a class="logout-button" href="../includes/caller.php?caller_id=logout">Logout</a></li>
+        </ul>
+      </nav>
+      <img src="../images/logo_white.svg" alt="Choose London Logo">
+  </div>
   </header>
-  <main id="container" class="index-cont">
+  <main id="container" class="index-cont admin-container">
     <h2 class="greetings">Welcome to Admin Page</h2>
     <?php
-      echo '<p class="welcome-message">'.$messageTime.'<span>'.$_SESSION['user_name'].'</span></p>';
+      echo '<p class="welcome-message">'.$messageTime.'<span class="name">'.$_SESSION['user_name'].'</span></p>';
       echo '<p class="last-login">'.$lastLogin.'</p>';
     ?>
 
@@ -81,7 +82,6 @@
         <li><a href="list_all.php?tbl=category&order=name"><i class="ion-ios-pricetags"></i>Categories</a></li>
         <li><a href="list_all.php?tbl=item&order=name"><i class="ion-happy"></i>Items</a></li>
         <li><a href="list_all.php?tbl=stories&order=name"><i class="ion-briefcase"></i>Stories</a></li>
-        <li><a href="list_all.php?tbl=video&order=title"><i class="ion-briefcase"></i>Videos</a></li>
       </ul>
     </section>
 
