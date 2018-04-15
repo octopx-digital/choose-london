@@ -730,6 +730,7 @@ function reloadVideo() {
   function checkResize(){
     storyArrow();
     if(document.querySelector('.home') !== null){
+      eventArrows();
       videoCall();
     }
   }
@@ -954,7 +955,6 @@ function reloadVideo() {
   window.addEventListener('load', storyArrow, false);
   window.addEventListener('resize', checkResize, false);
   window.addEventListener('scroll', checkScrollMenu, false);
-  window.addEventListener('resize', eventArrows, false);
   hambMenu.addEventListener('click', menuAnimation, false);
   checkEconomicsPage.call(document.querySelector('#container'));
   window.addEventListener('scroll', fixButton);
